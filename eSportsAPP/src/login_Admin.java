@@ -79,12 +79,12 @@ public class login_Admin extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						String pasahitza= "is2021";
+						String pasahitza= "admin";
 						if (passwordField.getText().equals(pasahitza)) {
-						 lab_GUI ktrl_panela= new lab_GUI();
+						// lab_GUI ktrl_panela= new lab_GUI();
 						 setVisible(false);
 						 
-						 ktrl_panela.main(null);
+					//	 ktrl_panela.main(null);
 						}else {
 							JOptionPane.showMessageDialog(null, "Pasahitza txarto dago!");
 							passwordField.setText(null);

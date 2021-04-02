@@ -144,7 +144,7 @@ public class main {
 	public static void main(String[] args) throws NumberFormatException, IOException, SQLException {
 		
 		main js = new main();
-			  js.menuaErakutsi();
-			  
+		hasierakoPanela hPanela = new hasierakoPanela();
+		hPanela.main(null);
 	}
 }
