@@ -145,5 +145,6 @@ public class main {
 		
 		main js = new main();
 			  js.menuaErakutsi();
+			  
 	}
 }
