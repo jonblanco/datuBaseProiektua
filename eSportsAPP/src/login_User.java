@@ -18,7 +18,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 //
-public class login_Admin extends JDialog {
+public class login_User extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtIdatziHemenZure;
@@ -29,7 +29,7 @@ public class login_Admin extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			login_Admin dialog = new login_Admin();
+			login_User dialog = new login_User();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -40,7 +40,7 @@ public class login_Admin extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public login_Admin() {
+	public login_User() {
 		getContentPane().setBackground(Color.DARK_GRAY);
 		setTitle("Hasiera panela");
 		
@@ -77,7 +77,7 @@ public class login_Admin extends JDialog {
 		contentPanel.add(getPasswordField());
 		{
 			JLabel label = new JLabel("");
-			label.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Maintenance_96px.png")));
+			label.setIcon(new ImageIcon(login_User.class.getResource("/images/icons8_User_96px_2.png")));
 			label.setBounds(110, 28, 96, 85);
 			contentPanel.add(label);
 		}
@@ -87,7 +87,7 @@ public class login_Admin extends JDialog {
 			okButton.setBackground(Color.WHITE);
 			okButton.setBounds(110, 326, 107, 63);
 			contentPanel.add(okButton);
-			okButton.setIcon(new ImageIcon(login_Admin.class.getResource("/images/Enter_ON.png")));
+			okButton.setIcon(new ImageIcon(login_User.class.getResource("/images/Enter_ON.png")));
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					String pasahitza= "admin";
@@ -114,7 +114,7 @@ public class login_Admin extends JDialog {
 			contentPanel.add(cancelButton);
 			cancelButton.setBackground(Color.WHITE);
 			cancelButton.setForeground(new Color(0, 0, 0));
-			cancelButton.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Multiply_32px.png")));
+			cancelButton.setIcon(new ImageIcon(login_User.class.getResource("/images/icons8_Multiply_32px.png")));
 			cancelButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					txtIdatziHemenZure.setText(null);
@@ -137,31 +137,30 @@ public class login_Admin extends JDialog {
 		}
 		{
 			JLabel lblImglog = new JLabel("");
-			lblImglog.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_customer_32px_1.png")));
+			lblImglog.setIcon(new ImageIcon(login_User.class.getResource("/images/icons8_customer_32px_1.png")));
 			lblImglog.setBounds(30, 163, 32, 39);
 			contentPanel.add(lblImglog);
 		}
 		{
 			JLabel lblPswd = new JLabel("");
-			lblPswd.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Key_32px.png")));
+			lblPswd.setIcon(new ImageIcon(login_User.class.getResource("/images/icons8_Key_32px.png")));
 			lblPswd.setBounds(30, 256, 32, 41);
 			contentPanel.add(lblPswd);
 		}
-		{
-			JButton btnNewButton = new JButton("");
-			btnNewButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					setVisible(false);
-					hasierakoPanela hp = new hasierakoPanela();
-					hp.setVisible(true);
-				}
-			});
-			btnNewButton.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Back_64px.png")));
-			btnNewButton.setBorder(null);
-			btnNewButton.setBackground(new Color(255, 255, 255));
-			btnNewButton.setBounds(10, 362, 52, 73);
-			contentPanel.add(btnNewButton);
-		}
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				hasierakoPanela hp=new hasierakoPanela();
+				hp.setVisible(true);
+			}
+		});
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setBorder(null);
+		btnNewButton.setIcon(new ImageIcon(login_User.class.getResource("/images/icons8_Back_64px.png")));
+		btnNewButton.setBounds(10, 362, 52, 73);
+		contentPanel.add(btnNewButton);
 	}
 	private JPasswordField getPasswordField() {
 		if (passwordField == null) {

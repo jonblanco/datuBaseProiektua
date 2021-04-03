@@ -73,6 +73,10 @@ public class hasierakoPanela extends JFrame {
 		btnErabiltzailea.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		btnErabiltzailea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				login_User luser= new login_User();
+				luser.setVisible(true);
+				setVisible(false);
+				
 				
 			}
 		});
