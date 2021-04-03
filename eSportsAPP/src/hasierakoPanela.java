@@ -13,6 +13,9 @@ import java.awt.Color;
 import java.awt.Window.Type;
 import javax.swing.ImageIcon;
 import java.awt.Dimension;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
 
 public class hasierakoPanela extends JFrame {
 
@@ -48,6 +51,19 @@ public class hasierakoPanela extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				btnNewButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+
+			}
+		});
+		btnNewButton.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent arg0) {
+				btnNewButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,102,0),4));
+			}
+		});
 		btnNewButton.setBorder(null);
 		btnNewButton.setIcon(new ImageIcon(hasierakoPanela.class.getResource("/images/icons8_Maintenance_96px.png")));
 		btnNewButton.setForeground(new Color(255, 102, 0));
@@ -65,6 +81,20 @@ public class hasierakoPanela extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnErabiltzailea = new JButton("");
+		btnErabiltzailea.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnErabiltzailea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+
+			}
+		});
+		btnErabiltzailea.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent arg0) {
+				btnErabiltzailea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,102,0),4));
+
+			}
+		});
 		btnErabiltzailea.setBorder(null);
 		btnErabiltzailea.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea.setIcon(new ImageIcon(hasierakoPanela.class.getResource("/images/icons8_User_96px_2.png")));
