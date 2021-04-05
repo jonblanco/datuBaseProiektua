@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
+import java.awt.Toolkit;
 //
 public class login_Admin extends JDialog {
 
@@ -41,6 +42,7 @@ public class login_Admin extends JDialog {
 	 * Create the dialog.
 	 */
 	public login_Admin() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(login_Admin.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
 		setTitle("Hasiera panela");
 		
