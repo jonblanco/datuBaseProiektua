@@ -17,7 +17,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 
-public class hasierakoPanela extends JFrame {
+public class hasierakoPanela_user extends JFrame {
 
 	private JPanel contentPane;
 
@@ -28,7 +28,7 @@ public class hasierakoPanela extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					hasierakoPanela frame = new hasierakoPanela();
+					hasierakoPanela_user frame = new hasierakoPanela_user();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class hasierakoPanela extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public hasierakoPanela() {
+	public hasierakoPanela_user() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -65,7 +65,7 @@ public class hasierakoPanela extends JFrame {
 			}
 		});
 		btnNewButton.setBorder(null);
-		btnNewButton.setIcon(new ImageIcon(hasierakoPanela.class.getResource("/images/icons8_Maintenance_96px.png")));
+		btnNewButton.setIcon(new ImageIcon(hasierakoPanela_user.class.getResource("/images/icons8_Maintenance_96px.png")));
 		btnNewButton.setForeground(new Color(255, 102, 0));
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 10));
@@ -97,14 +97,14 @@ public class hasierakoPanela extends JFrame {
 		});
 		btnErabiltzailea.setBorder(null);
 		btnErabiltzailea.setMaximumSize(new Dimension(50, 20));
-		btnErabiltzailea.setIcon(new ImageIcon(hasierakoPanela.class.getResource("/images/icons8_User_96px_2.png")));
+		btnErabiltzailea.setIcon(new ImageIcon(hasierakoPanela_user.class.getResource("/images/icons8_User_96px_2.png")));
 		btnErabiltzailea.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea.setBackground(Color.WHITE);
 		btnErabiltzailea.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		btnErabiltzailea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				eragiketakUser eU = new eragiketakUser();
-				eU.setVisible(true);
+				eragiketakUser eUser= new eragiketakUser();
+				eUser.setVisible(true);
 				setVisible(false);
 				
 				
@@ -130,6 +130,28 @@ public class hasierakoPanela extends JFrame {
 		lblNewLabel_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
 		lblNewLabel_1_1.setBounds(296, 180, 128, 14);
 		contentPane.add(lblNewLabel_1_1);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ongiEtorriPanel oE = new ongiEtorriPanel();
+				oE.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnNewButton_1.setIcon(new ImageIcon(hasierakoPanela_user.class.getResource("/images/on-off-button.png")));
+		btnNewButton_1.setForeground(new Color(255, 102, 0));
+		btnNewButton_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 10));
+		btnNewButton_1.setBorder(null);
+		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setBounds(190, 180, 61, 45);
+		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("Saioa itxi");
+		lblNewLabel_1_1_1.setForeground(new Color(255, 102, 0));
+		lblNewLabel_1_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
+		lblNewLabel_1_1_1.setBounds(190, 236, 128, 14);
+		contentPane.add(lblNewLabel_1_1_1);
 		setLocationRelativeTo(null);
 	}
 }

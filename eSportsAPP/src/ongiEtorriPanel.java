@@ -21,7 +21,6 @@ import javax.swing.JSeparator;
 public class ongiEtorriPanel extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -57,7 +56,6 @@ public class ongiEtorriPanel extends JDialog {
 			lblNewLabel.setBounds(53, 175, 299, 85);
 			contentPanel.add(lblNewLabel);
 		}
-		contentPanel.add(getPasswordField());
 		{
 			JLabel label = new JLabel("");
 			label.setIcon(new ImageIcon(ongiEtorriPanel.class.getResource("/images/logo.png")));
@@ -84,31 +82,5 @@ public class ongiEtorriPanel extends JDialog {
 			okButton.setActionCommand("OK");
 			getRootPane().setDefaultButton(okButton);
 		}
-		{
-			JButton cancelButton = new JButton("");
-			cancelButton.setBorder(null);
-			cancelButton.setBounds(10, 11, 44, 39);
-			contentPanel.add(cancelButton);
-			cancelButton.setBackground(Color.WHITE);
-			cancelButton.setForeground(new Color(0, 0, 0));
-			cancelButton.setIcon(new ImageIcon(ongiEtorriPanel.class.getResource("/images/icons8_Multiply_32px.png")));
-			cancelButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					setVisible(false);
-				}
-			});
-			cancelButton.setFont(new Font("Tw Cen MT", Font.BOLD | Font.ITALIC, 11));
-			cancelButton.setActionCommand("Cancel");
-		}
-	}
-	private JPasswordField getPasswordField() {
-		if (passwordField == null) {
-			passwordField = new JPasswordField();
-			passwordField.setForeground(Color.LIGHT_GRAY);
-			passwordField.setBorder(null);
-			passwordField.setEchoChar('*');
-			passwordField.setBounds(72, 256, 175, 29);
-		}
-		return passwordField;
 	}
 }

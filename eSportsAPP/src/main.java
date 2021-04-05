@@ -27,7 +27,7 @@ public class main {
 		try {
 			// TODO - datu-basera konektatzeko kodea
 			Class.forName("com.mysql.jdbc.Driver");
-			String zerbitzaria= "jdbc:mysql://localhost:3306/jokoa";
+			String zerbitzaria= "jdbc:mysql://localhost:3306/esportsapp";
 			String erabiltzailea= "root";
 			String pasahitza="";
 			konexioa = DriverManager.getConnection(zerbitzaria, erabiltzailea, pasahitza);

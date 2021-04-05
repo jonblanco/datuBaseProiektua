@@ -94,6 +94,8 @@ public class login_Admin extends JDialog {
 					if (passwordField.getText().equals(pasahitza)) {
 					// lab_GUI ktrl_panela= new lab_GUI();
 					 setVisible(false);
+					 eragiketakAdmin eA = new eragiketakAdmin();
+					 eA.setVisible(true);
 					 
 				//	 ktrl_panela.main(null);
 					}else {
@@ -114,7 +116,7 @@ public class login_Admin extends JDialog {
 			contentPanel.add(cancelButton);
 			cancelButton.setBackground(Color.WHITE);
 			cancelButton.setForeground(new Color(0, 0, 0));
-			cancelButton.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Multiply_32px.png")));
+			cancelButton.setIcon(new ImageIcon(login_Admin.class.getResource("/images/eraser_1.png")));
 			cancelButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					txtIdatziHemenZure.setText(null);
