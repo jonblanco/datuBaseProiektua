@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
+import java.awt.Dialog.ModalityType;
 //
 public class ongiEtorriPanel extends JDialog {
 
@@ -39,6 +40,7 @@ public class ongiEtorriPanel extends JDialog {
 	 * Create the dialog.
 	 */
 	public ongiEtorriPanel() {
+		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.DARK_GRAY);
 		setTitle("Hasiera panela");
 		
