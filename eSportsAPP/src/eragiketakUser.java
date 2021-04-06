@@ -14,11 +14,23 @@ import java.awt.Window.Type;
 import javax.swing.ImageIcon;
 import java.awt.Dimension;
 import java.awt.event.MouseMotionAdapter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Calendar;
+import java.util.Scanner;
 
 public class eragiketakUser extends JFrame {
-
+	private Connection konexioa;
+	private BufferedReader br;
 	private JPanel contentPane;
 
 	/**
@@ -71,10 +83,9 @@ public class eragiketakUser extends JFrame {
 		btnNewButton.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 10));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				login_Admin login= new login_Admin();
+				bilatuJokalaria bJ= new bilatuJokalaria();
+				bJ.setVisible(true);
 				setVisible(false);
-				login.setVisible(true);
-				//login.main(null);
 			}
 		});
 		btnNewButton.setBounds(73, 119, 106, 97);
@@ -103,9 +114,9 @@ public class eragiketakUser extends JFrame {
 		btnErabiltzailea.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		btnErabiltzailea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*login_User luser= new login_User();
-				luser.setVisible(true);
-				setVisible(false);*/
+				taldeakIkusi tI = new taldeakIkusi();
+				setVisible(false);
+				tI.setVisible(true);
 				
 				
 			}
@@ -270,6 +281,7 @@ public class eragiketakUser extends JFrame {
 		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.setBounds(10, 30, 52, 73);
 		contentPane.add(btnNewButton_1);
-		setLocationRelativeTo(null);
-	}
+		setLocationRelativeTo(null);}
+		
+	
 }
