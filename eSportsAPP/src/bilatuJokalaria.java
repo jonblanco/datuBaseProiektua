@@ -13,6 +13,11 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -24,9 +29,11 @@ import javax.swing.JTextArea;
 public class bilatuJokalaria extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField txtIdatziHemenZure;
+	private JTextField jokIzenaTxt;
 	private JTextArea textArea;
-
+	private Connection konexioa;
+	private String jokInfo;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -44,6 +51,7 @@ public class bilatuJokalaria extends JDialog {
 	 * Create the dialog.
 	 */
 	public bilatuJokalaria() {
+		konektatu();
 		setBackground(SystemColor.desktop);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(bilatuJokalaria.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
@@ -64,13 +72,13 @@ public class bilatuJokalaria extends JDialog {
 			contentPanel.add(lblNewLabel);
 		}
 		{
-			txtIdatziHemenZure = new JTextField();
-			txtIdatziHemenZure.setForeground(Color.LIGHT_GRAY);
-			txtIdatziHemenZure.setBorder(null);
-			txtIdatziHemenZure.setToolTipText("");
-			txtIdatziHemenZure.setBounds(72, 163, 175, 31);
-			contentPanel.add(txtIdatziHemenZure);
-			txtIdatziHemenZure.setColumns(10);
+			jokIzenaTxt = new JTextField();
+			jokIzenaTxt.setForeground(Color.LIGHT_GRAY);
+			jokIzenaTxt.setBorder(null);
+			jokIzenaTxt.setToolTipText("");
+			jokIzenaTxt.setBounds(72, 163, 175, 31);
+			contentPanel.add(jokIzenaTxt);
+			jokIzenaTxt.setColumns(10);
 		}
 		{
 			JLabel label = new JLabel("");
@@ -87,7 +95,11 @@ public class bilatuJokalaria extends JDialog {
 			okButton.setIcon(new ImageIcon(bilatuJokalaria.class.getResource("/images/Enter_ON.png")));
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					
+						try {
+							bilatuJok();
+						} catch (SQLException e1) {
+							e1.printStackTrace();
+						}
 				
 					}
 				}
@@ -106,7 +118,7 @@ public class bilatuJokalaria extends JDialog {
 			cancelButton.setIcon(new ImageIcon(bilatuJokalaria.class.getResource("/images/eraser_1.png")));
 			cancelButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtIdatziHemenZure.setText(null);
+					jokIzenaTxt.setText(null);
 					
 				}
 			});
@@ -142,11 +154,58 @@ public class bilatuJokalaria extends JDialog {
 		}
 		contentPanel.add(getTextArea());
 	}
+	protected void bilatuJok() throws SQLException {
+		String izena= this.jokIzenaTxt.getText();
+		String kontsulta = "SELECT * FROM JOKALARI WHERE IZENA LIKE ?";
+		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
+		pStatement.setString(1, izena);
+		
+		ResultSet rs = pStatement.executeQuery();
+		
+			if(rs.next()) {
+			jokInfo= rs.getString("izena");
+			textArea.append(jokInfo);
+			textArea.append(" ");
+			textArea.append(" ");
+			textArea.append(" ");
+			textArea.append(" ");
+			jokInfo= rs.getString("taldetxikikode");
+			textArea.append(jokInfo);
+			textArea.append(" ");
+			textArea.append(" ");
+			textArea.append(" ");
+			textArea.append(" ");
+			jokInfo= rs.getString("herrialdea");
+			textArea.append(jokInfo);
+			textArea.append(" ");
+			textArea.append(" ");
+			textArea.append(" ");
+			textArea.append(" ");
+			jokInfo= rs.getString("taldeizena");
+			textArea.append(jokInfo);
+			}
+			
+	}
+
 	private JTextArea getTextArea() {
 		if (textArea == null) {
 			textArea = new JTextArea();
 			textArea.setBounds(56, 221, 209, 94);
 		}
 		return textArea;
+	}
+	private void konektatu(){
+		try {
+			// TODO - datu-basera konektatzeko kodea
+			Class.forName("com.mysql.jdbc.Driver");
+			String zerbitzaria= "jdbc:mysql://localhost:3306/esportsapp";
+			String erabiltzailea= "root";
+			String pasahitza="";
+			konexioa = DriverManager.getConnection(zerbitzaria, erabiltzailea, pasahitza);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }
