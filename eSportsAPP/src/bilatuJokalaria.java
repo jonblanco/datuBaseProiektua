@@ -33,6 +33,9 @@ public class bilatuJokalaria extends JDialog {
 	private JTextArea textArea;
 	private Connection konexioa;
 	private String jokInfo;
+	private JLabel lblIzena;
+	private JLabel lblIzena_2;
+	private JLabel lblIzena_3;
 	
 	/**
 	 * Launch the application.
@@ -90,7 +93,7 @@ public class bilatuJokalaria extends JDialog {
 			JButton okButton = new JButton("");
 			okButton.setBorder(null);
 			okButton.setBackground(Color.WHITE);
-			okButton.setBounds(110, 326, 107, 63);
+			okButton.setBounds(110, 356, 107, 63);
 			contentPanel.add(okButton);
 			okButton.setIcon(new ImageIcon(bilatuJokalaria.class.getResource("/images/Enter_ON.png")));
 			okButton.addActionListener(new ActionListener() {
@@ -153,23 +156,21 @@ public class bilatuJokalaria extends JDialog {
 			contentPanel.add(btnNewButton);
 		}
 		contentPanel.add(getTextArea());
+		contentPanel.add(getLblIzena());
+		contentPanel.add(getLblIzena_2());
+		contentPanel.add(getLblIzena_3());
 	}
 	protected void bilatuJok() throws SQLException {
 		String izena= this.jokIzenaTxt.getText();
 		String kontsulta = "SELECT * FROM JOKALARI WHERE IZENA LIKE ?";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
-		pStatement.setString(1, izena);
+		String izenalike= "%"+izena+"%";
+		pStatement.setString(1, izenalike);
 		
 		ResultSet rs = pStatement.executeQuery();
 		
 			if(rs.next()) {
 			jokInfo= rs.getString("izena");
-			textArea.append(jokInfo);
-			textArea.append(" ");
-			textArea.append(" ");
-			textArea.append(" ");
-			textArea.append(" ");
-			jokInfo= rs.getString("taldetxikikode");
 			textArea.append(jokInfo);
 			textArea.append(" ");
 			textArea.append(" ");
@@ -181,7 +182,7 @@ public class bilatuJokalaria extends JDialog {
 			textArea.append(" ");
 			textArea.append(" ");
 			textArea.append(" ");
-			jokInfo= rs.getString("taldeizena");
+			jokInfo= rs.getString("taldeizena")+"\n";
 			textArea.append(jokInfo);
 			}
 			
@@ -190,7 +191,7 @@ public class bilatuJokalaria extends JDialog {
 	private JTextArea getTextArea() {
 		if (textArea == null) {
 			textArea = new JTextArea();
-			textArea.setBounds(56, 221, 209, 94);
+			textArea.setBounds(58, 251, 209, 94);
 		}
 		return textArea;
 	}
@@ -207,5 +208,32 @@ public class bilatuJokalaria extends JDialog {
 			e.printStackTrace();
 		}
 
+	}
+	private JLabel getLblIzena() {
+		if (lblIzena == null) {
+			lblIzena = new JLabel("Izena");
+			lblIzena.setForeground(new Color(255, 102, 0));
+			lblIzena.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 9));
+			lblIzena.setBounds(62, 221, 32, 31);
+		}
+		return lblIzena;
+	}
+	private JLabel getLblIzena_2() {
+		if (lblIzena_2 == null) {
+			lblIzena_2 = new JLabel("Herrialdea");
+			lblIzena_2.setForeground(new Color(255, 102, 0));
+			lblIzena_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 9));
+			lblIzena_2.setBounds(114, 221, 53, 31);
+		}
+		return lblIzena_2;
+	}
+	private JLabel getLblIzena_3() {
+		if (lblIzena_3 == null) {
+			lblIzena_3 = new JLabel("Taldea");
+			lblIzena_3.setForeground(new Color(255, 102, 0));
+			lblIzena_3.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 9));
+			lblIzena_3.setBounds(177, 221, 100, 31);
+		}
+		return lblIzena_3;
 	}
 }
