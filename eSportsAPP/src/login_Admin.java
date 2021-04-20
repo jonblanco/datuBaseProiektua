@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import AppPackage.AnimationClass;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
@@ -13,18 +14,32 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 import java.awt.Toolkit;
 import java.awt.SystemColor;
+import java.awt.Cursor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 //
 public class login_Admin extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtIdatziHemenZure;
 	private JPasswordField passwordField;
+	private Connection konexioa;
+	private String izena_Kontsultatuta;
+	private String pasahitza_Kontsultatuta;
+	private JLabel lblNewLabel_2;
+	private JLabel ErabiltzaileBerriaLabel;
+
 
 	/**
 	 * Launch the application.
@@ -43,6 +58,7 @@ public class login_Admin extends JDialog {
 	 * Create the dialog.
 	 */
 	public login_Admin() {
+		konektatu();
 		setBackground(SystemColor.desktop);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(login_Admin.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
@@ -93,9 +109,16 @@ public class login_Admin extends JDialog {
 			contentPanel.add(okButton);
 			okButton.setIcon(new ImageIcon(login_Admin.class.getResource("/images/Enter_ON.png")));
 			okButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					String pasahitza= "admin";
-					if (passwordField.getText().equals(pasahitza)) {
+				public void actionPerformed(ActionEvent e){
+					String passwd=null;
+					try {
+						passwd = kontsulta();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+					if (passwordField.getText().equals(passwd)) {
 					// lab_GUI ktrl_panela= new lab_GUI();
 					 setVisible(false);
 					 eragiketakAdmin eA = new eragiketakAdmin();
@@ -103,7 +126,7 @@ public class login_Admin extends JDialog {
 					 
 				//	 ktrl_panela.main(null);
 					}else {
-						JOptionPane.showMessageDialog(null, "Pasahitza txarto dago!");
+						JOptionPane.showMessageDialog(null, "Datuak txarto sartu dituzu, saiatu berriro.");
 						passwordField.setText(null);
 						passwordField.requestFocus();
 					}
@@ -116,7 +139,7 @@ public class login_Admin extends JDialog {
 		{
 			JButton cancelButton = new JButton("");
 			cancelButton.setBorder(null);
-			cancelButton.setBounds(10, 11, 44, 39);
+			cancelButton.setBounds(274, 21, 44, 39);
 			contentPanel.add(cancelButton);
 			cancelButton.setBackground(Color.WHITE);
 			cancelButton.setForeground(new Color(0, 0, 0));
@@ -168,6 +191,8 @@ public class login_Admin extends JDialog {
 			btnNewButton.setBounds(10, 362, 52, 73);
 			contentPanel.add(btnNewButton);
 		}
+		contentPanel.add(getLblNewLabel_2());
+		contentPanel.add(getErabiltzaileBerriaLabel());
 	}
 	private JPasswordField getPasswordField() {
 		if (passwordField == null) {
@@ -178,5 +203,69 @@ public class login_Admin extends JDialog {
 			passwordField.setBounds(72, 256, 175, 29);
 		}
 		return passwordField;
+	}
+	private String kontsulta() throws SQLException{
+		String user= txtIdatziHemenZure.getText();
+		String kontsulta = "SELECT * FROM ADMINISTRATZAILEAK WHERE USER=?";
+		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
+		pStatement.setString(1, user);
+		ResultSet rs = pStatement.executeQuery();
+		while (rs.next()) {
+			//System.out.println(rs.getString("user"));
+			pasahitza_Kontsultatuta= rs.getString("password");
+		}
+		return pasahitza_Kontsultatuta;
+
+	}
+	
+/*	private String kontsulta_passwd() throws SQLException{
+		String kontsulta = "SELECT * FROM ADMINISTRATZAILEAK WHERE PASSWORD=?";
+		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
+		pStatement.setString(1, pasahitza);
+		ResultSet rs = pStatement.executeQuery();
+		while (rs.next()) {
+			//System.out.println(rs.getString("password"));
+			pasahitza_Kontsultatuta= rs.getString("password");
+		}
+		return pasahitza_Kontsultatuta;
+
+	}*/
+	private void konektatu(){
+		try {
+			// TODO - datu-basera konektatzeko kodea
+			Class.forName("com.mysql.jdbc.Driver");
+			String zerbitzaria= "jdbc:mysql://localhost:3306/esportsapp";
+			String erabiltzailea= "root";
+			String pasahitza="";
+			konexioa = DriverManager.getConnection(zerbitzaria, erabiltzailea, pasahitza);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	private JLabel getLblNewLabel_2() {
+		if (lblNewLabel_2 == null) {
+			lblNewLabel_2 = new JLabel("");
+			lblNewLabel_2.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					AnimationClass mugimendua = new AnimationClass();
+					mugimendua.jLabelXRight(-30, 10, 10, 5, ErabiltzaileBerriaLabel);
+				}
+			});
+			lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			lblNewLabel_2.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Menu_32px_1.png")));
+			lblNewLabel_2.setBounds(10, 11, 49, 49);
+		}
+		return lblNewLabel_2;
+	}
+	private JLabel getErabiltzaileBerriaLabel() {
+		if (ErabiltzaileBerriaLabel == null) {
+			ErabiltzaileBerriaLabel = new JLabel("");
+			ErabiltzaileBerriaLabel.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Globe_32px.png")));
+			ErabiltzaileBerriaLabel.setBounds(-30, 69, 32, 28);
+		}
+		return ErabiltzaileBerriaLabel;
 	}
 }
