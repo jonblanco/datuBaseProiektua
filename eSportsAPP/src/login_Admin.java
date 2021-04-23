@@ -38,7 +38,8 @@ public class login_Admin extends JDialog {
 	private String izena_Kontsultatuta;
 	private String pasahitza_Kontsultatuta;
 	private JLabel lblNewLabel_2;
-	private JLabel ErabiltzaileBerriaLabel;
+	private JLabel mugimenduLabel;
+	private JButton mugimenduButton;
 
 
 	/**
@@ -192,7 +193,8 @@ public class login_Admin extends JDialog {
 			contentPanel.add(btnNewButton);
 		}
 		contentPanel.add(getLblNewLabel_2());
-		contentPanel.add(getErabiltzaileBerriaLabel());
+		contentPanel.add(getMugimenduLabel());
+		contentPanel.add(getMugimenduButton());
 	}
 	private JPasswordField getPasswordField() {
 		if (passwordField == null) {
@@ -251,7 +253,7 @@ public class login_Admin extends JDialog {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					AnimationClass mugimendua = new AnimationClass();
-					mugimendua.jLabelXRight(-30, 10, 10, 5, ErabiltzaileBerriaLabel);
+					mugimendua.jButtonXRight(-30, 10, 10, 5, mugimenduButton);
 				}
 			});
 			lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -260,12 +262,31 @@ public class login_Admin extends JDialog {
 		}
 		return lblNewLabel_2;
 	}
-	private JLabel getErabiltzaileBerriaLabel() {
-		if (ErabiltzaileBerriaLabel == null) {
-			ErabiltzaileBerriaLabel = new JLabel("");
-			ErabiltzaileBerriaLabel.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Globe_32px.png")));
-			ErabiltzaileBerriaLabel.setBounds(-30, 69, 32, 28);
+	private JLabel getMugimenduLabel() {
+		if (mugimenduLabel == null) {
+			mugimenduLabel = new JLabel("");
+				
+			mugimenduLabel.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Globe_32px.png")));
+			mugimenduLabel.setBounds(-30, 69, 32, 28);
 		}
-		return ErabiltzaileBerriaLabel;
+		return mugimenduLabel;
+	}
+	private JButton getMugimenduButton() {
+		if (mugimenduButton == null) {
+			mugimenduButton = new JButton("");
+			mugimenduButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					setVisible(false);
+					adminGuztiakIkusi aGU= new adminGuztiakIkusi();
+					aGU.setVisible(true);
+				}
+			});
+			mugimenduButton.setBorder(null);
+			mugimenduButton.setForeground(Color.WHITE);
+			mugimenduButton.setBackground(Color.WHITE);
+			mugimenduButton.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Globe_32px.png")));
+			mugimenduButton.setBounds(-30, 69, 32, 28);
+		}
+		return mugimenduButton;
 	}
 }

@@ -34,20 +34,21 @@ import java.awt.Toolkit;
 import java.awt.SystemColor;
 import javax.swing.JTextArea;
 //
-public class taldeakIkusi extends JDialog {
+public class adminGuztiakIkusi extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextArea textArea;
 	private BufferedReader br;
 	private Connection konexioa;
-	private String taldeinfo;
+	private String usersinfo;
+	private JLabel lblIzenak;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
-			taldeakIkusi dialog = new taldeakIkusi();
+			adminGuztiakIkusi dialog = new adminGuztiakIkusi();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -58,10 +59,11 @@ public class taldeakIkusi extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public taldeakIkusi() {
+	public adminGuztiakIkusi() {
 		konektatu();
+		
 		setBackground(SystemColor.desktop);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(taldeakIkusi.class.getResource("/images/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(adminGuztiakIkusi.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
 		setTitle("Hasiera panela");
 		
@@ -74,7 +76,7 @@ public class taldeakIkusi extends JDialog {
 		setLocationRelativeTo(null);
 		{
 			JLabel label = new JLabel("");
-			label.setIcon(new ImageIcon(taldeakIkusi.class.getResource("/images/shield_1.png")));
+			label.setIcon(new ImageIcon(adminGuztiakIkusi.class.getResource("/images/icons8_Maintenance_96px.png")));
 			label.setBounds(236, 11, 137, 124);
 			contentPanel.add(label);
 		}
@@ -83,23 +85,23 @@ public class taldeakIkusi extends JDialog {
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					eragiketakUser eU= new eragiketakUser();
-					
-					eU.setVisible(true);
+					login_Admin lA = new login_Admin();
+					lA.setVisible(true);
 				}
 			});
-			btnNewButton.setIcon(new ImageIcon(taldeakIkusi.class.getResource("/images/icons8_Back_64px.png")));
+			btnNewButton.setIcon(new ImageIcon(adminGuztiakIkusi.class.getResource("/images/icons8_Back_64px.png")));
 			btnNewButton.setBorder(null);
 			btnNewButton.setBackground(new Color(255, 255, 255));
 			btnNewButton.setBounds(10, 362, 52, 73);
 			contentPanel.add(btnNewButton);
 		}
 		contentPanel.add(getTextArea());
+		contentPanel.add(getLblIzenak());
 		try {
-			taldeakBistaratu();
-		} catch (SQLException e) {
+			adminGuztiakKontsultatu();
+		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
 	}
 	private JTextArea getTextArea() {
@@ -123,15 +125,25 @@ public class taldeakIkusi extends JDialog {
 		}
 
 	}
-	private void taldeakBistaratu() throws SQLException {
-		String kontsulta = "SELECT * FROM TALDE";
+	private JLabel getLblIzenak() {
+		if (lblIzenak == null) {
+			lblIzenak = new JLabel("Izenak");
+			lblIzenak.setForeground(new Color(255, 102, 0));
+			lblIzenak.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
+			lblIzenak.setBounds(56, 104, 107, 31);
+		}
+		return lblIzenak;
+	}
+	
+	private void adminGuztiakKontsultatu() throws SQLException {
+		String kontsulta = "SELECT user FROM ADMINISTRATZAILEAK";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 
 		ResultSet rs = pStatement.executeQuery();
 		while (rs.next()) {
-			System.out.println(rs.getString("izena"));
-			taldeinfo= rs.getString("izena")+"\n";
-			textArea.append(taldeinfo);
+			System.out.println(rs.getString("user"));
+			usersinfo= rs.getString("user")+"\n";
+			textArea.append(usersinfo); //esto da error, lo tengo que mirar
 		}
-	}
+}
 }
