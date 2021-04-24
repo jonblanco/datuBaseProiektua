@@ -71,7 +71,7 @@ public class hasierakoPanela_admin extends JFrame {
 		btnNewButton.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 10));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				eragiketakAdmin eAdmin= new eragiketakAdmin();
+				eragiketakAdmin eAdmin= eragiketakAdmin.getNireEragiketakAdmin();
 				setVisible(false);
 				eAdmin.setVisible(true);
 				//login.main(null);
@@ -103,7 +103,7 @@ public class hasierakoPanela_admin extends JFrame {
 		btnErabiltzailea.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		btnErabiltzailea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				eragiketakUserAdmin eUserAdmin= new eragiketakUserAdmin();
+				eragiketakUser eUserAdmin= new eragiketakUser();
 				eUserAdmin.setVisible(true);
 				setVisible(false);
 				
@@ -137,6 +137,7 @@ public class hasierakoPanela_admin extends JFrame {
 				ongiEtorriPanel oE = new ongiEtorriPanel();
 				oE.setVisible(true);
 				setVisible(false);
+				eragiketakAdmin.getNireEragiketakAdmin().setSesioa(false); 
 			}
 		});
 		btnNewButton_1.setIcon(new ImageIcon(hasierakoPanela_admin.class.getResource("/images/on-off-button.png")));

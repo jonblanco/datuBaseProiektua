@@ -32,6 +32,7 @@ public class eragiketakUser extends JFrame {
 	private Connection konexioa;
 	private BufferedReader br;
 	private JPanel contentPane;
+	private boolean sesioaIrekita;
 
 	/**
 	 * Launch the application.
@@ -271,9 +272,18 @@ public class eragiketakUser extends JFrame {
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(konprobatuSesioa()==true){
+					hasierakoPanela_admin hpa= new hasierakoPanela_admin();
+					hpa.setVisible(true);
+					setVisible(false);
+				}
+				else{
+					
 				hasierakoPanela hp= new hasierakoPanela();
 				hp.setVisible(true);
 				setVisible(false);
+			}
+				
 			}
 		});
 		btnNewButton_1.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/icons8_Back_64px.png")));
@@ -281,7 +291,23 @@ public class eragiketakUser extends JFrame {
 		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.setBounds(10, 30, 52, 73);
 		contentPane.add(btnNewButton_1);
-		setLocationRelativeTo(null);}
+		setLocationRelativeTo(null);
+		this.sesioaIrekita=false;
 		
+		
+			
+		
+	}
 	
-}
+	private Boolean konprobatuSesioa(){
+		if(eragiketakAdmin.getNireEragiketakAdmin().getSesioa()==true){
+			sesioaIrekita=true;
+		}
+			
+		
+	return sesioaIrekita;
+	}
+		
+		
+}	
+

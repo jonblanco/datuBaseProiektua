@@ -20,6 +20,8 @@ import java.awt.event.MouseAdapter;
 public class eragiketakAdmin extends JFrame {
 
 	private JPanel contentPane;
+	private boolean sesioaStatus;
+	private static eragiketakAdmin nEragiketakAdmin;
 
 	/**
 	 * Launch the application.
@@ -40,7 +42,9 @@ public class eragiketakAdmin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public eragiketakAdmin() {
+	private eragiketakAdmin() {
+		
+		
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 683, 489);
@@ -271,5 +275,19 @@ public class eragiketakAdmin extends JFrame {
 		btnNewButton_1.setBounds(10, 30, 52, 73);
 		contentPane.add(btnNewButton_1);
 		setLocationRelativeTo(null);
+	}
+	public Boolean getSesioa(){
+		return this.sesioaStatus;
+	}
+	
+	public static eragiketakAdmin getNireEragiketakAdmin(){
+		if (nEragiketakAdmin==null){
+			nEragiketakAdmin=new eragiketakAdmin();
+		}
+		return nEragiketakAdmin;
+	}
+	
+	public void setSesioa(boolean b){
+		this.sesioaStatus=b;
 	}
 }

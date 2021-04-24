@@ -7,6 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/jonbl/Desktop/mysql-connector-java-8.0.23/mysql-connector-java-8.0.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jonbl/Desktop/AnimatonClass.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas(D)/AnimatonClass.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
