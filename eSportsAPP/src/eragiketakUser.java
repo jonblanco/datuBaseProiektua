@@ -145,6 +145,13 @@ public class eragiketakUser extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		JButton btnErabiltzailea_1 = new JButton("");
+		btnErabiltzailea_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				taldetxoakIkusi tIkusi= new taldetxoakIkusi();
+				tIkusi.setVisible(true);
+			}
+		});
 		btnErabiltzailea_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent arg0) {
@@ -169,6 +176,13 @@ public class eragiketakUser extends JFrame {
 		contentPane.add(btnErabiltzailea_1);
 		
 		JButton btnErabiltzailea_1_1 = new JButton("");
+		btnErabiltzailea_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				saridunakIkusi sI = new saridunakIkusi();
+				sI.setVisible(true);
+			}
+		});
 		btnErabiltzailea_1_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent e) {
