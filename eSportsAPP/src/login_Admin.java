@@ -38,7 +38,6 @@ public class login_Admin extends JDialog {
 	private String izena_Kontsultatuta;
 	private String pasahitza_Kontsultatuta;
 	private JLabel lblNewLabel_2;
-	private JLabel mugimenduLabel;
 	private JButton mugimenduButton;
 
 
@@ -142,7 +141,7 @@ public class login_Admin extends JDialog {
 		{
 			JButton cancelButton = new JButton("");
 			cancelButton.setBorder(null);
-			cancelButton.setBounds(274, 21, 44, 39);
+			cancelButton.setBounds(252, 339, 44, 39);
 			contentPanel.add(cancelButton);
 			cancelButton.setBackground(Color.WHITE);
 			cancelButton.setForeground(new Color(0, 0, 0));
@@ -195,7 +194,6 @@ public class login_Admin extends JDialog {
 			contentPanel.add(btnNewButton);
 		}
 		contentPanel.add(getLblNewLabel_2());
-		contentPanel.add(getMugimenduLabel());
 		contentPanel.add(getMugimenduButton());
 	}
 	private JPasswordField getPasswordField() {
@@ -255,7 +253,7 @@ public class login_Admin extends JDialog {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					AnimationClass mugimendua = new AnimationClass();
-					mugimendua.jButtonXRight(-30, 10, 10, 5, mugimenduButton);
+					mugimendua.jButtonXRight(-32, 10, 10, 5, mugimenduButton);
 				}
 			});
 			lblNewLabel_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -263,15 +261,6 @@ public class login_Admin extends JDialog {
 			lblNewLabel_2.setBounds(10, 11, 49, 49);
 		}
 		return lblNewLabel_2;
-	}
-	private JLabel getMugimenduLabel() {
-		if (mugimenduLabel == null) {
-			mugimenduLabel = new JLabel("");
-				
-			mugimenduLabel.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Globe_32px.png")));
-			mugimenduLabel.setBounds(-30, 69, 32, 28);
-		}
-		return mugimenduLabel;
 	}
 	private JButton getMugimenduButton() {
 		if (mugimenduButton == null) {
@@ -286,8 +275,8 @@ public class login_Admin extends JDialog {
 			mugimenduButton.setBorder(null);
 			mugimenduButton.setForeground(Color.WHITE);
 			mugimenduButton.setBackground(Color.WHITE);
-			mugimenduButton.setIcon(new ImageIcon(login_Admin.class.getResource("/images/icons8_Globe_32px.png")));
-			mugimenduButton.setBounds(-30, 69, 32, 28);
+			mugimenduButton.setIcon(new ImageIcon(login_Admin.class.getResource("/images/LupaTuerca.png")));
+			mugimenduButton.setBounds(-32, 56, 32, 49);
 		}
 		return mugimenduButton;
 	}

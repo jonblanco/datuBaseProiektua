@@ -182,7 +182,7 @@ public class eragiketakUser extends JFrame {
 				btnErabiltzailea_1_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,102,0),4));
 			}
 		});
-		btnErabiltzailea_1_1.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/trofeo.png")));
+		btnErabiltzailea_1_1.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/medallaNaranja.png")));
 		btnErabiltzailea_1_1.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1_1.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
@@ -245,7 +245,7 @@ public class eragiketakUser extends JFrame {
 		lblNewLabel_1_2.setBounds(484, 227, 120, 14);
 		contentPane.add(lblNewLabel_1_2);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Aurreko talde ");
+		JLabel lblNewLabel_1_3 = new JLabel("Saridunak ikusi");
 		lblNewLabel_1_3.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_3.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
 		lblNewLabel_1_3.setBounds(73, 391, 130, 14);
@@ -262,12 +262,6 @@ public class eragiketakUser extends JFrame {
 		lblNewLabel_1_5.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
 		lblNewLabel_1_5.setBounds(484, 391, 120, 14);
 		contentPane.add(lblNewLabel_1_5);
-		
-		JLabel lblNewLabel_1_3_1 = new JLabel("irabazlea ikusi");
-		lblNewLabel_1_3_1.setForeground(new Color(255, 102, 0));
-		lblNewLabel_1_3_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_3_1.setBounds(73, 410, 130, 14);
-		contentPane.add(lblNewLabel_1_3_1);
 		
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.addActionListener(new ActionListener() {
