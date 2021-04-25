@@ -121,7 +121,6 @@ public class login_Admin extends JDialog {
 						e1.printStackTrace();
 					}
 					
-					
 					if (md5(passwordField.getText()).equals(passwd)) {
 					// lab_GUI ktrl_panela= new lab_GUI();
 					 setVisible(false);
