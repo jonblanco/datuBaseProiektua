@@ -60,8 +60,8 @@ public class ongiEtorriPanel extends JDialog {
 		}
 		{
 			JLabel label = new JLabel("");
-			label.setIcon(new ImageIcon(ongiEtorriPanel.class.getResource("/images/logo.png")));
-			label.setBounds(98, 62, 128, 85);
+			label.setIcon(new ImageIcon(ongiEtorriPanel.class.getResource("/images/d1e439a2ccb6455ea40f54ee8cd25a53.png")));
+			label.setBounds(59, 35, 200, 159);
 			contentPanel.add(label);
 		}
 		{
