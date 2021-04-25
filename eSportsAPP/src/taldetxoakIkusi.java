@@ -160,10 +160,11 @@ public class taldetxoakIkusi extends JDialog {
 			System.out.println(rs.getString("taldeizena"));
 			taldeinfo= rs.getString("taldeizena");
 			textArea.append(taldeinfo);
-			textArea.append("                                                    ");
+			textArea.append("\t\t");
+
 			taldeinfo= rs.getString("entrenatzailea");
 			textArea.append(taldeinfo);
-			textArea.append("                                                    ");
+			textArea.append("\t\t");
 			taldeinfo= rs.getString("irabazikop")+"\n";
 			textArea.append(taldeinfo);
 		}

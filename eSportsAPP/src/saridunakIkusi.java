@@ -166,7 +166,7 @@ public class saridunakIkusi extends JDialog {
 		while (rs.next()) {
 			taldeinfo= rs.getString("izena");
 			textArea.append(taldeinfo);
-			textArea.append("                                                    ");
+			textArea.append("\t\t\t");
 			taldeinfo= rs.getString("irabazikop")+"\n";
 			textArea.append(taldeinfo);
 		}
