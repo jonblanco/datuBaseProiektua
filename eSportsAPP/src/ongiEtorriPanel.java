@@ -42,7 +42,7 @@ public class ongiEtorriPanel extends JDialog {
 	public ongiEtorriPanel() {
 		setBackground(Color.WHITE);
 		getContentPane().setBackground(Color.DARK_GRAY);
-		setTitle("Hasiera panela");
+		setTitle("Ongi etorri");
 		
 		setBounds(100, 100, 342, 485);
 		getContentPane().setLayout(new BorderLayout());

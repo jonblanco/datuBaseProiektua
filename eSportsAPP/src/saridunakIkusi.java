@@ -63,7 +63,7 @@ public class saridunakIkusi extends JDialog {
 		setBackground(SystemColor.desktop);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(saridunakIkusi.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
-		setTitle("Hasiera panela");
+		setTitle("Saridunak ikusi");
 		
 		setBounds(100, 100, 581, 485);
 		getContentPane().setLayout(new BorderLayout());

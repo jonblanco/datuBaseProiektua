@@ -43,6 +43,7 @@ public class eragiketakAdmin extends JFrame {
 	 * Create the frame.
 	 */
 	private eragiketakAdmin() {
+		setTitle("Administratzaile aukerak");
 		
 		
 		setBackground(Color.WHITE);

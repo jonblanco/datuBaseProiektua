@@ -54,6 +54,7 @@ public class eragiketakUser extends JFrame {
 	 * Create the frame.
 	 */
 	public eragiketakUser() {
+		setTitle("Erabiltzaile aukerak");
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 683, 489);

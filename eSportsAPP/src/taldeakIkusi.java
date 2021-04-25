@@ -63,7 +63,7 @@ public class taldeakIkusi extends JDialog {
 		setBackground(SystemColor.desktop);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(taldeakIkusi.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
-		setTitle("Hasiera panela");
+		setTitle("Taldeak ikusi");
 		
 		setBounds(100, 100, 581, 485);
 		getContentPane().setLayout(new BorderLayout());

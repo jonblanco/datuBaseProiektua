@@ -58,7 +58,7 @@ public class bilatuJokalaria extends JDialog {
 		setBackground(SystemColor.desktop);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(bilatuJokalaria.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
-		setTitle("Hasiera panela");
+		setTitle("Jokalari bat bilatu");
 		
 		setBounds(100, 100, 342, 485);
 		getContentPane().setLayout(new BorderLayout());

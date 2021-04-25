@@ -60,12 +60,12 @@ public class adminGuztiakIkusi extends JDialog {
 	 * Create the dialog.
 	 */
 	public adminGuztiakIkusi() {
+		setTitle("Administratzaileak ikusi");
 		konektatu();
 		
 		setBackground(SystemColor.desktop);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(adminGuztiakIkusi.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
-		setTitle("Hasiera panela");
 		
 		setBounds(100, 100, 581, 485);
 		getContentPane().setLayout(new BorderLayout());

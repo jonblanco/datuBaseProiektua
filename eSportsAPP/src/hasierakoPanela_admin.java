@@ -41,6 +41,7 @@ public class hasierakoPanela_admin extends JFrame {
 	 * Create the frame.
 	 */
 	public hasierakoPanela_admin() {
+		setTitle("Hasiera");
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
