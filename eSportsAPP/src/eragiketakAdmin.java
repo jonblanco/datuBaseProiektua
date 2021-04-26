@@ -70,16 +70,15 @@ public class eragiketakAdmin extends JFrame {
 			}
 		});
 		btnNewButton.setBorder(null);
-		btnNewButton.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/persona.png")));
+		btnNewButton.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/icons8_Today_96px.png")));
 		btnNewButton.setForeground(new Color(255, 102, 0));
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 10));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				login_Admin login= new login_Admin();
+				bideojokoakGehituKendu bGK= new bideojokoakGehituKendu();
 				setVisible(false);
-				login.setVisible(true);
-				//login.main(null);
+				bGK.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(73, 119, 106, 97);
@@ -125,10 +124,10 @@ public class eragiketakAdmin extends JFrame {
 		lblNewLabel.setBounds(270, 30, 162, 81);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Jokalari bat bilatu");
+		JLabel lblNewLabel_1 = new JLabel("Bideojokoak kudeatu");
 		lblNewLabel_1.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(69, 227, 134, 14);
+		lblNewLabel_1.setBounds(60, 227, 171, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Erabiltzailea");

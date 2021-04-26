@@ -107,9 +107,8 @@ public class bideojokoakGehituKendu extends JDialog {
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					eragiketakUser eU= new eragiketakUser();
-					
-					eU.setVisible(true);
+					eragiketakAdmin eA=eragiketakAdmin.getNireEragiketakAdmin();
+					eA.setVisible(true);
 				}
 			});
 			btnNewButton.setIcon(new ImageIcon(bideojokoakGehituKendu.class.getResource("/images/icons8_Back_64px.png")));
@@ -153,7 +152,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			kenduBtn.setForeground(new Color(255, 102, 0));
 			kenduBtn.setFont(new Font("Microsoft Tai Le", Font.BOLD, 26));
 			kenduBtn.setBackground(Color.WHITE);
-			kenduBtn.setBounds(478, 118, 50, 50);
+			kenduBtn.setBounds(478, 118, 65, 50);
 			contentPanel.add(kenduBtn);
 		}
 		contentPanel.add(getKodeaLbl());
@@ -212,7 +211,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			gehituBtn.setForeground(new Color(255, 102, 0));
 			gehituBtn.setFont(new Font("Microsoft Tai Le", Font.BOLD, 23));
 			gehituBtn.setBackground(Color.WHITE);
-			gehituBtn.setBounds(406, 118, 50, 50);
+			gehituBtn.setBounds(391, 118, 65, 50);
 		}
 		return gehituBtn;
 	}
@@ -295,7 +294,9 @@ public class bideojokoakGehituKendu extends JDialog {
 	}
 	private JButton getEnterBtn() {
 		if (enterBtn == null) {
-			enterBtn = new JButton("Enter");
+			enterBtn = new JButton("");
+			enterBtn.setBorder(null);
+			enterBtn.setIcon(new ImageIcon(bideojokoakGehituKendu.class.getResource("/images/Enter_ON.png")));
 			enterBtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
@@ -317,7 +318,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			enterBtn.setForeground(new Color(255, 102, 0));
 			enterBtn.setFont(new Font("Microsoft Tai Le", Font.BOLD, 23));
 			enterBtn.setBackground(Color.WHITE);
-			enterBtn.setBounds(419, 383, 104, 50);
+			enterBtn.setBounds(391, 383, 155, 50);
 		}
 		return enterBtn;
 	}
