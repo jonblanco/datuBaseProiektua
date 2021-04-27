@@ -107,9 +107,10 @@ public class eragiketakAdmin extends JFrame {
 		btnErabiltzailea.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		btnErabiltzailea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				JokalariaGehitu erab=JokalariaGehitu.getNireErabiltzaileaGehitu();
-				erab.setVisible(true);
+				//login_User luser= new login_User();
+				//ser.setVisible(true);
+				//setVisible(false);
+				
 				
 			}
 		});
@@ -136,10 +137,6 @@ public class eragiketakAdmin extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		JButton btnErabiltzailea_1 = new JButton("");
-		btnErabiltzailea_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnErabiltzailea_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent arg0) {
@@ -154,12 +151,6 @@ public class eragiketakAdmin extends JFrame {
 
 			}
 		});
-		
-		JLabel lblNewLabel_1_1_1 = new JLabel("gehitu");
-		lblNewLabel_1_1_1.setForeground(new Color(255, 102, 0));
-		lblNewLabel_1_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_1_1.setBounds(287, 240, 128, 14);
-		contentPane.add(lblNewLabel_1_1_1);
 		btnErabiltzailea_1.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/equipo.png")));
 		btnErabiltzailea_1.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1.setForeground(new Color(255, 102, 0));
@@ -170,10 +161,6 @@ public class eragiketakAdmin extends JFrame {
 		contentPane.add(btnErabiltzailea_1);
 		
 		JButton btnErabiltzailea_1_1 = new JButton("");
-		btnErabiltzailea_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnErabiltzailea_1_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent e) {

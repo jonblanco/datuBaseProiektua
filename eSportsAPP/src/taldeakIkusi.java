@@ -126,6 +126,7 @@ public class taldeakIkusi extends JDialog {
 	private void taldeakBistaratu() throws SQLException {
 		String kontsulta = "SELECT * FROM TALDE";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
+
 		ResultSet rs = pStatement.executeQuery();
 		while (rs.next()) {
 			System.out.println(rs.getString("izena"));
