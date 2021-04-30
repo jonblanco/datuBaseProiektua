@@ -13,6 +13,7 @@ import java.util.Scanner;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -35,20 +36,17 @@ import java.awt.SystemColor;
 import javax.swing.JTextArea;
 import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 //
 public class bideojokoakGehituKendu extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextArea textArea;
 	private BufferedReader br;
 	private Connection konexioa;
 	private String bideojokoInfo;
 	private JTextField sartuIzenaTF;
 	private JButton gehituBtn;
-	private JLabel KodeaLbl;
-	private JLabel IzenaLbl;
-	private JLabel JokalarikopLbl;
-	private JLabel IrabazleaLbl;
 	private JLabel sartuIzenaLbl;
 	private JTextField sartuJokalarikopTF;
 	private JSeparator sartuJokalariKopSep;
@@ -56,7 +54,11 @@ public class bideojokoakGehituKendu extends JDialog {
 	private JSeparator sartuIzenaSep;
 	private JButton enterBtn;
 	private Integer bideojokoKodea = 11;
+	private Integer ezabatutakoKodea;
 	private boolean gehituKendu = false; //false --> "-" botoia sakatu da; 	true --> "+" botoia sakatu da
+	private JScrollPane scrollPane;
+	private JTextArea textArea;
+	private JLabel lblKodeaIzenaJokalari;
 
 	/**
 	 * Launch the application.
@@ -80,6 +82,12 @@ public class bideojokoakGehituKendu extends JDialog {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(bideojokoakGehituKendu.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
 		setTitle("Saridunak ikusi");
+		try {
+			this.bideojokoKodea = this.bideojokoKop() + 1;
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		setBounds(100, 100, 581, 485);
 		getContentPane().setLayout(new BorderLayout());
@@ -91,8 +99,14 @@ public class bideojokoakGehituKendu extends JDialog {
 		{
 			sartuIzenaSep = new JSeparator();
 			sartuIzenaSep.setBackground(Color.BLACK);
-			sartuIzenaSep.setBounds(391, 258, 164, 16);
+			sartuIzenaSep.setBounds(391, 265, 164, 16);
 			sartuIzenaSep.setVisible(false);
+			this.scrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+			scrollPane.setSize(348, 223);
+			scrollPane.setLocation(10, 210);
+			contentPanel.add(this.scrollPane);
+			scrollPane.setViewportView(getTextArea());
+			scrollPane.setColumnHeaderView(getLblKodeaIzenaJokalari());
 			contentPanel.add(sartuIzenaSep);
 		}
 		contentPanel.add(getSartuJokalariKopSep());
@@ -117,12 +131,11 @@ public class bideojokoakGehituKendu extends JDialog {
 			btnNewButton.setBounds(10, 11, 52, 73);
 			contentPanel.add(btnNewButton);
 		}
-		contentPanel.add(getTextArea());
 		
 		JLabel panelInfoLbl = new JLabel("Hona hemen lehiaketetan jolasten diren jokoak:");
 		panelInfoLbl.setForeground(new Color(255, 102, 0));
 		panelInfoLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		panelInfoLbl.setBounds(33, 137, 353, 31);
+		panelInfoLbl.setBounds(20, 146, 353, 31);
 		contentPanel.add(panelInfoLbl);
 		{
 			sartuIzenaTF = new JTextField();
@@ -147,6 +160,7 @@ public class bideojokoakGehituKendu extends JDialog {
 					sartuJokalarikopTF.setVisible(false);
 					sartuJokalariKopSep.setVisible(false);
 					enterBtn.setVisible(true);
+					scrollPane.setVisible(true);
 				}
 			});
 			kenduBtn.setForeground(new Color(255, 102, 0));
@@ -155,10 +169,6 @@ public class bideojokoakGehituKendu extends JDialog {
 			kenduBtn.setBounds(478, 118, 65, 50);
 			contentPanel.add(kenduBtn);
 		}
-		contentPanel.add(getKodeaLbl());
-		contentPanel.add(getIzenaLbl());
-		contentPanel.add(getJokalarikopLbl());
-		contentPanel.add(getIrabazleaLbl());
 		contentPanel.add(getSartuIzenaLbl());
 		contentPanel.add(getSartuJokalarikopTF());
 		contentPanel.add(getSartuJokalarikopLbl());
@@ -169,14 +179,6 @@ public class bideojokoakGehituKendu extends JDialog {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
-	private JTextArea getTextArea() {
-		if (textArea == null) {
-			textArea = new JTextArea();
-			textArea.setBounds(33, 239, 325, 194);
-		}
-		return textArea;
 	}
 	private void konektatu(){
 		try {
@@ -205,7 +207,6 @@ public class bideojokoakGehituKendu extends JDialog {
 					sartuJokalarikopTF.setVisible(true);
 					sartuJokalariKopSep.setVisible(true);
 					enterBtn.setVisible(true);
-					textArea.setText(null);
 				}
 			});
 			gehituBtn.setForeground(new Color(255, 102, 0));
@@ -214,42 +215,6 @@ public class bideojokoakGehituKendu extends JDialog {
 			gehituBtn.setBounds(391, 118, 65, 50);
 		}
 		return gehituBtn;
-	}
-	private JLabel getKodeaLbl() {
-		if (KodeaLbl == null) {
-			KodeaLbl = new JLabel("Kodea");
-			KodeaLbl.setForeground(new Color(255, 102, 0));
-			KodeaLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
-			KodeaLbl.setBounds(33, 214, 46, 14);
-		}
-		return KodeaLbl;
-	}
-	private JLabel getIzenaLbl() {
-		if (IzenaLbl == null) {
-			IzenaLbl = new JLabel("Izena");
-			IzenaLbl.setForeground(new Color(255, 102, 0));
-			IzenaLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
-			IzenaLbl.setBounds(122, 214, 46, 14);
-		}
-		return IzenaLbl;
-	}
-	private JLabel getJokalarikopLbl() {
-		if (JokalarikopLbl == null) {
-			JokalarikopLbl = new JLabel("Jokalari kop.");
-			JokalarikopLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
-			JokalarikopLbl.setForeground(new Color(255, 102, 0));
-			JokalarikopLbl.setBounds(209, 214, 93, 14);
-		}
-		return JokalarikopLbl;
-	}
-	private JLabel getIrabazleaLbl() {
-		if (IrabazleaLbl == null) {
-			IrabazleaLbl = new JLabel("Irabazlea");
-			IrabazleaLbl.setForeground(new Color(255, 102, 0));
-			IrabazleaLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
-			IrabazleaLbl.setBounds(298, 214, 46, 14);
-		}
-		return IrabazleaLbl;
 	}
 	private JLabel getSartuIzenaLbl() {
 		if (sartuIzenaLbl == null) {
@@ -277,7 +242,7 @@ public class bideojokoakGehituKendu extends JDialog {
 		if (sartuJokalariKopSep == null) {
 			sartuJokalariKopSep = new JSeparator();
 			sartuJokalariKopSep.setBackground(Color.BLACK);
-			sartuJokalariKopSep.setBounds(391, 356, 164, 16);
+			sartuJokalariKopSep.setBounds(391, 361, 164, 16);
 			sartuJokalariKopSep.setVisible(false);
 		}
 		return sartuJokalariKopSep;
@@ -302,7 +267,9 @@ public class bideojokoakGehituKendu extends JDialog {
 					try {
 						if(gehituKendu) {
 							bideojokoaSartu();
-							bideojokoakBistaratu();	
+							textArea.setText(null);
+							bideojokoakBistaratu();
+							scrollPane.setVisible(true);
 						}
 						else {
 							bideojokoaKendu();
@@ -322,16 +289,41 @@ public class bideojokoakGehituKendu extends JDialog {
 		}
 		return enterBtn;
 	}
-//	private void bideojokoKodeakEguneratu() throws SQLException{
-//		String kontsulta = "SELECT * FROM bideojoko";
-//		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
-//	}
 	
-////////////ES PARA ACTUALIZAR LOS "KODE" CUANDO BORRAS ALGUNO QUE NO SEA EL ÚLTIMO
+
+	//Datu basean sartuta dagoenn bideojoko kopurua kalkulatzeko
+	private int bideojokoKop() throws SQLException{
+		String kontsulta = "SELECT COUNT(*) FROM bideojoko;";
+		PreparedStatement pStatement = konexioa.prepareStatement(kontsulta);
+		ResultSet rs = pStatement.executeQuery();
+		int iterazioKop = 0;
+		while (rs.next()) {
+			 iterazioKop = Integer.parseInt(rs.getString("COUNT(*)"));
+		}
+		return iterazioKop;
+	}
+	
+	//Azkena ez den edozein bideojoko ezabatzean, bakoitzaren kodea eguneratzeko
+	private void bideojokoGuztienKodeakEguneratu() throws SQLException {
+		while(this.ezabatutakoKodea <= this.bideojokoKop()) {
+			this.bideojokoBatenKodeaEguneratu();
+		}
+		this.bideojokoKodea = this.ezabatutakoKodea;
+	}
+
+	private void bideojokoBatenKodeaEguneratu() throws SQLException {
+		String kontsulta = "UPDATE bideojoko SET kodea = ? WHERE kodea = ?";
+		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
+		pStatement.setString(1, this.ezabatutakoKodea.toString());
+		this.ezabatutakoKodea++;
+		pStatement.setString(2, this.ezabatutakoKodea.toString());
+		pStatement.executeUpdate();
+	}
+	
+	//Bideojoko guztien informazioa pantailaratzeko
 	private void bideojokoakBistaratu() throws SQLException {
 		String kontsulta = "SELECT * FROM bideojoko";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
-
 		ResultSet rs = pStatement.executeQuery();
 		while (rs.next()) {
 			bideojokoInfo = rs.getString("kodea");
@@ -350,21 +342,74 @@ public class bideojokoakGehituKendu extends JDialog {
 			textArea.append(bideojokoInfo);
 		}
 	}
+	
+	//Bideojoko berri bat sartzeko (berria denez, irabazlea null izango da)
 	private void bideojokoaSartu() throws SQLException {
-		String kontsulta = "INSERT INTO bideojoko values (?, ?, ?, null)";
-		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
-		pStatement.setString(1, bideojokoKodea.toString());
-		bideojokoKodea++;
-		pStatement.setString(2, sartuIzenaTF.getText());
-		pStatement.setString(3, sartuJokalarikopTF.getText());
-		pStatement.executeUpdate();
+		//Sartu nahi den bideojokoa dagoeneko sartuta dagoen begiratu
+		String kontsultaBadago = "SELECT * FROM bideojoko WHERE izena = ?";
+		PreparedStatement pKBadago = konexioa.prepareStatement(kontsultaBadago);
+		pKBadago.setString(1, this.sartuIzenaTF.getText());
+		ResultSet rs = pKBadago.executeQuery();
+		if(sartuIzenaTF.getText().length() == 0 || sartuJokalarikopTF.getText().length() == 0) { //Bete behar den eremuren bat hutsik badago
+			JOptionPane.showMessageDialog(contentPanel, "Bideojoko berri bat sartzeko bi eremuak bete behar dira !!");
+		}
+		else {
+			if(rs.next()) { //Sartuta badago ...
+				JOptionPane.showMessageDialog(contentPanel, "Sartu nahi duzun bideojokoa dagoneko datu-basean sartuta dago !!");
+			}
+			else { //Sartuta EZ badago ...
+				try {
+					Integer.parseInt(sartuJokalarikopTF.getText());	
+					String kontsultaSartu = "INSERT INTO bideojoko values (?, ?, ?, null)";
+					PreparedStatement pStatement = konexioa.prepareStatement(kontsultaSartu);
+					pStatement.setString(1, bideojokoKodea.toString());
+					this.bideojokoKodea++;
+					pStatement.setString(2, sartuIzenaTF.getText());
+					pStatement.setString(3, sartuJokalarikopTF.getText());
+					pStatement.executeUpdate();
+				}catch (NumberFormatException e) {
+					JOptionPane.showMessageDialog(contentPanel, "'Jokalari kopurua' eremuan zenbaki oso bat sartu behar da");
+				}
+			}
+		}
 	}
 	
+	//Bideojoko jakin bat ezabatzeko (honetaz gain, gainontzeko bideojokoen kodeak eguneratuko dira)
 	private void bideojokoaKendu() throws SQLException {
-		String kontsulta = "DELETE FROM bideojoko WHERE izena = ?";
-		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
-		pStatement.setString(1, sartuIzenaTF.getText());
-		pStatement.executeUpdate();
-		//ACTUALIZAR LOS KODE;
+		String kontsultaIndizeaLortu = "SELECT kodea FROM bideojoko WHERE izena = ?";
+		PreparedStatement pStatement1 = konexioa.prepareStatement(kontsultaIndizeaLortu);
+		pStatement1.setString(1, this.sartuIzenaTF.getText());
+		ResultSet rs = pStatement1.executeQuery();
+		if(!rs.next()) { //Datu basean sartuta ez dagoen bideojoko bat ezabatzen saiatzen bada ...
+			JOptionPane.showMessageDialog(contentPanel, "Sartutako bideojokoa ez dago datu-basean !!");
+		}
+		else {
+			while (rs.next()) {
+				this.ezabatutakoKodea = Integer.parseInt(rs.getString("kodea"));
+			}
+			String kontsultaEzabatzeko = "DELETE FROM bideojoko WHERE izena = ?";
+			PreparedStatement pStatement2 = konexioa.prepareStatement(kontsultaEzabatzeko);
+			pStatement2.setString(1, sartuIzenaTF.getText());
+			pStatement2.executeUpdate();
+			this.bideojokoGuztienKodeakEguneratu();
+		}
+	}
+	
+	private JTextArea getTextArea() {
+		if (textArea == null) {
+			textArea = new JTextArea();
+			textArea.setEditable(false);
+		}
+		return textArea;
+	}
+	
+	private JLabel getLblKodeaIzenaJokalari() {
+		if (lblKodeaIzenaJokalari == null) {
+			lblKodeaIzenaJokalari = new JLabel("Kodea                   Izena             Jokalari kop.         Irabazlea");
+			lblKodeaIzenaJokalari.setHorizontalAlignment(SwingConstants.CENTER);
+			lblKodeaIzenaJokalari.setForeground(new Color(255, 102, 0));
+			lblKodeaIzenaJokalari.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
+		}
+		return lblKodeaIzenaJokalari;
 	}
 }
