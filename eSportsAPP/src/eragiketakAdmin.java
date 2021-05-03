@@ -22,6 +22,7 @@ public class eragiketakAdmin extends JFrame {
 	private JPanel contentPane;
 	private boolean sesioaStatus;
 	private static eragiketakAdmin nEragiketakAdmin;
+	private JLabel lblNewLabel_1_2_1;
 
 	/**
 	 * Launch the application.
@@ -107,9 +108,9 @@ public class eragiketakAdmin extends JFrame {
 		btnErabiltzailea.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		btnErabiltzailea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//login_User luser= new login_User();
-				//ser.setVisible(true);
-				//setVisible(false);
+				setVisible(false);
+				JokalariaGehitu jG= JokalariaGehitu.getNireJokalariaGehitu();
+				jG.setVisible(true);
 				
 				
 			}
@@ -130,13 +131,20 @@ public class eragiketakAdmin extends JFrame {
 		lblNewLabel_1.setBounds(60, 227, 171, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Erabiltzailea");
+		JLabel lblNewLabel_1_1 = new JLabel("Jokalari bat gehitu");
 		lblNewLabel_1_1.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(287, 227, 128, 14);
+		lblNewLabel_1_1.setBounds(277, 224, 162, 21);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JButton btnErabiltzailea_1 = new JButton("");
+		btnErabiltzailea_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				adminBerriaGehitu aBG = new adminBerriaGehitu();
+				aBG.setVisible(false);
+				setVisible(true);
+			}
+		});
 		btnErabiltzailea_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent arg0) {
@@ -231,10 +239,10 @@ public class eragiketakAdmin extends JFrame {
 		btnErabiltzailea_1_1_2.setBounds(484, 286, 106, 94);
 		contentPane.add(btnErabiltzailea_1_1_2);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Taldeak ikusi");
+		JLabel lblNewLabel_1_2 = new JLabel("Administratzaile");
 		lblNewLabel_1_2.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_2.setBounds(494, 227, 120, 14);
+		lblNewLabel_1_2.setBounds(484, 227, 120, 14);
 		contentPane.add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Aurreko talde ");
@@ -274,6 +282,7 @@ public class eragiketakAdmin extends JFrame {
 		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.setBounds(10, 30, 52, 73);
 		contentPane.add(btnNewButton_1);
+		contentPane.add(getLblNewLabel_1_2_1());
 		setLocationRelativeTo(null);
 	}
 	public Boolean getSesioa(){
@@ -289,5 +298,14 @@ public class eragiketakAdmin extends JFrame {
 	
 	public void setSesioa(boolean b){
 		this.sesioaStatus=b;
+	}
+	private JLabel getLblNewLabel_1_2_1() {
+		if (lblNewLabel_1_2_1 == null) {
+			lblNewLabel_1_2_1 = new JLabel("berria sartu");
+			lblNewLabel_1_2_1.setForeground(new Color(255, 102, 0));
+			lblNewLabel_1_2_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
+			lblNewLabel_1_2_1.setBounds(484, 252, 120, 14);
+		}
+		return lblNewLabel_1_2_1;
 	}
 }

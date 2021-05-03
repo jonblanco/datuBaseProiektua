@@ -266,16 +266,16 @@ public class eragiketakUser extends JFrame {
 		lblNewLabel_1_3.setBounds(73, 391, 130, 14);
 		contentPane.add(lblNewLabel_1_3);
 		
-		JLabel lblNewLabel_1_4 = new JLabel("Administratzailea");
+		JLabel lblNewLabel_1_4 = new JLabel("Ranking-a");
 		lblNewLabel_1_4.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_4.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_4.setBounds(277, 391, 120, 14);
+		lblNewLabel_1_4.setBounds(287, 391, 120, 14);
 		contentPane.add(lblNewLabel_1_4);
 		
-		JLabel lblNewLabel_1_5 = new JLabel("Administratzailea");
+		JLabel lblNewLabel_1_5 = new JLabel("Sorpresa");
 		lblNewLabel_1_5.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_5.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_5.setBounds(484, 391, 120, 14);
+		lblNewLabel_1_5.setBounds(511, 391, 120, 14);
 		contentPane.add(lblNewLabel_1_5);
 		
 		JButton btnNewButton_1 = new JButton("");

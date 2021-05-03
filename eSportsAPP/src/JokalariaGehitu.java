@@ -26,7 +26,7 @@ public class JokalariaGehitu extends JFrame {
 	private JTextField TaldeaTF;
 	private JTextField AdinaTF;
 	private Connection konexioa;
-	private static JokalariaGehitu nireErabiltzaileaGehitu;
+	private static JokalariaGehitu nireJokalariaGehitu;
 
 	/**
 	 * Launch the application.
@@ -47,11 +47,11 @@ public class JokalariaGehitu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public static JokalariaGehitu getNireErabiltzaileaGehitu() {
-		if(nireErabiltzaileaGehitu==null) {
-			nireErabiltzaileaGehitu=new JokalariaGehitu();
+	public static JokalariaGehitu getNireJokalariaGehitu() {
+		if(nireJokalariaGehitu==null) {
+			nireJokalariaGehitu=new JokalariaGehitu();
 		}
-		return nireErabiltzaileaGehitu;
+		return nireJokalariaGehitu;
 	}
 	
 	private JokalariaGehitu() {
