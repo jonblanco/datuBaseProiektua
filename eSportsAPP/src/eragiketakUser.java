@@ -127,10 +127,10 @@ public class eragiketakUser extends JFrame {
 		contentPane.add(btnErabiltzailea);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/logo.png")));
+		lblNewLabel.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/Logo.png")));
 		lblNewLabel.setForeground(new Color(255, 102, 0));
 		lblNewLabel.setFont(new Font("Microsoft Tai Le", Font.BOLD, 18));
-		lblNewLabel.setBounds(270, 30, 162, 81);
+		lblNewLabel.setBounds(294, 11, 89, 85);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Jokalari bat bilatu");
@@ -207,6 +207,13 @@ public class eragiketakUser extends JFrame {
 		contentPane.add(btnErabiltzailea_1_1);
 		
 		JButton btnErabiltzailea_1_1_1 = new JButton("");
+		btnErabiltzailea_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ranking r=new ranking();
+				r.setVisible(true);
+			}
+		});
 		btnErabiltzailea_1_1_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent e) {
@@ -221,7 +228,7 @@ public class eragiketakUser extends JFrame {
 
 			}
 		});
-		btnErabiltzailea_1_1_1.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/icons8_Clock_96px.png")));
+		btnErabiltzailea_1_1_1.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/trofeo.png")));
 		btnErabiltzailea_1_1_1.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1_1_1.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea_1_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
@@ -231,6 +238,13 @@ public class eragiketakUser extends JFrame {
 		contentPane.add(btnErabiltzailea_1_1_1);
 		
 		JButton btnErabiltzailea_1_1_2 = new JButton("");
+		btnErabiltzailea_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				sorpresa s= new sorpresa();
+				s.setVisible(true);
+			}
+		});
 		btnErabiltzailea_1_1_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent e) {
@@ -245,7 +259,7 @@ public class eragiketakUser extends JFrame {
 
 			}
 		});
-		btnErabiltzailea_1_1_2.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/icons8_User_96px_2.png")));
+		btnErabiltzailea_1_1_2.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/sorpresa.png")));
 		btnErabiltzailea_1_1_2.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1_1_2.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea_1_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
@@ -269,13 +283,13 @@ public class eragiketakUser extends JFrame {
 		JLabel lblNewLabel_1_4 = new JLabel("Ranking-a");
 		lblNewLabel_1_4.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_4.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_4.setBounds(287, 391, 120, 14);
+		lblNewLabel_1_4.setBounds(295, 383, 120, 30);
 		contentPane.add(lblNewLabel_1_4);
 		
 		JLabel lblNewLabel_1_5 = new JLabel("Sorpresa");
 		lblNewLabel_1_5.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_5.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_5.setBounds(511, 391, 120, 14);
+		lblNewLabel_1_5.setBounds(504, 391, 120, 14);
 		contentPane.add(lblNewLabel_1_5);
 		
 		JButton btnNewButton_1 = new JButton("");

@@ -119,10 +119,10 @@ public class eragiketakAdmin extends JFrame {
 		contentPane.add(btnErabiltzailea);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/logo.png")));
+		lblNewLabel.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/Logo.png")));
 		lblNewLabel.setForeground(new Color(255, 102, 0));
 		lblNewLabel.setFont(new Font("Microsoft Tai Le", Font.BOLD, 18));
-		lblNewLabel.setBounds(270, 30, 162, 81);
+		lblNewLabel.setBounds(295, 30, 162, 81);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Bideojokoak kudeatu");

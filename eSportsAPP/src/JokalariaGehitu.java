@@ -16,6 +16,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class JokalariaGehitu extends JFrame {
 
@@ -27,6 +29,8 @@ public class JokalariaGehitu extends JFrame {
 	private JTextField AdinaTF;
 	private Connection konexioa;
 	private static JokalariaGehitu nireJokalariaGehitu;
+	private JTextField TTKodeTF;
+	private JTextField HerrialdeTF;
 
 	/**
 	 * Launch the application.
@@ -57,63 +61,65 @@ public class JokalariaGehitu extends JFrame {
 	private JokalariaGehitu() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100,400, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		IzenaTF = new JTextField();
-		IzenaTF.setBounds(170, 82, 86, 20);
+		IzenaTF.setBounds(221, 28, 86, 20);
 		contentPane.add(IzenaTF);
 		IzenaTF.setColumns(10);
 		
 		JLabel lblIzena = new JLabel("Izena");
-		lblIzena.setBounds(96, 85, 46, 14);
+		lblIzena.setBounds(147, 31, 46, 14);
 		contentPane.add(lblIzena);
 		
 		AbizenaTF = new JTextField();
-		AbizenaTF.setBounds(170, 113, 86, 20);
+		AbizenaTF.setBounds(221, 59, 86, 20);
 		contentPane.add(AbizenaTF);
 		AbizenaTF.setColumns(10);
 		
 		JLabel lblAbizena = new JLabel("1.Abizena");
-		lblAbizena.setBounds(96, 116, 64, 14);
+		lblAbizena.setBounds(147, 62, 64, 14);
 		contentPane.add(lblAbizena);
 		
 		AbizenaTFBi = new JTextField();
-		AbizenaTFBi.setBounds(170, 144, 86, 20);
+		AbizenaTFBi.setBounds(221, 90, 86, 20);
 		contentPane.add(AbizenaTFBi);
 		AbizenaTFBi.setColumns(10);
 		
 		JLabel lblabizena = new JLabel("2.Abizena");
-		lblabizena.setBounds(96, 147, 64, 14);
+		lblabizena.setBounds(147, 93, 64, 14);
 		contentPane.add(lblabizena);
 		
 		TaldeaTF = new JTextField();
-		TaldeaTF.setBounds(170, 172, 86, 20);
+		TaldeaTF.setBounds(221, 121, 86, 20);
 		contentPane.add(TaldeaTF);
 		TaldeaTF.setColumns(10);
 		
 		JLabel Taldea = new JLabel("Taldea");
-		Taldea.setBounds(96, 175, 46, 14);
+		Taldea.setBounds(147, 124, 46, 14);
 		contentPane.add(Taldea);
 		
 		AdinaTF = new JTextField();
-		AdinaTF.setBounds(170, 203, 86, 20);
+		AdinaTF.setBounds(221, 152, 86, 20);
 		contentPane.add(AdinaTF);
 		AdinaTF.setColumns(10);
 		
 		JLabel lblAdina = new JLabel("Adina");
-		lblAdina.setBounds(96, 206, 46, 14);
+		lblAdina.setBounds(147, 155, 46, 14);
 		contentPane.add(lblAdina);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(JokalariaGehitu.class.getResource("/images/icons8_User_96px_2.png")));
-		label.setBounds(170, 11, 86, 71);
+		label.setBounds(23, 61, 106, 105);
 		contentPane.add(label);
 		
 		JButton btnGehitu = new JButton("Gehitu");
+		btnGehitu.setIcon(new ImageIcon(JokalariaGehitu.class.getResource("/images/Enter_ON.png")));
 		btnGehitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -124,8 +130,40 @@ public class JokalariaGehitu extends JFrame {
 				}
 			}
 		});
-		btnGehitu.setBounds(283, 202, 89, 23);
+		btnGehitu.setBounds(191, 258, 97, 29);
 		contentPane.add(btnGehitu);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				eragiketakAdmin ea=eragiketakAdmin.getNireEragiketakAdmin();
+				ea.setVisible(true);
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(JokalariaGehitu.class.getResource("/images/icons8_Back_64px.png")));
+		btnNewButton.setBorder(null);
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setBounds(23, 177, 52, 73);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("TT_kode");
+		lblNewLabel.setBounds(147, 183, 58, 14);
+		contentPane.add(lblNewLabel);
+		
+		TTKodeTF = new JTextField();
+		TTKodeTF.setBounds(221, 180, 86, 20);
+		contentPane.add(TTKodeTF);
+		TTKodeTF.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("Herrialdea");
+		lblNewLabel_1.setBounds(147, 211, 64, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		HerrialdeTF = new JTextField();
+		HerrialdeTF.setBounds(221, 209, 86, 20);
+		contentPane.add(HerrialdeTF);
+		HerrialdeTF.setColumns(10);
 		setLocationRelativeTo(null);
 		
 		
@@ -134,26 +172,36 @@ public class JokalariaGehitu extends JFrame {
 		konektatu();
 		String JokIzena=IzenaTF.getText();
 		String Jok1Abizena=AbizenaTF.getText();
-		String herrialdea="Santurtzi"; //POR TERMINAR
+		String herrialdea=HerrialdeTF.getText(); //POR TERMINAR
 		String Jok2Abizena=AbizenaTFBi.getText();
 		String JokTaldea=TaldeaTF.getText();
 		String JokAdina=AdinaTF.getText();
-		String taldeTxikiKode=null; //POR TERMINAR
+		String taldeTxikiKode=TTKodeTF.getText(); //POR TERMINAR
 		boolean taldeaOndoDago=taldeaKonprobatu(JokTaldea);
 		if(!taldeaOndoDago) {
 			ErroreMezuEdit em=new ErroreMezuEdit("Taldea txarto sartu duzu");
 			em.setVisible(true);
 		}else {
-			String kontsulta="INSERT INTO JOKALARI VALUES(?,?,?,?,?,?,?)";
-			PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
-			pStatement.setString(1,JokTaldea);
-			pStatement.setString(2,JokIzena);
-			pStatement.setString(3,Jok1Abizena);
-			pStatement.setString(4,Jok2Abizena);
-			pStatement.setString(5,JokAdina);
-			pStatement.setString(6,herrialdea);
-			pStatement.setString(7,taldeTxikiKode);
-			pStatement.executeUpdate();
+			try {
+				String kontsulta="INSERT INTO JOKALARI VALUES(?,?,?,?,?,?,?)";
+				PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
+				pStatement.setString(1,JokIzena);
+				pStatement.setString(2,Jok1Abizena);
+				pStatement.setString(3,Jok2Abizena);
+				pStatement.setString(4,JokAdina);
+				pStatement.setString(5,herrialdea);
+				pStatement.setString(6,taldeTxikiKode);
+				pStatement.setString(7,JokTaldea);
+				pStatement.executeUpdate();
+				
+			}catch(SQLException e) {
+				ErroreMezuEdit em=new ErroreMezuEdit("Daturen bat txarto jarrita dago.");
+				em.setVisible(true);
+			}
+				
+			
+			
+			
 			
 			
 			

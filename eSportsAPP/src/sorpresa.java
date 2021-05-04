@@ -37,7 +37,7 @@ import javax.swing.JTextArea;
 public class sorpresa extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextArea textArea;
+	private JTextArea txtrMarkelRubiosJon;
 	private BufferedReader br;
 	private Connection konexioa;
 	private String taldeinfo;
@@ -59,7 +59,6 @@ public class sorpresa extends JDialog {
 	 * Create the dialog.
 	 */
 	public sorpresa() {
-		konektatu();
 		setBackground(SystemColor.desktop);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(sorpresa.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
@@ -74,7 +73,7 @@ public class sorpresa extends JDialog {
 		setLocationRelativeTo(null);
 		{
 			JLabel label = new JLabel("");
-			label.setIcon(new ImageIcon(sorpresa.class.getResource("/images/shield_1.png")));
+			label.setIcon(new ImageIcon(sorpresa.class.getResource("/images/sorpresa.png")));
 			label.setBounds(236, 11, 137, 124);
 			contentPanel.add(label);
 		}
@@ -91,47 +90,35 @@ public class sorpresa extends JDialog {
 			btnNewButton.setIcon(new ImageIcon(sorpresa.class.getResource("/images/icons8_Back_64px.png")));
 			btnNewButton.setBorder(null);
 			btnNewButton.setBackground(new Color(255, 255, 255));
-			btnNewButton.setBounds(10, 362, 52, 73);
+			btnNewButton.setBounds(10, 253, 52, 73);
 			contentPanel.add(btnNewButton);
 		}
-		contentPanel.add(getTextArea());
-		try {
-			taldeakBistaratu();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		contentPanel.add(getTxtrMarkelRubiosJon());
+		{
+			JPanel panel = new JPanel();
+			panel.setBackground(new Color(255, 99, 71));
+			panel.setBounds(215, 123, 121, 24);
+			contentPanel.add(panel);
+			{
+				JLabel lblNewLabel = new JLabel("Egileak");
+				lblNewLabel.setForeground(new Color(255, 255, 255));
+				lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+				panel.add(lblNewLabel);
+			}
 		}
+		
 	}
-	private JTextArea getTextArea() {
-		if (textArea == null) {
-			textArea = new JTextArea();
-			textArea.setBounds(56, 146, 463, 195);
+	private JTextArea getTxtrMarkelRubiosJon() {
+		if (txtrMarkelRubiosJon == null) {
+			txtrMarkelRubiosJon = new JTextArea();
+			txtrMarkelRubiosJon.setEditable(false);
+			txtrMarkelRubiosJon.setFont(new Font("Tahoma", Font.BOLD, 13));
+			txtrMarkelRubiosJon.setForeground(new Color(255, 255, 255));
+			txtrMarkelRubiosJon.setBackground(new Color(255, 99, 71));
+			txtrMarkelRubiosJon.setText("Markel Rubi\u00F1os\r\nJon Blanco\r\nIker Palacios\r\nJulen Fuentes");
+			txtrMarkelRubiosJon.setBounds(215, 158, 121, 95);
 		}
-		return textArea;
+		return txtrMarkelRubiosJon;
 	}
-	private void konektatu(){
-		try {
-			// TODO - datu-basera konektatzeko kodea
-			Class.forName("com.mysql.jdbc.Driver");
-			String zerbitzaria= "jdbc:mysql://localhost:3306/esportsapp";
-			String erabiltzailea= "root";
-			String pasahitza="";
-			konexioa = DriverManager.getConnection(zerbitzaria, erabiltzailea, pasahitza);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-	private void taldeakBistaratu() throws SQLException {
-		String kontsulta = "SELECT * FROM TALDE";
-		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
-
-		ResultSet rs = pStatement.executeQuery();
-		while (rs.next()) {
-			System.out.println(rs.getString("izena"));
-			taldeinfo= rs.getString("izena")+"\n";
-			textArea.append(taldeinfo);
-		}
-	}
+	
 }
