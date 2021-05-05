@@ -122,12 +122,12 @@ public class login_Admin extends JDialog {
 					}
 					
 					if (md5(passwordField.getText()).equals(passwd)) {
-					// lab_GUI ktrl_panela= new lab_GUI();
-					 setVisible(false);
-					 eragiketakAdmin eA= eragiketakAdmin.getNireEragiketakAdmin();
+						// lab_GUI ktrl_panela= new lab_GUI();
+						setVisible(false);
+						eragiketakAdmin eA = eragiketakAdmin.getNireEragiketakAdmin();
 ;
-					 eA.setVisible(true);
-					 eA.setSesioa(true);
+					 	eA.setVisible(true);
+					 	eA.setSesioa(true);
 					 
 				//	 ktrl_panela.main(null);
 					}else {

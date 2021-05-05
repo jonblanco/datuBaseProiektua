@@ -184,7 +184,7 @@ public class bideojokoakGehituKendu extends JDialog {
 		try {
 			// TODO - datu-basera konektatzeko kodea
 			Class.forName("com.mysql.jdbc.Driver");
-			String zerbitzaria= "jdbc:mysql://localhost:3306/esportsapp";
+			String zerbitzaria= "jdbc:mysql://localhost:3306/esportsappV2";
 			String erabiltzailea= "root";
 			String pasahitza="";
 			konexioa = DriverManager.getConnection(zerbitzaria, erabiltzailea, pasahitza);
@@ -309,6 +309,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			this.bideojokoBatenKodeaEguneratu();
 		}
 		this.bideojokoKodea = this.ezabatutakoKodea;
+		this.ezabatutakoKodea = null;
 	}
 
 	private void bideojokoBatenKodeaEguneratu() throws SQLException {
@@ -384,15 +385,16 @@ public class bideojokoakGehituKendu extends JDialog {
 			JOptionPane.showMessageDialog(contentPanel, "Sartutako bideojokoa ez dago datu-basean !!");
 		}
 		else {
-			while (rs.next()) {
-				this.ezabatutakoKodea = Integer.parseInt(rs.getString("kodea"));
+			this.ezabatutakoKodea = Integer.parseInt(rs.getString("kodea"));
+			System.out.println(this.ezabatutakoKodea);
+		}											
+			String kontsultaBideojokoaEzabatzeko = "DELETE FROM bideojoko WHERE izena = ?";
+			PreparedStatement pStatement6 = konexioa.prepareStatement(kontsultaBideojokoaEzabatzeko);
+			pStatement6.setString(1, sartuIzenaTF.getText());
+			pStatement6.executeUpdate();
+			if(this.ezabatutakoKodea != null) {
+				this.bideojokoGuztienKodeakEguneratu();
 			}
-			String kontsultaEzabatzeko = "DELETE FROM bideojoko WHERE izena = ?";
-			PreparedStatement pStatement2 = konexioa.prepareStatement(kontsultaEzabatzeko);
-			pStatement2.setString(1, sartuIzenaTF.getText());
-			pStatement2.executeUpdate();
-			this.bideojokoGuztienKodeakEguneratu();
-		}
 	}
 	
 	private JTextArea getTextArea() {
