@@ -201,8 +201,8 @@ public class adminBerriaGehitu extends JDialog {
 		String userSartu= txtIdatziHemenZure.getText();
 		String pasahitza= passwordField.getText();
 		String pasahitzaHash= md5(pasahitza);
-		Boolean badagoDatuBasean = konprobatuUser(userSartu);
-		if (badagoDatuBasean==false) {
+		
+		if (this.konprobatuUser(userSartu)==false) {
 			String kontsulta = "INSERT INTO ADMINISTRATZAILEAK VALUES(?,?)";
 			PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 			pStatement.setString(1, userSartu);
@@ -222,18 +222,19 @@ public class adminBerriaGehitu extends JDialog {
 	
      public Boolean konprobatuUser(String pUser) throws SQLException {
     	Boolean badago=false;
-		String kontsulta= "SELECT USER FROM ADMINISTRATZAILEAK WHERE USER=? ";
+		String kontsulta= "SELECT USER FROM ADMINISTRATZAILEAK WHERE USER=?";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 		pStatement.setString(1, pUser);
 		ResultSet rs = pStatement.executeQuery();
 		
 		if(rs.next()) {
 		erab= rs.getString("user");
-		
+		System.out.println(erab);
 		}
 		if (erab==pUser) {
 			badago=true;
 		}
+		
 			
 
 		return badago ;

@@ -140,9 +140,9 @@ public class eragiketakAdmin extends JFrame {
 		JButton btnErabiltzailea_1 = new JButton("");
 		btnErabiltzailea_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				adminBerriaGehitu aBG = new adminBerriaGehitu();
-				aBG.setVisible(false);
-				setVisible(true);
+				setVisible(false);
+				adminBerriaGehitu abg= new adminBerriaGehitu();
+				abg.setVisible(true);
 			}
 		});
 		btnErabiltzailea_1.addMouseListener(new MouseAdapter() {
