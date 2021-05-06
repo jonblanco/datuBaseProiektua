@@ -169,6 +169,13 @@ public class eragiketakAdmin extends JFrame {
 		contentPane.add(btnErabiltzailea_1);
 		
 		JButton btnErabiltzailea_1_1 = new JButton("");
+		btnErabiltzailea_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				taldeBerriaGehitu tBG= new taldeBerriaGehitu();
+				tBG.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnErabiltzailea_1_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent e) {
@@ -182,7 +189,7 @@ public class eragiketakAdmin extends JFrame {
 				btnErabiltzailea_1_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,102,0),4));
 			}
 		});
-		btnErabiltzailea_1_1.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/trofeo.png")));
+		btnErabiltzailea_1_1.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/shield_1.png")));
 		btnErabiltzailea_1_1.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1_1.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
@@ -245,7 +252,7 @@ public class eragiketakAdmin extends JFrame {
 		lblNewLabel_1_2.setBounds(484, 227, 120, 14);
 		contentPane.add(lblNewLabel_1_2);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Aurreko talde ");
+		JLabel lblNewLabel_1_3 = new JLabel("Talde bat gehitu");
 		lblNewLabel_1_3.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_3.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
 		lblNewLabel_1_3.setBounds(73, 391, 130, 14);
@@ -262,12 +269,6 @@ public class eragiketakAdmin extends JFrame {
 		lblNewLabel_1_5.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
 		lblNewLabel_1_5.setBounds(484, 391, 120, 14);
 		contentPane.add(lblNewLabel_1_5);
-		
-		JLabel lblNewLabel_1_3_1 = new JLabel("irabazlea ikusi");
-		lblNewLabel_1_3_1.setForeground(new Color(255, 102, 0));
-		lblNewLabel_1_3_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_3_1.setBounds(73, 410, 130, 14);
-		contentPane.add(lblNewLabel_1_3_1);
 		
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.addActionListener(new ActionListener() {

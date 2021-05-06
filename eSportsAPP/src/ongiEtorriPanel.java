@@ -61,7 +61,7 @@ public class ongiEtorriPanel extends JDialog {
 		{
 			JLabel label = new JLabel("");
 			label.setIcon(new ImageIcon(ongiEtorriPanel.class.getResource("/images/Logo.png")));
-			label.setBounds(137, 112, 80, 85);
+			label.setBounds(122, 45, 80, 85);
 			contentPanel.add(label);
 		}
 		{
@@ -83,6 +83,12 @@ public class ongiEtorriPanel extends JDialog {
 			okButton.setFont(new Font("Tw Cen MT", Font.BOLD | Font.ITALIC, 10));
 			okButton.setActionCommand("OK");
 			getRootPane().setDefaultButton(okButton);
+		}
+		{
+			JLabel label = new JLabel("");
+			label.setIcon(new ImageIcon(ongiEtorriPanel.class.getResource("/images/esportsapp_dtc.png")));
+			label.setBounds(74, 122, 165, 56);
+			contentPanel.add(label);
 		}
 	}
 }

@@ -33,16 +33,16 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.swing.JTextArea;
 //
-public class adminBerriaGehitu extends JDialog {
+public class taldeBerriaGehitu extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField txtIdatziHemenZure;
-	private JPasswordField passwordField;
+	private JTextField txtTaldeIzena;
 	private Connection konexioa;
 	private String izena_Kontsultatuta;
 	private String pasahitza_Kontsultatuta;
 	private JTextArea textAreaEginda;
 	private String erab;
+	private JTextField textEkipazioa;
 
 
 	/**
@@ -50,7 +50,7 @@ public class adminBerriaGehitu extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			adminBerriaGehitu dialog = new adminBerriaGehitu();
+			taldeBerriaGehitu dialog = new taldeBerriaGehitu();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -61,12 +61,12 @@ public class adminBerriaGehitu extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public adminBerriaGehitu() {
+	public taldeBerriaGehitu() {
 		konektatu();
 		setBackground(SystemColor.desktop);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(adminBerriaGehitu.class.getResource("/images/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(taldeBerriaGehitu.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
-		setTitle("Administratzaile berriak gehitu");
+		setTitle("Talde berria sartu");
 		
 		setBounds(100, 100, 342, 485);
 		getContentPane().setLayout(new BorderLayout());
@@ -76,33 +76,32 @@ public class adminBerriaGehitu extends JDialog {
 		contentPanel.setLayout(null);
 		setLocationRelativeTo(null);
 		{
-			JLabel lblNewLabel = new JLabel("Administratzaile berriaren izena:");
+			JLabel lblNewLabel = new JLabel("Talde berriaren izena:");
 			lblNewLabel.setForeground(new Color(255, 102, 0));
 			lblNewLabel.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 14));
 			lblNewLabel.setBounds(72, 131, 224, 31);
 			contentPanel.add(lblNewLabel);
 		}
 		{
-			txtIdatziHemenZure = new JTextField();
-			txtIdatziHemenZure.setForeground(Color.LIGHT_GRAY);
-			txtIdatziHemenZure.setBorder(null);
-			txtIdatziHemenZure.setToolTipText("");
-			txtIdatziHemenZure.setBounds(72, 163, 175, 31);
-			contentPanel.add(txtIdatziHemenZure);
-			txtIdatziHemenZure.setColumns(10);
+			txtTaldeIzena = new JTextField();
+			txtTaldeIzena.setForeground(Color.LIGHT_GRAY);
+			txtTaldeIzena.setBorder(null);
+			txtTaldeIzena.setToolTipText("");
+			txtTaldeIzena.setBounds(72, 163, 175, 31);
+			contentPanel.add(txtTaldeIzena);
+			txtTaldeIzena.setColumns(10);
 		}
 		{
-			JLabel lblNewLabel_1 = new JLabel("Administratzaile berriaren pasahitza:");
+			JLabel lblNewLabel_1 = new JLabel("Talde berriaren ekipazio kolorea:");
 			lblNewLabel_1.setForeground(new Color(255, 102, 0));
 			lblNewLabel_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 14));
 			lblNewLabel_1.setBounds(72, 221, 246, 37);
 			contentPanel.add(lblNewLabel_1);
 		}
-		contentPanel.add(getPasswordField());
 		{
 			JLabel label = new JLabel("");
-			label.setIcon(new ImageIcon(adminBerriaGehitu.class.getResource("/images/icons8_Maintenance_96px.png")));
-			label.setBounds(110, 28, 96, 85);
+			label.setIcon(new ImageIcon(taldeBerriaGehitu.class.getResource("/images/shield_1.png")));
+			label.setBounds(110, 11, 96, 102);
 			contentPanel.add(label);
 		}
 		{
@@ -111,7 +110,7 @@ public class adminBerriaGehitu extends JDialog {
 			okButton.setBackground(Color.WHITE);
 			okButton.setBounds(110, 326, 107, 63);
 			contentPanel.add(okButton);
-			okButton.setIcon(new ImageIcon(adminBerriaGehitu.class.getResource("/images/Enter_ON.png")));
+			okButton.setIcon(new ImageIcon(taldeBerriaGehitu.class.getResource("/images/Enter_ON.png")));
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
 					try {
@@ -132,11 +131,11 @@ public class adminBerriaGehitu extends JDialog {
 			contentPanel.add(cancelButton);
 			cancelButton.setBackground(Color.WHITE);
 			cancelButton.setForeground(new Color(0, 0, 0));
-			cancelButton.setIcon(new ImageIcon(adminBerriaGehitu.class.getResource("/images/eraser_1.png")));
+			cancelButton.setIcon(new ImageIcon(taldeBerriaGehitu.class.getResource("/images/eraser_1.png")));
 			cancelButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					txtIdatziHemenZure.setText(null);
-					passwordField.setText(null);
+					txtTaldeIzena.setText(null);
+					textEkipazioa.setText(null);
 				}
 			});
 			cancelButton.setFont(new Font("Tw Cen MT", Font.BOLD | Font.ITALIC, 11));
@@ -155,13 +154,13 @@ public class adminBerriaGehitu extends JDialog {
 		}
 		{
 			JLabel lblImglog = new JLabel("");
-			lblImglog.setIcon(new ImageIcon(adminBerriaGehitu.class.getResource("/images/icons8_customer_32px_1.png")));
+			lblImglog.setIcon(new ImageIcon(taldeBerriaGehitu.class.getResource("/images/icons8_customer_32px_1.png")));
 			lblImglog.setBounds(30, 163, 32, 39);
 			contentPanel.add(lblImglog);
 		}
 		{
 			JLabel lblPswd = new JLabel("");
-			lblPswd.setIcon(new ImageIcon(adminBerriaGehitu.class.getResource("/images/icons8_Key_32px.png")));
+			lblPswd.setIcon(new ImageIcon(taldeBerriaGehitu.class.getResource("/images/icons8_customer_32px_1.png")));
 			lblPswd.setBounds(30, 256, 32, 41);
 			contentPanel.add(lblPswd);
 		}
@@ -174,43 +173,33 @@ public class adminBerriaGehitu extends JDialog {
 					eA.setVisible(true);
 				}
 			});
-			btnNewButton.setIcon(new ImageIcon(adminBerriaGehitu.class.getResource("/images/icons8_Back_64px.png")));
+			btnNewButton.setIcon(new ImageIcon(taldeBerriaGehitu.class.getResource("/images/icons8_Back_64px.png")));
 			btnNewButton.setBorder(null);
 			btnNewButton.setBackground(new Color(255, 255, 255));
 			btnNewButton.setBounds(10, 362, 52, 73);
 			contentPanel.add(btnNewButton);
 		}
 		contentPanel.add(getTextAreaEginda());
+		contentPanel.add(getTextEkipazioa());
 		
-	}
-	private JPasswordField getPasswordField() {
-		if (passwordField == null) {
-			passwordField = new JPasswordField();
-			passwordField.setForeground(Color.LIGHT_GRAY);
-			passwordField.setBorder(null);
-			passwordField.setEchoChar('*');
-			passwordField.setBounds(72, 256, 175, 29);
-		}
-		return passwordField;
 	}
 	private void kontsulta() throws SQLException{
-		String userSartu= txtIdatziHemenZure.getText();
-		String pasahitza= passwordField.getText();
-		String pasahitzaHash= md5(pasahitza);
+		String userSartu= txtTaldeIzena.getText();
+		String kol= textEkipazioa.getText();
 		
 		if (this.konprobatuUser(userSartu)==false) {
-			String kontsulta = "INSERT INTO ADMINISTRATZAILEAK VALUES(?,?)";
+			String kontsulta = "INSERT INTO TALDE VALUES(?,?)";
 			PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 			pStatement.setString(1, userSartu);
-			pStatement.setString(2, pasahitzaHash);
+			pStatement.setString(2, kol);
 			pStatement.executeUpdate();
 			textAreaEginda.append("EGINDA!!!!");
-			txtIdatziHemenZure.setText(null);
-			passwordField.setText(null);
+			txtTaldeIzena.setText(null);
+			textEkipazioa.setText(null);
 		}else {
-			JOptionPane.showMessageDialog(null, "Izen hori duen beste administratzaile bat dago, saiatu berriro.");
-			txtIdatziHemenZure.setText(null);
-			passwordField.setText(null);
+			JOptionPane.showMessageDialog(null, "Izen hori duen beste talde bat dago, saiatu berriro.");
+			txtTaldeIzena.setText(null);
+			textEkipazioa.setText(null);
 		}
 	
 	
@@ -218,7 +207,7 @@ public class adminBerriaGehitu extends JDialog {
 	
      public boolean konprobatuUser(String pUser) throws SQLException {
     	boolean badago=false;
-		String kontsulta= "SELECT USER FROM ADMINISTRATZAILEAK WHERE USER=?";
+		String kontsulta= "SELECT IZENA FROM TALDE WHERE IZENA=?";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 		pStatement.setString(1, pUser);
 		ResultSet rs = pStatement.executeQuery();
@@ -280,5 +269,16 @@ public class adminBerriaGehitu extends JDialog {
 			textAreaEginda.setBounds(72, 298, 175, 31);
 		}
 		return textAreaEginda;
+	}
+	private JTextField getTextEkipazioa() {
+		if (textEkipazioa == null) {
+			textEkipazioa = new JTextField();
+			textEkipazioa.setToolTipText("");
+			textEkipazioa.setForeground(Color.LIGHT_GRAY);
+			textEkipazioa.setColumns(10);
+			textEkipazioa.setBorder(null);
+			textEkipazioa.setBounds(72, 256, 175, 31);
+		}
+		return textEkipazioa;
 	}
 }

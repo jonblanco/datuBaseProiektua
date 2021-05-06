@@ -18,6 +18,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.SystemColor;
+import java.awt.Font;
+import javax.swing.JSeparator;
 
 public class JokalariaGehitu extends JFrame {
 
@@ -31,6 +33,21 @@ public class JokalariaGehitu extends JFrame {
 	private static JokalariaGehitu nireJokalariaGehitu;
 	private JTextField TTKodeTF;
 	private JTextField HerrialdeTF;
+	private JLabel lblIzena_1;
+	private JLabel lblIzena_1_1;
+	private JLabel lblIzena_1_1_1;
+	private JLabel lblIzena_1_1_1_1;
+	private JLabel lblIzena_1_1_1_1_1;
+	private JLabel lblIzena_1_1_1_1_2;
+	private JLabel lblIzena_1_1_1_1_3;
+	private JSeparator separator;
+	private JSeparator separator_1;
+	private JSeparator separator_2;
+	private JSeparator separator_4;
+	private JSeparator separator_5;
+	private JSeparator separator_6;
+	private JSeparator separator_3;
+	private JSeparator separator_7;
 
 	/**
 	 * Launch the application.
@@ -59,9 +76,10 @@ public class JokalariaGehitu extends JFrame {
 	}
 	
 	private JokalariaGehitu() {
+		setTitle("Jokalaria gehitu");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100,400, 400);
+		setBounds(100, 100,484, 438);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -69,56 +87,43 @@ public class JokalariaGehitu extends JFrame {
 		contentPane.setLayout(null);
 		
 		IzenaTF = new JTextField();
-		IzenaTF.setBounds(221, 28, 86, 20);
+		IzenaTF.setBorder(null);
+		IzenaTF.setBounds(201, 28, 175, 20);
 		contentPane.add(IzenaTF);
 		IzenaTF.setColumns(10);
 		
-		JLabel lblIzena = new JLabel("Izena");
-		lblIzena.setBounds(147, 31, 46, 14);
-		contentPane.add(lblIzena);
-		
 		AbizenaTF = new JTextField();
-		AbizenaTF.setBounds(221, 59, 86, 20);
+		AbizenaTF.setBorder(null);
+		AbizenaTF.setBounds(201, 59, 175, 20);
 		contentPane.add(AbizenaTF);
 		AbizenaTF.setColumns(10);
 		
-		JLabel lblAbizena = new JLabel("1.Abizena");
-		lblAbizena.setBounds(147, 62, 64, 14);
-		contentPane.add(lblAbizena);
-		
 		AbizenaTFBi = new JTextField();
-		AbizenaTFBi.setBounds(221, 90, 86, 20);
+		AbizenaTFBi.setBorder(null);
+		AbizenaTFBi.setBounds(201, 90, 175, 20);
 		contentPane.add(AbizenaTFBi);
 		AbizenaTFBi.setColumns(10);
 		
-		JLabel lblabizena = new JLabel("2.Abizena");
-		lblabizena.setBounds(147, 93, 64, 14);
-		contentPane.add(lblabizena);
-		
 		TaldeaTF = new JTextField();
-		TaldeaTF.setBounds(221, 121, 86, 20);
+		TaldeaTF.setBorder(null);
+		TaldeaTF.setBounds(201, 121, 175, 20);
 		contentPane.add(TaldeaTF);
 		TaldeaTF.setColumns(10);
 		
-		JLabel Taldea = new JLabel("Taldea");
-		Taldea.setBounds(147, 124, 46, 14);
-		contentPane.add(Taldea);
-		
 		AdinaTF = new JTextField();
-		AdinaTF.setBounds(221, 152, 86, 20);
+		AdinaTF.setBorder(null);
+		AdinaTF.setBounds(201, 152, 175, 20);
 		contentPane.add(AdinaTF);
 		AdinaTF.setColumns(10);
-		
-		JLabel lblAdina = new JLabel("Adina");
-		lblAdina.setBounds(147, 155, 46, 14);
-		contentPane.add(lblAdina);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(JokalariaGehitu.class.getResource("/images/icons8_User_96px_2.png")));
 		label.setBounds(23, 61, 106, 105);
 		contentPane.add(label);
 		
-		JButton btnGehitu = new JButton("Gehitu");
+		JButton btnGehitu = new JButton("");
+		btnGehitu.setBackground(Color.WHITE);
+		btnGehitu.setBorder(null);
 		btnGehitu.setIcon(new ImageIcon(JokalariaGehitu.class.getResource("/images/Enter_ON.png")));
 		btnGehitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -130,7 +135,7 @@ public class JokalariaGehitu extends JFrame {
 				}
 			}
 		});
-		btnGehitu.setBounds(191, 258, 97, 29);
+		btnGehitu.setBounds(148, 264, 159, 63);
 		contentPane.add(btnGehitu);
 		
 		JButton btnNewButton = new JButton("");
@@ -144,26 +149,73 @@ public class JokalariaGehitu extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(JokalariaGehitu.class.getResource("/images/icons8_Back_64px.png")));
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setBounds(23, 177, 52, 73);
+		btnNewButton.setBounds(10, 279, 52, 73);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("TT_kode");
-		lblNewLabel.setBounds(147, 183, 58, 14);
-		contentPane.add(lblNewLabel);
-		
 		TTKodeTF = new JTextField();
-		TTKodeTF.setBounds(221, 180, 86, 20);
+		TTKodeTF.setBorder(null);
+		TTKodeTF.setBounds(201, 183, 175, 20);
 		contentPane.add(TTKodeTF);
 		TTKodeTF.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Herrialdea");
-		lblNewLabel_1.setBounds(147, 211, 64, 14);
-		contentPane.add(lblNewLabel_1);
-		
 		HerrialdeTF = new JTextField();
-		HerrialdeTF.setBounds(221, 209, 86, 20);
+		HerrialdeTF.setBorder(null);
+		HerrialdeTF.setBounds(201, 209, 175, 20);
 		contentPane.add(HerrialdeTF);
 		HerrialdeTF.setColumns(10);
+		contentPane.add(getLblIzena_1());
+		contentPane.add(getLblIzena_1_1());
+		contentPane.add(getLblIzena_1_1_1());
+		contentPane.add(getLblIzena_1_1_1_1());
+		contentPane.add(getLblIzena_1_1_1_1_1());
+		
+		lblIzena_1_1_1_1_2 = new JLabel("Talde txiki kode");
+		lblIzena_1_1_1_1_2.setForeground(new Color(255, 102, 0));
+		lblIzena_1_1_1_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 14));
+		lblIzena_1_1_1_1_2.setBounds(95, 183, 96, 20);
+		contentPane.add(lblIzena_1_1_1_1_2);
+		
+		lblIzena_1_1_1_1_3 = new JLabel("Herrialdea");
+		lblIzena_1_1_1_1_3.setForeground(new Color(255, 102, 0));
+		lblIzena_1_1_1_1_3.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 14));
+		lblIzena_1_1_1_1_3.setBounds(123, 209, 76, 20);
+		contentPane.add(lblIzena_1_1_1_1_3);
+		contentPane.add(getSeparator());
+		
+		separator_1 = new JSeparator();
+		separator_1.setBackground(Color.BLACK);
+		separator_1.setBounds(201, 81, 175, 20);
+		contentPane.add(separator_1);
+		
+		separator_2 = new JSeparator();
+		separator_2.setBackground(Color.BLACK);
+		separator_2.setBounds(201, 112, 175, 16);
+		contentPane.add(separator_2);
+		
+		separator_4 = new JSeparator();
+		separator_4.setBackground(Color.BLACK);
+		separator_4.setBounds(201, 177, 175, 16);
+		contentPane.add(separator_4);
+		
+		separator_5 = new JSeparator();
+		separator_5.setBackground(Color.BLACK);
+		separator_5.setBounds(201, 209, 175, 16);
+		contentPane.add(separator_5);
+		
+		separator_6 = new JSeparator();
+		separator_6.setBackground(Color.BLACK);
+		separator_6.setBounds(201, 236, 175, 16);
+		contentPane.add(separator_6);
+		
+		separator_3 = new JSeparator();
+		separator_3.setBackground(Color.BLACK);
+		separator_3.setBounds(201, 150, 175, 16);
+		contentPane.add(separator_3);
+		
+		separator_7 = new JSeparator();
+		separator_7.setBackground(Color.BLACK);
+		separator_7.setBounds(201, 204, 175, 16);
+		contentPane.add(separator_7);
 		setLocationRelativeTo(null);
 		
 		
@@ -241,5 +293,58 @@ public class JokalariaGehitu extends JFrame {
 			e.printStackTrace();
 		}
 
+	}
+	private JLabel getLblIzena_1() {
+		if (lblIzena_1 == null) {
+			lblIzena_1 = new JLabel("Izena");
+			lblIzena_1.setForeground(new Color(255, 102, 0));
+			lblIzena_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 14));
+			lblIzena_1.setBounds(147, 23, 52, 31);
+		}
+		return lblIzena_1;
+	}
+	private JLabel getLblIzena_1_1() {
+		if (lblIzena_1_1 == null) {
+			lblIzena_1_1 = new JLabel("1.Abizena");
+			lblIzena_1_1.setForeground(new Color(255, 102, 0));
+			lblIzena_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 14));
+			lblIzena_1_1.setBounds(123, 54, 66, 31);
+		}
+		return lblIzena_1_1;
+	}
+	private JLabel getLblIzena_1_1_1() {
+		if (lblIzena_1_1_1 == null) {
+			lblIzena_1_1_1 = new JLabel("2.Abizena");
+			lblIzena_1_1_1.setForeground(new Color(255, 102, 0));
+			lblIzena_1_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 14));
+			lblIzena_1_1_1.setBounds(125, 90, 64, 20);
+		}
+		return lblIzena_1_1_1;
+	}
+	private JLabel getLblIzena_1_1_1_1() {
+		if (lblIzena_1_1_1_1 == null) {
+			lblIzena_1_1_1_1 = new JLabel("Taldea");
+			lblIzena_1_1_1_1.setForeground(new Color(255, 102, 0));
+			lblIzena_1_1_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 14));
+			lblIzena_1_1_1_1.setBounds(147, 121, 64, 20);
+		}
+		return lblIzena_1_1_1_1;
+	}
+	private JLabel getLblIzena_1_1_1_1_1() {
+		if (lblIzena_1_1_1_1_1 == null) {
+			lblIzena_1_1_1_1_1 = new JLabel("Adina");
+			lblIzena_1_1_1_1_1.setForeground(new Color(255, 102, 0));
+			lblIzena_1_1_1_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 14));
+			lblIzena_1_1_1_1_1.setBounds(147, 155, 64, 20);
+		}
+		return lblIzena_1_1_1_1_1;
+	}
+	private JSeparator getSeparator() {
+		if (separator == null) {
+			separator = new JSeparator();
+			separator.setBackground(Color.BLACK);
+			separator.setBounds(201, 54, 175, 16);
+		}
+		return separator;
 	}
 }
