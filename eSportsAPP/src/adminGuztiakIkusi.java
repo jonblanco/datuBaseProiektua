@@ -67,7 +67,7 @@ public class adminGuztiakIkusi extends JDialog {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(adminGuztiakIkusi.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
 		
-		setBounds(100, 100, 581, 485);
+		setBounds(100, 100, 318, 467);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -77,7 +77,7 @@ public class adminGuztiakIkusi extends JDialog {
 		{
 			JLabel label = new JLabel("");
 			label.setIcon(new ImageIcon(adminGuztiakIkusi.class.getResource("/images/icons8_Maintenance_96px.png")));
-			label.setBounds(236, 11, 137, 124);
+			label.setBounds(98, 11, 96, 104);
 			contentPanel.add(label);
 		}
 		{
@@ -92,11 +92,16 @@ public class adminGuztiakIkusi extends JDialog {
 			btnNewButton.setIcon(new ImageIcon(adminGuztiakIkusi.class.getResource("/images/icons8_Back_64px.png")));
 			btnNewButton.setBorder(null);
 			btnNewButton.setBackground(new Color(255, 255, 255));
-			btnNewButton.setBounds(10, 362, 52, 73);
+			btnNewButton.setBounds(10, 346, 52, 73);
 			contentPanel.add(btnNewButton);
 		}
 		contentPanel.add(getTextArea());
 		contentPanel.add(getLblIzenak());
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 127, 80));
+		panel.setBounds(54, 144, 195, 189);
+		contentPanel.add(panel);
 		try {
 			adminGuztiakKontsultatu();
 		} catch (SQLException e1) {
@@ -107,7 +112,11 @@ public class adminGuztiakIkusi extends JDialog {
 	private JTextArea getTextArea() {
 		if (textArea == null) {
 			textArea = new JTextArea();
-			textArea.setBounds(56, 146, 463, 195);
+			textArea.setFont(new Font("Nirmala UI", Font.BOLD, 16));
+			textArea.setForeground(new Color(255, 255, 255));
+			textArea.setBackground(new Color(255, 127, 80));
+			textArea.setEditable(false);
+			textArea.setBounds(72, 155, 157, 167);
 		}
 		return textArea;
 	}
@@ -127,10 +136,10 @@ public class adminGuztiakIkusi extends JDialog {
 	}
 	private JLabel getLblIzenak() {
 		if (lblIzenak == null) {
-			lblIzenak = new JLabel("Izenak");
+			lblIzenak = new JLabel("Administratzailea");
 			lblIzenak.setForeground(new Color(255, 102, 0));
 			lblIzenak.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
-			lblIzenak.setBounds(56, 104, 107, 31);
+			lblIzenak.setBounds(54, 113, 150, 31);
 		}
 		return lblIzenak;
 	}

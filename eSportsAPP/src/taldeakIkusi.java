@@ -33,6 +33,7 @@ import javax.swing.JSeparator;
 import java.awt.Toolkit;
 import java.awt.SystemColor;
 import javax.swing.JTextArea;
+import java.awt.Canvas;
 //
 public class taldeakIkusi extends JDialog {
 
@@ -75,7 +76,7 @@ public class taldeakIkusi extends JDialog {
 		{
 			JLabel label = new JLabel("");
 			label.setIcon(new ImageIcon(taldeakIkusi.class.getResource("/images/shield_1.png")));
-			label.setBounds(236, 11, 137, 124);
+			label.setBounds(236, 11, 96, 124);
 			contentPanel.add(label);
 		}
 		{
@@ -95,6 +96,26 @@ public class taldeakIkusi extends JDialog {
 			contentPanel.add(btnNewButton);
 		}
 		contentPanel.add(getTextArea());
+		
+		Canvas canvas = new Canvas();
+		canvas.setBackground(new Color(255, 99, 71));
+		canvas.setBounds(163, 143, 120, 213);
+		contentPanel.add(canvas);
+		
+		Canvas canvas_1 = new Canvas();
+		canvas_1.setBackground(new Color(255, 99, 71));
+		canvas_1.setBounds(36, 142, 120, 213);
+		contentPanel.add(canvas_1);
+		
+		Canvas canvas_2 = new Canvas();
+		canvas_2.setBackground(new Color(255, 99, 71));
+		canvas_2.setBounds(289, 143, 120, 213);
+		contentPanel.add(canvas_2);
+		
+		Canvas canvas_3 = new Canvas();
+		canvas_3.setBackground(new Color(255, 99, 71));
+		canvas_3.setBounds(414, 143, 120, 213);
+		contentPanel.add(canvas_3);
 		try {
 			taldeakBistaratu();
 		} catch (SQLException e) {
@@ -105,7 +126,8 @@ public class taldeakIkusi extends JDialog {
 	private JTextArea getTextArea() {
 		if (textArea == null) {
 			textArea = new JTextArea();
-			textArea.setBounds(56, 146, 463, 195);
+			textArea.setBackground(new Color(255, 99, 71));
+			textArea.setBounds(42, 149, 104, 200);
 		}
 		return textArea;
 	}

@@ -33,6 +33,7 @@ public class eragiketakUser extends JFrame {
 	private BufferedReader br;
 	private JPanel contentPane;
 	private boolean sesioaIrekita;
+	private JLabel lblNewLabel_1_3_1;
 
 	/**
 	 * Launch the application.
@@ -180,8 +181,8 @@ public class eragiketakUser extends JFrame {
 		btnErabiltzailea_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
-				saridunakIkusi sI = new saridunakIkusi();
-				sI.setVisible(true);
+				bilatuBideojokoPartaideak bPI = new bilatuBideojokoPartaideak();
+				bPI.setVisible(true);
 			}
 		});
 		btnErabiltzailea_1_1.addMouseListener(new MouseAdapter() {
@@ -197,7 +198,7 @@ public class eragiketakUser extends JFrame {
 				btnErabiltzailea_1_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,102,0),4));
 			}
 		});
-		btnErabiltzailea_1_1.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/medallaNaranja.png")));
+		btnErabiltzailea_1_1.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/consola.png")));
 		btnErabiltzailea_1_1.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1_1.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea_1_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
@@ -274,10 +275,10 @@ public class eragiketakUser extends JFrame {
 		lblNewLabel_1_2.setBounds(484, 227, 120, 14);
 		contentPane.add(lblNewLabel_1_2);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Saridunak ikusi");
+		JLabel lblNewLabel_1_3 = new JLabel("Bideojoko bateko");
 		lblNewLabel_1_3.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_3.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_3.setBounds(73, 391, 130, 14);
+		lblNewLabel_1_3.setBounds(63, 391, 130, 14);
 		contentPane.add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Ranking-a");
@@ -314,6 +315,7 @@ public class eragiketakUser extends JFrame {
 		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.setBounds(10, 30, 52, 73);
 		contentPane.add(btnNewButton_1);
+		contentPane.add(getLblNewLabel_1_3_1());
 		setLocationRelativeTo(null);
 		this.sesioaIrekita=false;
 		
@@ -330,7 +332,14 @@ public class eragiketakUser extends JFrame {
 		
 	return sesioaIrekita;
 	}
-		
-		
+	private JLabel getLblNewLabel_1_3_1() {
+		if (lblNewLabel_1_3_1 == null) {
+			lblNewLabel_1_3_1 = new JLabel("partaideak ikusi");
+			lblNewLabel_1_3_1.setForeground(new Color(255, 102, 0));
+			lblNewLabel_1_3_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
+			lblNewLabel_1_3_1.setBounds(69, 411, 130, 14);
+		}
+		return lblNewLabel_1_3_1;
+	}
 }	
 
