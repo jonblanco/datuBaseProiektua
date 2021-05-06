@@ -76,7 +76,7 @@ public class ranking extends JDialog {
 		{
 			JLabel label = new JLabel("");
 			label.setIcon(new ImageIcon(ranking.class.getResource("/images/trofeo.png")));
-			label.setBounds(72, 145, 96, 124);
+			label.setBounds(234, 7, 96, 124);
 			contentPanel.add(label);
 		}
 		{
@@ -92,7 +92,7 @@ public class ranking extends JDialog {
 			btnNewButton.setIcon(new ImageIcon(ranking.class.getResource("/images/icons8_Back_64px.png")));
 			btnNewButton.setBorder(null);
 			btnNewButton.setBackground(new Color(255, 255, 255));
-			btnNewButton.setBounds(10, 362, 52, 73);
+			btnNewButton.setBounds(10, 7, 52, 73);
 			contentPanel.add(btnNewButton);
 		}
 		contentPanel.add(getTextAreaTaldeIzena());
@@ -101,7 +101,7 @@ public class ranking extends JDialog {
 		JPanel panel = new JPanel();
 		panel.setForeground(new Color(255, 255, 255));
 		panel.setBackground(new Color(255, 99, 71));
-		panel.setBounds(194, 113, 15, 195);
+		panel.setBounds(127, 226, 15, 195);
 		contentPanel.add(panel);
 		FlowLayout fl_panel = new FlowLayout(FlowLayout.CENTER, 2, 1);
 		fl_panel.setAlignOnBaseline(true);
@@ -164,7 +164,7 @@ public class ranking extends JDialog {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 99, 71));
-		panel_1.setBounds(219, 85, 125, 17);
+		panel_1.setBounds(152, 198, 125, 17);
 		contentPanel.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -177,10 +177,22 @@ public class ranking extends JDialog {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(255, 99, 71));
 		panel_2.setForeground(new Color(255, 99, 71));
-		panel_2.setBounds(356, 85, 123, 17);
+		panel_2.setBounds(289, 198, 123, 17);
 		contentPanel.add(panel_2);
 		panel_2.setLayout(null);
 		panel_2.add(getLblNewLabel_3());
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Hona hemen talde guztien sailkapena, bideojoko guztietan");
+		lblNewLabel_1_2.setForeground(new Color(255, 102, 0));
+		lblNewLabel_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
+		lblNewLabel_1_2.setBounds(49, 142, 425, 17);
+		contentPanel.add(lblNewLabel_1_2);
+		
+		JLabel lblNewLabel_1_2_1 = new JLabel("lortutako irabazien arabera ordenatuta:");
+		lblNewLabel_1_2_1.setForeground(new Color(255, 102, 0));
+		lblNewLabel_1_2_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
+		lblNewLabel_1_2_1.setBounds(49, 162, 592, 17);
+		contentPanel.add(lblNewLabel_1_2_1);
 		try {
 			taldeakBistaratu();
 		} catch (SQLException e) {
@@ -195,7 +207,7 @@ public class ranking extends JDialog {
 			textAreaTaldeIzena.setEditable(false);
 			textAreaTaldeIzena.setFont(new Font("Tahoma", Font.BOLD, 12));
 			textAreaTaldeIzena.setBackground(new Color(255, 99, 71));
-			textAreaTaldeIzena.setBounds(219, 113, 125, 195);
+			textAreaTaldeIzena.setBounds(152, 226, 125, 195);
 		}
 		return textAreaTaldeIzena;
 	}
@@ -207,7 +219,7 @@ public class ranking extends JDialog {
 			textAreaIrabaziKop.setEditable(false);
 			textAreaIrabaziKop.setFont(new Font("Tahoma", Font.BOLD, 12));
 			textAreaIrabaziKop.setBackground(new Color(255, 99, 71));
-			textAreaIrabaziKop.setBounds(354, 113, 125, 195);
+			textAreaIrabaziKop.setBounds(287, 226, 125, 195);
 		}
 		return textAreaIrabaziKop;
 	}
@@ -226,14 +238,17 @@ public class ranking extends JDialog {
 
 	}
 	private void taldeakBistaratu() throws SQLException {
-		String kontsulta = "select talde.izena,talde_txiki.irabazikop from talde inner join talde_txiki where talde_txiki.taldeizena=talde.izena group by talde.izena order by irabazikop DESC;";
+		//String kontsulta = "select talde.izena,talde_txiki.irabazikop from talde inner join talde_txiki where talde_txiki.taldeizena=talde.izena group by talde.izena order by irabazikop DESC;";
+		String kontsulta = "SELECT taldeizena, SUM(irabazikop) FROM TALDE_TXIKI GROUP BY taldeizena ORDER BY SUM(irabazikop) DESC";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 
 		ResultSet rs = pStatement.executeQuery();
 		while (rs.next()) {
-			String taldeIzena= rs.getString("izena")+"\n";
+			//String taldeIzena= rs.getString("izena")+"\n";
+			String taldeIzena= rs.getString("taldeizena")+"\n";
 			textAreaTaldeIzena.append(taldeIzena);
-			String taldeIrabaziKop= rs.getString("talde_txiki.irabaziKop")+"\n";
+			//String taldeIrabaziKop= rs.getString("irabaziKop")+"\n";
+			String taldeIrabaziKop= rs.getString("SUM(irabaziKop)")+"\n";
 			textAreaIrabaziKop.append(taldeIrabaziKop);
 			
 			

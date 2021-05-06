@@ -12,6 +12,8 @@ import java.awt.GridLayout;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,9 +35,8 @@ public class bilatuJokalaria extends JDialog {
 	private JTextArea textArea;
 	private Connection konexioa;
 	private String jokInfo;
-	private JLabel lblIzena;
-	private JLabel lblIzena_2;
-	private JLabel lblIzena_3;
+	private JScrollPane scrollPane;
+	private JLabel lblIzenaHerrialdeaTaldea;
 	
 	/**
 	 * Launch the application.
@@ -156,9 +157,12 @@ public class bilatuJokalaria extends JDialog {
 			contentPanel.add(btnNewButton);
 		}
 		contentPanel.add(getTextArea());
-		contentPanel.add(getLblIzena());
-		contentPanel.add(getLblIzena_2());
-		contentPanel.add(getLblIzena_3());
+		this.scrollPane = new JScrollPane(this.textArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		//this.scrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setSize(209, 114);
+		scrollPane.setLocation(58, 231);
+		contentPanel.add(this.scrollPane);
+		scrollPane.setColumnHeaderView(getLblIzenaHerrialdeaTaldea());
 	}
 	protected void bilatuJok() throws SQLException {
 		String izena= this.jokIzenaTxt.getText();
@@ -191,6 +195,7 @@ public class bilatuJokalaria extends JDialog {
 	private JTextArea getTextArea() {
 		if (textArea == null) {
 			textArea = new JTextArea();
+			textArea.setEditable(false);
 			textArea.setBounds(58, 251, 209, 94);
 		}
 		return textArea;
@@ -209,31 +214,12 @@ public class bilatuJokalaria extends JDialog {
 		}
 
 	}
-	private JLabel getLblIzena() {
-		if (lblIzena == null) {
-			lblIzena = new JLabel("Izena");
-			lblIzena.setForeground(new Color(255, 102, 0));
-			lblIzena.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 9));
-			lblIzena.setBounds(62, 221, 32, 31);
+	private JLabel getLblIzenaHerrialdeaTaldea() {
+		if (lblIzenaHerrialdeaTaldea == null) {
+			lblIzenaHerrialdeaTaldea = new JLabel("Izena      Herrialdea       Taldea");
+			lblIzenaHerrialdeaTaldea.setForeground(new Color(255, 102, 0));
+			lblIzenaHerrialdeaTaldea.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		}
-		return lblIzena;
-	}
-	private JLabel getLblIzena_2() {
-		if (lblIzena_2 == null) {
-			lblIzena_2 = new JLabel("Herrialdea");
-			lblIzena_2.setForeground(new Color(255, 102, 0));
-			lblIzena_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 9));
-			lblIzena_2.setBounds(114, 221, 53, 31);
-		}
-		return lblIzena_2;
-	}
-	private JLabel getLblIzena_3() {
-		if (lblIzena_3 == null) {
-			lblIzena_3 = new JLabel("Taldea");
-			lblIzena_3.setForeground(new Color(255, 102, 0));
-			lblIzena_3.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 9));
-			lblIzena_3.setBounds(177, 221, 100, 31);
-		}
-		return lblIzena_3;
+		return lblIzenaHerrialdeaTaldea;
 	}
 }

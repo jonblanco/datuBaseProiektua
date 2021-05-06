@@ -23,6 +23,8 @@ import java.awt.GridLayout;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,6 +43,7 @@ public class taldetxoakIkusi extends JDialog {
 	private BufferedReader br;
 	private Connection konexioa;
 	private String taldeinfo;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -122,6 +125,11 @@ public class taldetxoakIkusi extends JDialog {
 			lblNewLabel_1_2_1.setBounds(344, 186, 211, 14);
 			contentPanel.add(lblNewLabel_1_2_1);
 		}
+		
+		this.scrollPane = new JScrollPane(this.textArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setSize(496, 195);
+		scrollPane.setLocation(34, 211);
+		this.contentPanel.add(this.scrollPane);
 		try {
 			taldetxoakBistaratu();
 		} catch (SQLException e) {
@@ -133,6 +141,7 @@ public class taldetxoakIkusi extends JDialog {
 	private JTextArea getTextArea() {
 		if (textArea == null) {
 			textArea = new JTextArea();
+			textArea.setEditable(false);
 			textArea.setBounds(63, 211, 463, 195);
 		}
 		return textArea;
@@ -152,13 +161,13 @@ public class taldetxoakIkusi extends JDialog {
 
 	}
 	private void taldetxoakBistaratu() throws SQLException {
-		String kontsulta = "select taldeizena, entrenatzailea, irabazikop from talde_txiki order by irabaziKop";
+		String kontsulta = "SELECT taldetxikiizena, entrenatzailea, irabazikop FROM talde_txiki ORDER BY irabaziKop DESC";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 
 		ResultSet rs = pStatement.executeQuery();
 		while (rs.next()) {
-			System.out.println(rs.getString("taldeizena"));
-			taldeinfo= rs.getString("taldeizena");
+			System.out.println(rs.getString("taldetxikiizena"));
+			taldeinfo= rs.getString("taldetxikiizena");
 			textArea.append(taldeinfo);
 			textArea.append("\t\t");
 

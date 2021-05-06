@@ -23,6 +23,8 @@ import java.awt.GridLayout;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,6 +43,7 @@ public class saridunakIkusi extends JDialog {
 	private BufferedReader br;
 	private Connection konexioa;
 	private String taldeinfo;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -129,6 +132,11 @@ public class saridunakIkusi extends JDialog {
 			lblNewLabel_1_2_1.setBounds(256, 241, 243, 31);
 			contentPanel.add(lblNewLabel_1_2_1);
 		}
+		this.scrollPane = new JScrollPane(this.textArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setSize(463, 168);
+		scrollPane.setLocation(63, 267);
+		this.contentPanel.add(this.scrollPane);
+		
 		try {
 			saridunakBistaratu();
 		} catch (SQLException e) {
@@ -140,6 +148,7 @@ public class saridunakIkusi extends JDialog {
 	private JTextArea getTextArea() {
 		if (textArea == null) {
 			textArea = new JTextArea();
+			textArea.setEditable(false);
 			textArea.setBounds(63, 267, 463, 168);
 		}
 		return textArea;
