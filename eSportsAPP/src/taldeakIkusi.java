@@ -38,10 +38,17 @@ import java.awt.Canvas;
 public class taldeakIkusi extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextArea textArea;
-	private BufferedReader br;
+	private JTextArea TaldeIzena;
+	private JTextArea TTKop;
+	private JTextArea BabesleKop;
+	private JTextArea Ekikolorea;
 	private Connection konexioa;
 	private String taldeinfo;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	
 
 	/**
 	 * Launch the application.
@@ -66,7 +73,7 @@ public class taldeakIkusi extends JDialog {
 		getContentPane().setBackground(Color.DARK_GRAY);
 		setTitle("Taldeak ikusi");
 		
-		setBounds(100, 100, 581, 485);
+		setBounds(100, 100, 581, 504);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -92,30 +99,61 @@ public class taldeakIkusi extends JDialog {
 			btnNewButton.setIcon(new ImageIcon(taldeakIkusi.class.getResource("/images/icons8_Back_64px.png")));
 			btnNewButton.setBorder(null);
 			btnNewButton.setBackground(new Color(255, 255, 255));
-			btnNewButton.setBounds(10, 362, 52, 73);
+			btnNewButton.setBounds(10, 382, 52, 73);
 			contentPanel.add(btnNewButton);
 		}
-		contentPanel.add(getTextArea());
+		contentPanel.add(this.getTTKop());
+		contentPanel.add(getTaldeIzena());
+		contentPanel.add(this.getBabesleKop());
+		contentPanel.add(this.getEkikolorea());
 		
 		Canvas canvas = new Canvas();
 		canvas.setBackground(new Color(255, 99, 71));
-		canvas.setBounds(163, 143, 120, 213);
+		canvas.setBounds(157, 155, 120, 213);
 		contentPanel.add(canvas);
 		
 		Canvas canvas_1 = new Canvas();
 		canvas_1.setBackground(new Color(255, 99, 71));
-		canvas_1.setBounds(36, 142, 120, 213);
+		canvas_1.setBounds(30, 155, 120, 213);
 		contentPanel.add(canvas_1);
 		
 		Canvas canvas_2 = new Canvas();
 		canvas_2.setBackground(new Color(255, 99, 71));
-		canvas_2.setBounds(289, 143, 120, 213);
+		canvas_2.setBounds(283, 155, 120, 213);
 		contentPanel.add(canvas_2);
 		
 		Canvas canvas_3 = new Canvas();
 		canvas_3.setBackground(new Color(255, 99, 71));
-		canvas_3.setBounds(414, 143, 120, 213);
+		canvas_3.setBounds(408, 155, 120, 213);
 		contentPanel.add(canvas_3);
+		{
+			this.lblNewLabel = new JLabel("Taldea");
+			this.lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+			this.lblNewLabel.setForeground(new Color(255, 69, 0));
+			this.lblNewLabel.setBounds(36, 136, 46, 14);
+			contentPanel.add(this.lblNewLabel);
+		}
+		{
+			this.lblNewLabel_1 = new JLabel("Kolorea");
+			this.lblNewLabel_1.setForeground(new Color(255, 69, 0));
+			this.lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+			this.lblNewLabel_1.setBounds(159, 138, 66, 14);
+			contentPanel.add(this.lblNewLabel_1);
+		}
+		{
+			this.lblNewLabel_2 = new JLabel("Babesle Kop");
+			this.lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+			this.lblNewLabel_2.setForeground(new Color(255, 69, 0));
+			this.lblNewLabel_2.setBounds(287, 138, 109, 14);
+			contentPanel.add(this.lblNewLabel_2);
+		}
+		{
+			this.lblNewLabel_3 = new JLabel("Talde Txiki");
+			this.lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 14));
+			this.lblNewLabel_3.setForeground(new Color(255, 69, 0));
+			this.lblNewLabel_3.setBounds(411, 137, 109, 14);
+			contentPanel.add(this.lblNewLabel_3);
+		}
 		try {
 			taldeakBistaratu();
 		} catch (SQLException e) {
@@ -123,13 +161,52 @@ public class taldeakIkusi extends JDialog {
 			e.printStackTrace();
 		}
 	}
-	private JTextArea getTextArea() {
-		if (textArea == null) {
-			textArea = new JTextArea();
-			textArea.setBackground(new Color(255, 99, 71));
-			textArea.setBounds(42, 149, 104, 200);
+	private JTextArea getTaldeIzena() {
+		if (TaldeIzena == null) {
+			TaldeIzena = new JTextArea();
+			TaldeIzena.setEditable(false);
+			TaldeIzena.setFont(new Font("Monospaced", Font.BOLD, 13));
+			TaldeIzena.setForeground(new Color(255, 255, 255));
+			TaldeIzena.setBackground(new Color(255, 99, 71));
+			TaldeIzena.setBounds(36, 161, 109, 200);
 		}
-		return textArea;
+		return TaldeIzena;
+	}
+	
+	private JTextArea getTTKop() {
+		if (this.TTKop == null) {
+			this.TTKop = new JTextArea();
+			TTKop.setEditable(false);
+			TTKop.setFont(new Font("Monospaced", Font.BOLD, 13));
+			TTKop.setForeground(new Color(255, 255, 255));
+			this.TTKop.setBackground(new Color(255, 99, 71));
+			this.TTKop.setBounds(409, 160, 109, 203);
+		}
+		return this.TTKop;
+	}
+	
+	private JTextArea getBabesleKop() {
+		if (this.BabesleKop == null) {
+			this.BabesleKop = new JTextArea();
+			BabesleKop.setEditable(false);
+			BabesleKop.setFont(new Font("Monospaced", Font.BOLD, 13));
+			BabesleKop.setForeground(new Color(255, 255, 255));
+			this.BabesleKop.setBackground(new Color(255, 99, 71));
+			this.BabesleKop.setBounds(287, 158, 109, 203);
+		}
+		return this.BabesleKop;
+	}
+	
+	private JTextArea getEkikolorea() {
+		if (this.Ekikolorea == null) {
+			this.Ekikolorea = new JTextArea();
+			Ekikolorea.setEditable(false);
+			Ekikolorea.setFont(new Font("Monospaced", Font.BOLD, 13));
+			Ekikolorea.setForeground(new Color(255, 255, 255));
+			this.Ekikolorea.setBackground(new Color(255, 99, 71));
+			this.Ekikolorea.setBounds(159, 160, 109, 203);
+		}
+		return this.Ekikolorea;
 	}
 	private void konektatu(){
 		try {
@@ -146,14 +223,23 @@ public class taldeakIkusi extends JDialog {
 
 	}
 	private void taldeakBistaratu() throws SQLException {
-		String kontsulta = "SELECT * FROM TALDE";
+		String kontsulta = "SELECT T.izena, T.ekikolorea, COUNT(T.izena), COUNT(DISTINCT izenababesle) FROM (TALDE T INNER JOIN TALDE_TXIKI TT ON TT.taldeizena=T.izena) INNER JOIN BABESTU B ON B.izenatalde=T.izena GROUP BY T.izena, ekikolorea;";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 
 		ResultSet rs = pStatement.executeQuery();
 		while (rs.next()) {
-			System.out.println(rs.getString("izena"));
 			taldeinfo= rs.getString("izena")+"\n";
-			textArea.append(taldeinfo);
+			TaldeIzena.append(taldeinfo);
+			
+			taldeinfo= rs.getString("COUNT(DISTINCT izenababesle)")+"\n";
+			this.BabesleKop.append(taldeinfo);
+			
+			taldeinfo= rs.getString("ekikolorea")+"\n";
+			this.Ekikolorea.append(taldeinfo);
+			
+			taldeinfo= rs.getString("COUNT(T.izena)")+"\n";
+			TTKop.append(taldeinfo);
+			
 		}
 	}
 }

@@ -142,7 +142,7 @@ public class taldetxoakIkusi extends JDialog {
 		if (textArea == null) {
 			textArea = new JTextArea();
 			textArea.setEditable(false);
-			textArea.setBounds(63, 211, 463, 195);
+			textArea.setBounds(20, 0, 463, 195);
 		}
 		return textArea;
 	}
@@ -161,7 +161,7 @@ public class taldetxoakIkusi extends JDialog {
 
 	}
 	private void taldetxoakBistaratu() throws SQLException {
-		String kontsulta = "SELECT taldetxikiizena, entrenatzailea, irabazikop FROM talde_txiki ORDER BY irabaziKop DESC";
+		String kontsulta = "SELECT taldetxikiizena, entrenatzailea, irabazikop, taldeizena FROM talde_txiki ORDER BY irabaziKop DESC;";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 
 		ResultSet rs = pStatement.executeQuery();
