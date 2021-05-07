@@ -178,6 +178,7 @@ public class bilatuBideojokoPartaideak extends JDialog {
 		
 		ResultSet rs = pStatement.executeQuery();
 		textArea.setText("");
+		//
 			while(rs.next()) {
 			talInfo= rs.getString("taldeizena");
 			textArea.append(talInfo);
