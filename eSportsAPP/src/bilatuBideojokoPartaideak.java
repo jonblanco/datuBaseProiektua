@@ -181,22 +181,14 @@ public class bilatuBideojokoPartaideak extends JDialog {
 			while(rs.next()) {
 			talInfo= rs.getString("taldeizena");
 			textArea.append(talInfo);
-			textArea.append(" ");
-			textArea.append(" ");
-			textArea.append(" ");
-			textArea.append(" ");
+			textArea.append("\t");
 			talInfo= rs.getString("ekikolorea");
 			textArea.append(talInfo);
-			textArea.append(" ");
-			textArea.append(" ");
-			textArea.append(" ");
-			textArea.append(" ");
+			textArea.append("\t");
+	
 			talInfo= rs.getString("taldetxikiizena");
 			textArea.append(talInfo);
-			textArea.append(" ");
-			textArea.append(" ");
-			textArea.append(" ");
-			textArea.append(" ");
+			textArea.append("\t");
 			talInfo= rs.getString("entrenatzailea")+"\n";
 			textArea.append(talInfo);
 			}
