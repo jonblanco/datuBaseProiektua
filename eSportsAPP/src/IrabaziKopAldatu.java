@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.mysql.cj.protocol.Resultset;
+
 import javax.swing.JSeparator;
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -13,12 +16,19 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Canvas;
 import java.awt.Label;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
 
 public class IrabaziKopAldatu extends JFrame {
 
 	private JPanel contentPane;
 	private JSeparator separator;
-	private JTextField textField;
+	private JTextField TaldeTxikiTF;
 	private JLabel lblImglog;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
@@ -27,6 +37,7 @@ public class IrabaziKopAldatu extends JFrame {
 	private JLabel lblImglog_1;
 	private JLabel lblImglog_2;
 	private JLabel IrabaziKopLbl;
+	private Connection konexioa;
 
 	/**
 	 * Launch the application.
@@ -47,6 +58,36 @@ public class IrabaziKopAldatu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	private void konektatu(){
+		try {
+			// TODO - datu-basera konektatzeko kodea
+			Class.forName("com.mysql.jdbc.Driver");
+			String zerbitzaria= "jdbc:mysql://localhost:3306/esportsapp";
+			String erabiltzailea= "root";
+			String pasahitza="";
+			konexioa = DriverManager.getConnection(zerbitzaria, erabiltzailea, pasahitza);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	protected void bilatuJok() throws SQLException {
+		String izena= this.TaldeTxikiTF.getText();
+		this.TaldeIzenaLbl.setText(izena);
+		String kontsulta = "SELECT IRABAZIKOP FROM TALDE_TXIKI WHERE talde_txiki.taldetxikiizena=?";
+		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
+		pStatement.setString(1, izena);
+		ResultSet rs=pStatement.executeQuery();
+		String irabaziKop="";
+		if(rs.next()) {
+			irabaziKop=rs.getString("IrabaziKop");
+		}
+		
+		this.IrabaziKopLbl.setText(irabaziKop);
+		String izenalike= "%"+izena+"%";
+		pStatement.setString(1, izenalike);
+	}
 	public IrabaziKopAldatu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 362, 270);
@@ -68,13 +109,13 @@ public class IrabaziKopAldatu extends JFrame {
 			this.contentPane.add(this.separator);
 		}
 		{
-			this.textField = new JTextField();
-			this.textField.setToolTipText("");
-			this.textField.setForeground(Color.LIGHT_GRAY);
-			this.textField.setColumns(10);
-			this.textField.setBorder(null);
-			this.textField.setBounds(82, 44, 175, 31);
-			this.contentPane.add(this.textField);
+			this.TaldeTxikiTF = new JTextField();
+			this.TaldeTxikiTF.setToolTipText("");
+			this.TaldeTxikiTF.setForeground(Color.LIGHT_GRAY);
+			this.TaldeTxikiTF.setColumns(10);
+			this.TaldeTxikiTF.setBorder(null);
+			this.TaldeTxikiTF.setBounds(82, 44, 175, 31);
+			this.contentPane.add(this.TaldeTxikiTF);
 		}
 		{
 			this.lblImglog = new JLabel("");
@@ -98,10 +139,18 @@ public class IrabaziKopAldatu extends JFrame {
 		}
 		{
 			this.btnNewButton = new JButton("");
+			this.btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					konektatu();
+					
+					
+					
+				}
+			});
 			this.btnNewButton.setBackground(new Color(255, 255, 255));
 			this.btnNewButton.setIcon(new ImageIcon(IrabaziKopAldatu.class.getResource("/images/icons8_Search_32px_2.png")));
 			this.btnNewButton.setSelectedIcon(new ImageIcon(IrabaziKopAldatu.class.getResource("/images/boton+1.png")));
-			this.btnNewButton.setBounds(264, 50, 25, 25);
+			this.btnNewButton.setBounds(264, 44, 42, 31);
 			this.contentPane.add(this.btnNewButton);
 		}
 		{
@@ -121,5 +170,9 @@ public class IrabaziKopAldatu extends JFrame {
 			this.IrabaziKopLbl.setBounds(47, 174, 46, 14);
 			this.contentPane.add(this.IrabaziKopLbl);
 		}
+		
+		
 	}
+	
+	
 }

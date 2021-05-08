@@ -249,7 +249,7 @@ public class eragiketakAdmin extends JFrame {
 
 			}
 		});
-		btnErabiltzailea_1_1_2.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/medallaNaranja.png")));
+		btnErabiltzailea_1_1_2.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/MedallaA\u00F1adir.png")));
 		btnErabiltzailea_1_1_2.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1_1_2.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea_1_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
@@ -276,7 +276,7 @@ public class eragiketakAdmin extends JFrame {
 		lblNewLabel_1_4.setBounds(258, 391, 162, 14);
 		contentPane.add(lblNewLabel_1_4);
 		
-		JLabel lblNewLabel_1_5 = new JLabel("Hilabete bateko");
+		JLabel lblNewLabel_1_5 = new JLabel("Irabazi Kopurua");
 		lblNewLabel_1_5.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_5.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
 		lblNewLabel_1_5.setBounds(484, 391, 120, 14);
@@ -324,7 +324,7 @@ public class eragiketakAdmin extends JFrame {
 	}
 	private JLabel getLblNewLabel_1_5_1() {
 		if (lblNewLabel_1_5_1 == null) {
-			lblNewLabel_1_5_1 = new JLabel("leihaketak bilatu");
+			lblNewLabel_1_5_1 = new JLabel("eguneratu");
 			lblNewLabel_1_5_1.setForeground(new Color(255, 102, 0));
 			lblNewLabel_1_5_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
 			lblNewLabel_1_5_1.setBounds(484, 411, 120, 14);
