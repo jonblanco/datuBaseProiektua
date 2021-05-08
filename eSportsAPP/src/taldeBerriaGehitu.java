@@ -197,7 +197,8 @@ public class taldeBerriaGehitu extends JDialog {
 			txtTaldeIzena.setText(null);
 			textEkipazioa.setText(null);
 		}else {
-			JOptionPane.showMessageDialog(null, "Izen hori duen beste talde bat dago, saiatu berriro.");
+			ErroreMezuEdit em=new ErroreMezuEdit("Izen hori duen beste talde bat dago, saiatu berriro.");
+			em.setVisible(true);
 			txtTaldeIzena.setText(null);
 			textEkipazioa.setText(null);
 		}

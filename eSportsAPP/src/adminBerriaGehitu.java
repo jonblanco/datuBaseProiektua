@@ -208,7 +208,8 @@ public class adminBerriaGehitu extends JDialog {
 			txtIdatziHemenZure.setText(null);
 			passwordField.setText(null);
 		}else {
-			JOptionPane.showMessageDialog(null, "Izen hori duen beste administratzaile bat dago, saiatu berriro.");
+			ErroreMezuEdit em=new ErroreMezuEdit("Izen hori duen beste admin bat dago");
+            em.setVisible(true);
 			txtIdatziHemenZure.setText(null);
 			passwordField.setText(null);
 		}

@@ -131,7 +131,8 @@ public class login_Admin extends JDialog {
 					 
 				//	 ktrl_panela.main(null);
 					}else {
-						JOptionPane.showMessageDialog(null, "Datuak txarto sartu dituzu, saiatu berriro.");
+						ErroreMezuEdit em=new ErroreMezuEdit("Datuak txarto sartu dituzu, saiatu berriro.");
+						em.setVisible(true);
 						passwordField.setText(null);
 						passwordField.requestFocus();
 					}

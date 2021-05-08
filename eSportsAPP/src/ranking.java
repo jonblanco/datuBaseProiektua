@@ -283,7 +283,8 @@ public class ranking extends JDialog {
 		}
 		else {
 			if((!this.IrabaziMinTF.getText().equals("") && this.IrabaziMaxTF.getText().equals("")) || this.IrabaziMinTF.getText().equals("") && !this.IrabaziMaxTF.getText().equals("")){
-				JOptionPane.showMessageDialog(contentPanel, "Tarte bat zehazteko bi testu eremuak bete behar dira !! \n (Talde guztiak agertzeko bi eremuak hustu)");
+				ErroreMezuEdit em=new ErroreMezuEdit("Bi testu eremuak bete behar dira !!");
+				em.setVisible(true);
 				exekutaDaiteke = false;
 			}
 			else {
