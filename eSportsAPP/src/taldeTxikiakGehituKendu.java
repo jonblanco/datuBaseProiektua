@@ -289,35 +289,6 @@ public class taldeTxikiakGehituKendu extends JDialog {
 	}
 	
 
-	//Datu basean sartuta dagoen bideojoko kopurua kalkulatzeko
-	private int bideojokoKop() throws SQLException{
-		String kontsulta = "SELECT COUNT(*) FROM bideojoko;";
-		PreparedStatement pStatement = konexioa.prepareStatement(kontsulta);
-		ResultSet rs = pStatement.executeQuery();
-		int iterazioKop = 0;
-		while (rs.next()) {
-			 iterazioKop = Integer.parseInt(rs.getString("COUNT(*)"));
-		}
-		return iterazioKop;
-	}
-	
-	//Azkena ez den edozein bideojoko ezabatzean, bakoitzaren kodea eguneratzeko
-	private void bideojokoGuztienKodeakEguneratu() throws SQLException {
-		while(this.ezabatutakoKodea <= this.bideojokoKop()) {
-			this.bideojokoBatenKodeaEguneratu();
-		}
-		this.bideojokoKodea = this.ezabatutakoKodea;
-		this.ezabatutakoKodea = null;
-	}
-
-	private void bideojokoBatenKodeaEguneratu() throws SQLException {
-		String kontsulta = "UPDATE bideojoko SET kodea = ? WHERE kodea = ?";
-		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
-		pStatement.setString(1, this.ezabatutakoKodea.toString());
-		this.ezabatutakoKodea++;
-		pStatement.setString(2, this.ezabatutakoKodea.toString());
-		pStatement.executeUpdate();
-	}
 	
 	//Bideojoko guztien informazioa pantailaratzeko
 	private void taldeTxikiakBistaratu() throws SQLException {
@@ -364,7 +335,8 @@ public class taldeTxikiakGehituKendu extends JDialog {
 		String taldeIzenaString = this.sartuTaldeIzenaTF.getText();
 		String bideojokoKodea = this.sartuBideojokoKodeaTF.getText();
 		if(taldeIzenaString.equals("") || bideojokoKodea.equals("")) {
-			JOptionPane.showMessageDialog(contentPanel, "Bi testu eremuak bete behar dira !!");
+			ErroreMezuEdit em=new ErroreMezuEdit("Bi testu eremuak bete behar dira !!");
+			em.setVisible(true);
 		}
 		else {
 			String taldeTxikiIzena = this.taldeTxikiIzenaLortu(taldeIzenaString.toLowerCase());
@@ -387,10 +359,12 @@ public class taldeTxikiakGehituKendu extends JDialog {
 				pStatement.executeUpdate();	
 			}
 			if(taldeTxikiIzena == null) {
-				JOptionPane.showMessageDialog(contentPanel, "Sartutako taldea ez dago datu-basean !!");
+				ErroreMezuEdit em=new ErroreMezuEdit("Sartutako taldea ez dago datu-basean !!");
+				em.setVisible(true);
 			}
 			if(jokalarikop == null) {
-				JOptionPane.showMessageDialog(contentPanel, "Datu-basean ez dago sartutako kodea duen bideojokorik !!");
+				ErroreMezuEdit em=new ErroreMezuEdit("Datu-basean ez da bideojokoa aurkitu !!");
+				em.setVisible(true);;
 			}
 		}
 		
@@ -479,7 +453,8 @@ public class taldeTxikiakGehituKendu extends JDialog {
 			pStatement2.executeUpdate();
 		}
 		else { //Bestela, ez dela existitzen jakinarazi
-			JOptionPane.showMessageDialog(contentPanel, "Ezabatu nahi duzun talde-txikia ez dago datu basean sartuta !!");
+			ErroreMezuEdit em=new ErroreMezuEdit("Ezabatu nahi duzun talde-txikia ez dago datu basean sartuta !!");
+			em.setVisible(true);
 		}
 	}
 	
