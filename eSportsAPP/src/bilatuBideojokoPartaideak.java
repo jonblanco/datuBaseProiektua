@@ -58,7 +58,7 @@ public class bilatuBideojokoPartaideak extends JDialog {
 		setBackground(SystemColor.desktop);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(bilatuBideojokoPartaideak.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
-		setTitle("Jokalari bat bilatu");
+		setTitle("Bideojoko bateko partaideak ikusi");
 		
 		setBounds(100, 100, 408, 485);
 		getContentPane().setLayout(new BorderLayout());
