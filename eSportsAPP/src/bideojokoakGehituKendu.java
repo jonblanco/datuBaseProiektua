@@ -354,11 +354,13 @@ public class bideojokoakGehituKendu extends JDialog {
 		pKBadago.setString(1, this.sartuIzenaTF.getText());
 		ResultSet rs = pKBadago.executeQuery();
 		if(sartuIzenaTF.getText().length() == 0 || sartuJokalarikopTF.getText().length() == 0) { //Bete behar den eremuren bat hutsik badago
-			JOptionPane.showMessageDialog(contentPanel, "Bideojoko berri bat sartzeko bi eremuak bete behar dira !!");
+			ErroreMezuEdit em = new ErroreMezuEdit("Eremu biak bete !!");
+			em.setVisible(true);
 		}
 		else {
 			if(rs.next()) { //Sartuta badago ...
-				JOptionPane.showMessageDialog(contentPanel, "Sartu nahi duzun bideojokoa dagoneko datu-basean sartuta dago !!");
+				ErroreMezuEdit em = new ErroreMezuEdit("Bideojoko hori dagoeneko sartuta dago !!");
+				em.setVisible(true);
 			}
 			else { //Sartuta EZ badago ...
 				try {
@@ -371,7 +373,8 @@ public class bideojokoakGehituKendu extends JDialog {
 					pStatement.setString(3, sartuJokalarikopTF.getText());
 					pStatement.executeUpdate();
 				}catch (NumberFormatException e) {
-					JOptionPane.showMessageDialog(contentPanel, "'Jokalari kopurua' eremuan zenbaki oso bat sartu behar da");
+					ErroreMezuEdit em = new ErroreMezuEdit("'Jokalari kopurua' hustunean zenbaki bat sartu !!");
+					em.setVisible(true);
 				}
 			}
 		}
@@ -384,7 +387,8 @@ public class bideojokoakGehituKendu extends JDialog {
 		pStatement1.setString(1, this.sartuIzenaTF.getText());
 		ResultSet rs = pStatement1.executeQuery();
 		if(!rs.next()) { //Datu basean sartuta ez dagoen bideojoko bat ezabatzen saiatzen bada ...
-			JOptionPane.showMessageDialog(contentPanel, "Sartutako bideojokoa ez dago datu-basean !!");
+			ErroreMezuEdit em = new ErroreMezuEdit("'Sartutako bideojokoa ez dago datu-basean !!");
+			em.setVisible(true);
 		}
 		else {
 			this.ezabatutakoKodea = Integer.parseInt(rs.getString("kodea"));

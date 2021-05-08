@@ -176,7 +176,8 @@ public class bilatuBideojokoPartaideak extends JDialog {
 		textArea.setText("");
 		talIzenaTxt.setText("");
 		if(!rKontsultaHutsa.next()) {
-			JOptionPane.showMessageDialog(contentPanel, "Bilatu duzun bideojokoa ez dago datu-basean sartuta!!");
+			ErroreMezuEdit em=new ErroreMezuEdit("Bilatu duzun bideojokoa ez dago datu-basean sartuta!!");
+			em.setVisible(true);
 		}
 		else {
 			rs = pStatement.executeQuery();
