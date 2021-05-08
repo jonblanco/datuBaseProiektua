@@ -233,6 +233,9 @@ public class eragiketakAdmin extends JFrame {
 		JButton btnErabiltzailea_1_1_2 = new JButton("");
 		btnErabiltzailea_1_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				IrabaziKopAldatu ika=new IrabaziKopAldatu();
+				ika.setVisible(true);
 			}
 		});
 		btnErabiltzailea_1_1_2.addMouseListener(new MouseAdapter() {
