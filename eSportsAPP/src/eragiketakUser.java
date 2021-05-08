@@ -241,7 +241,7 @@ public class eragiketakUser extends JFrame {
 		JButton btnErabiltzailea_1_1_2 = new JButton("");
 		btnErabiltzailea_1_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				hilabetekoLeihaketakBilatu hLB= new hilabetekoLeihaketakBilatu();
+				hilabetekoLehiaketakBilatu hLB= new hilabetekoLehiaketakBilatu();
 				setVisible(false);
 				hLB.setVisible(true);
 			}
@@ -278,7 +278,7 @@ public class eragiketakUser extends JFrame {
 		JLabel lblNewLabel_1_3 = new JLabel("Bideojoko bateko");
 		lblNewLabel_1_3.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_3.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_3.setBounds(63, 391, 130, 14);
+		lblNewLabel_1_3.setBounds(67, 392, 130, 14);
 		contentPane.add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Ranking-a");
@@ -317,7 +317,7 @@ public class eragiketakUser extends JFrame {
 		contentPane.add(btnNewButton_1);
 		contentPane.add(getLblNewLabel_1_3_1());
 		
-		JLabel lblNewLabel_1_5_1 = new JLabel("leihaketak lortu");
+		JLabel lblNewLabel_1_5_1 = new JLabel("lehiaketak lortu");
 		lblNewLabel_1_5_1.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_5_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
 		lblNewLabel_1_5_1.setBounds(484, 412, 120, 14);
@@ -343,7 +343,7 @@ public class eragiketakUser extends JFrame {
 			lblNewLabel_1_3_1 = new JLabel("partaideak ikusi");
 			lblNewLabel_1_3_1.setForeground(new Color(255, 102, 0));
 			lblNewLabel_1_3_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-			lblNewLabel_1_3_1.setBounds(69, 411, 130, 14);
+			lblNewLabel_1_3_1.setBounds(73, 412, 130, 14);
 		}
 		return lblNewLabel_1_3_1;
 	}

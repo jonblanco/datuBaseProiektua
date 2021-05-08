@@ -28,7 +28,7 @@ import java.awt.Toolkit;
 import java.awt.SystemColor;
 import javax.swing.JTextArea;
 //
-public class hilabetekoLeihaketakBilatu extends JDialog {
+public class hilabetekoLehiaketakBilatu extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField hilaIzenaTxt;
 	private JTextArea textArea;
@@ -42,7 +42,7 @@ public class hilabetekoLeihaketakBilatu extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			hilabetekoLeihaketakBilatu dialog = new hilabetekoLeihaketakBilatu();
+			hilabetekoLehiaketakBilatu dialog = new hilabetekoLehiaketakBilatu();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -53,12 +53,12 @@ public class hilabetekoLeihaketakBilatu extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public hilabetekoLeihaketakBilatu() {
+	public hilabetekoLehiaketakBilatu() {
 		konektatu();
 		setBackground(SystemColor.desktop);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(hilabetekoLeihaketakBilatu.class.getResource("/images/logo.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(hilabetekoLehiaketakBilatu.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
-		setTitle("Hilabeteko leihaketak bilatu");
+		setTitle("Hilabeteko lehiaketak bilatu");
 		
 		setBounds(100, 100, 498, 485);
 		getContentPane().setLayout(new BorderLayout());
@@ -85,7 +85,7 @@ public class hilabetekoLeihaketakBilatu extends JDialog {
 		}
 		{
 			JLabel label = new JLabel("");
-			label.setIcon(new ImageIcon(hilabetekoLeihaketakBilatu.class.getResource("/images/icons8_Today_96px.png")));
+			label.setIcon(new ImageIcon(hilabetekoLehiaketakBilatu.class.getResource("/images/icons8_Today_96px.png")));
 			label.setBounds(183, 22, 96, 85);
 			contentPanel.add(label);
 		}
@@ -95,7 +95,7 @@ public class hilabetekoLeihaketakBilatu extends JDialog {
 			okButton.setBackground(Color.WHITE);
 			okButton.setBounds(180, 362, 107, 63);
 			contentPanel.add(okButton);
-			okButton.setIcon(new ImageIcon(hilabetekoLeihaketakBilatu.class.getResource("/images/Enter_ON.png")));
+			okButton.setIcon(new ImageIcon(hilabetekoLehiaketakBilatu.class.getResource("/images/Enter_ON.png")));
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 						try {
@@ -118,7 +118,7 @@ public class hilabetekoLeihaketakBilatu extends JDialog {
 			contentPanel.add(cancelButton);
 			cancelButton.setBackground(Color.WHITE);
 			cancelButton.setForeground(new Color(0, 0, 0));
-			cancelButton.setIcon(new ImageIcon(hilabetekoLeihaketakBilatu.class.getResource("/images/eraser_1.png")));
+			cancelButton.setIcon(new ImageIcon(hilabetekoLehiaketakBilatu.class.getResource("/images/eraser_1.png")));
 			cancelButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					hilaIzenaTxt.setText(null);
@@ -135,7 +135,7 @@ public class hilabetekoLeihaketakBilatu extends JDialog {
 		contentPanel.add(separator);
 		{
 			JLabel lblImglog = new JLabel("");
-			lblImglog.setIcon(new ImageIcon(hilabetekoLeihaketakBilatu.class.getResource("/images/icons8_Search_32px.png")));
+			lblImglog.setIcon(new ImageIcon(hilabetekoLehiaketakBilatu.class.getResource("/images/icons8_Search_32px.png")));
 			lblImglog.setBounds(103, 157, 32, 39);
 			contentPanel.add(lblImglog);
 		}
@@ -149,7 +149,7 @@ public class hilabetekoLeihaketakBilatu extends JDialog {
 					eU.setVisible(true);
 				}
 			});
-			btnNewButton.setIcon(new ImageIcon(hilabetekoLeihaketakBilatu.class.getResource("/images/icons8_Back_64px.png")));
+			btnNewButton.setIcon(new ImageIcon(hilabetekoLehiaketakBilatu.class.getResource("/images/icons8_Back_64px.png")));
 			btnNewButton.setBorder(null);
 			btnNewButton.setBackground(new Color(255, 255, 255));
 			btnNewButton.setBounds(10, 362, 52, 73);
@@ -272,7 +272,7 @@ public class hilabetekoLeihaketakBilatu extends JDialog {
 	}
 	private JLabel getLblIzenaHerrialdeaTaldea() {
 		if (lblIzenaHerrialdeaTaldea == null) {
-			lblIzenaHerrialdeaTaldea = new JLabel("Kodea                  Izena                      Jokalarikop         Irabazlea             Hur. Leihaketa");
+			lblIzenaHerrialdeaTaldea = new JLabel("Kodea                  Izena                      Jokalarikop         Irabazlea             Hur. Lehiaketa");
 			lblIzenaHerrialdeaTaldea.setForeground(new Color(255, 102, 0));
 			lblIzenaHerrialdeaTaldea.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		}
