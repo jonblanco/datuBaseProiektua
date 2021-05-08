@@ -42,6 +42,11 @@ public class ranking extends JDialog {
 	private Connection konexioa;
 	private JTextArea textAreaIrabaziKop;
 	private JLabel lblNewLabel_3;
+	private JLabel IrabaziMinLbl;
+	private JTextField IrabaziMinTF;
+	private JSeparator IrabaziMinSep;
+	private JTextField IrabaziMaxTF;
+	private JButton enterBtn;
 
 	/**
 	 * Launch the application.
@@ -74,14 +79,14 @@ public class ranking extends JDialog {
 		contentPanel.setLayout(null);
 		setLocationRelativeTo(null);
 		{
-			JLabel label = new JLabel("");
-			label.setIcon(new ImageIcon(ranking.class.getResource("/images/trofeo.png")));
-			label.setBounds(234, 7, 96, 124);
-			contentPanel.add(label);
+			JLabel logoLbl = new JLabel("");
+			logoLbl.setIcon(new ImageIcon(ranking.class.getResource("/images/trofeo.png")));
+			logoLbl.setBounds(234, 7, 96, 124);
+			contentPanel.add(logoLbl);
 		}
 		{
-			JButton btnNewButton = new JButton("");
-			btnNewButton.addActionListener(new ActionListener() {
+			JButton atzeraBtn = new JButton("");
+			atzeraBtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
 					eragiketakUser eU= new eragiketakUser();
@@ -89,98 +94,98 @@ public class ranking extends JDialog {
 					eU.setVisible(true);
 				}
 			});
-			btnNewButton.setIcon(new ImageIcon(ranking.class.getResource("/images/icons8_Back_64px.png")));
-			btnNewButton.setBorder(null);
-			btnNewButton.setBackground(new Color(255, 255, 255));
-			btnNewButton.setBounds(10, 7, 52, 73);
-			contentPanel.add(btnNewButton);
+			atzeraBtn.setIcon(new ImageIcon(ranking.class.getResource("/images/icons8_Back_64px.png")));
+			atzeraBtn.setBorder(null);
+			atzeraBtn.setBackground(new Color(255, 255, 255));
+			atzeraBtn.setBounds(10, 7, 52, 73);
+			contentPanel.add(atzeraBtn);
 		}
 		contentPanel.add(getTextAreaTaldeIzena());
 		contentPanel.add(getTextAreaIrabaziKop());
 		
-		JPanel panel = new JPanel();
-		panel.setForeground(new Color(255, 255, 255));
-		panel.setBackground(new Color(255, 99, 71));
-		panel.setBounds(127, 226, 15, 195);
-		contentPanel.add(panel);
-		FlowLayout fl_panel = new FlowLayout(FlowLayout.CENTER, 2, 1);
-		fl_panel.setAlignOnBaseline(true);
-		panel.setLayout(fl_panel);
+		JPanel panelZenbakiak = new JPanel();
+		panelZenbakiak.setForeground(new Color(255, 255, 255));
+		panelZenbakiak.setBackground(new Color(255, 99, 71));
+		panelZenbakiak.setBounds(49, 228, 15, 195);
+		contentPanel.add(panelZenbakiak);
+		FlowLayout fl_panelZenbakiak = new FlowLayout(FlowLayout.CENTER, 2, 1);
+		fl_panelZenbakiak.setAlignOnBaseline(true);
+		panelZenbakiak.setLayout(fl_panelZenbakiak);
 		
 		JLabel lblNewLabel_1 = new JLabel("1");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_1);
+		panelZenbakiak.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("2");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_2);
+		panelZenbakiak.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_4 = new JLabel("3");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_4);
+		panelZenbakiak.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("4");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_5.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_5);
+		panelZenbakiak.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("5");
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_6.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_6);
+		panelZenbakiak.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("6");
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_7.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_7);
+		panelZenbakiak.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_8 = new JLabel("7");
 		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_8.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_8);
+		panelZenbakiak.add(lblNewLabel_8);
 		
 		JLabel lblNewLabel_9 = new JLabel("8");
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_9.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_9);
+		panelZenbakiak.add(lblNewLabel_9);
 		
 		JLabel lblNewLabel_10 = new JLabel("9");
 		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_10.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_10);
+		panelZenbakiak.add(lblNewLabel_10);
 		
 		JLabel lblNewLabel_11 = new JLabel("10");
 		lblNewLabel_11.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_11.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_11);
+		panelZenbakiak.add(lblNewLabel_11);
 		
 		JLabel lblNewLabel_12 = new JLabel("11");
 		lblNewLabel_12.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_12.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel_12);
+		panelZenbakiak.add(lblNewLabel_12);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 99, 71));
-		panel_1.setBounds(152, 198, 125, 17);
-		contentPanel.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel panelTaldeLbl = new JPanel();
+		panelTaldeLbl.setBackground(new Color(255, 99, 71));
+		panelTaldeLbl.setBounds(74, 200, 125, 17);
+		contentPanel.add(panelTaldeLbl);
+		panelTaldeLbl.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Taldea");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(41, 1, 38, 14);
-		panel_1.add(lblNewLabel);
+		panelTaldeLbl.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(255, 99, 71));
-		panel_2.setForeground(new Color(255, 99, 71));
-		panel_2.setBounds(289, 198, 123, 17);
-		contentPanel.add(panel_2);
-		panel_2.setLayout(null);
-		panel_2.add(getLblNewLabel_3());
+		JPanel panelIrabazikopLbl = new JPanel();
+		panelIrabazikopLbl.setBackground(new Color(255, 99, 71));
+		panelIrabazikopLbl.setForeground(new Color(255, 99, 71));
+		panelIrabazikopLbl.setBounds(211, 200, 123, 17);
+		contentPanel.add(panelIrabazikopLbl);
+		panelIrabazikopLbl.setLayout(null);
+		panelIrabazikopLbl.add(getLblNewLabel_3());
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Hona hemen talde guztien sailkapena, bideojoko guztietan");
 		lblNewLabel_1_2.setForeground(new Color(255, 102, 0));
@@ -193,6 +198,28 @@ public class ranking extends JDialog {
 		lblNewLabel_1_2_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
 		lblNewLabel_1_2_1.setBounds(49, 162, 592, 17);
 		contentPanel.add(lblNewLabel_1_2_1);
+		contentPanel.add(getIrabaziMinLbl());
+		contentPanel.add(getIrabaziMinTF());
+		contentPanel.add(getIrabaziMinSep());
+		
+		JLabel IrabaziMaxLbl = new JLabel("Irabazi kopuru MAX");
+		IrabaziMaxLbl.setForeground(new Color(255, 102, 0));
+		IrabaziMaxLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
+		IrabaziMaxLbl.setBounds(372, 295, 147, 17);
+		contentPanel.add(IrabaziMaxLbl);
+		
+		IrabaziMaxTF = new JTextField();
+		IrabaziMaxTF.setForeground(Color.LIGHT_GRAY);
+		IrabaziMaxTF.setColumns(10);
+		IrabaziMaxTF.setBorder(null);
+		IrabaziMaxTF.setBounds(370, 323, 147, 28);
+		contentPanel.add(IrabaziMaxTF);
+		
+		JSeparator IrabaziMaxSep = new JSeparator();
+		IrabaziMaxSep.setBackground(Color.BLACK);
+		IrabaziMaxSep.setBounds(370, 351, 147, 16);
+		contentPanel.add(IrabaziMaxSep);
+		contentPanel.add(getEnterBtn());
 		try {
 			taldeakBistaratu();
 		} catch (SQLException e) {
@@ -207,7 +234,7 @@ public class ranking extends JDialog {
 			textAreaTaldeIzena.setEditable(false);
 			textAreaTaldeIzena.setFont(new Font("Tahoma", Font.BOLD, 12));
 			textAreaTaldeIzena.setBackground(new Color(255, 99, 71));
-			textAreaTaldeIzena.setBounds(152, 226, 125, 195);
+			textAreaTaldeIzena.setBounds(74, 228, 125, 195);
 		}
 		return textAreaTaldeIzena;
 	}
@@ -219,7 +246,7 @@ public class ranking extends JDialog {
 			textAreaIrabaziKop.setEditable(false);
 			textAreaIrabaziKop.setFont(new Font("Tahoma", Font.BOLD, 12));
 			textAreaIrabaziKop.setBackground(new Color(255, 99, 71));
-			textAreaIrabaziKop.setBounds(287, 226, 125, 195);
+			textAreaIrabaziKop.setBounds(209, 228, 125, 195);
 		}
 		return textAreaIrabaziKop;
 	}
@@ -238,20 +265,49 @@ public class ranking extends JDialog {
 
 	}
 	private void taldeakBistaratu() throws SQLException {
-		//String kontsulta = "select talde.izena,talde_txiki.irabazikop from talde inner join talde_txiki where talde_txiki.taldeizena=talde.izena group by talde.izena order by irabazikop DESC;";
-		String kontsulta = "SELECT taldeizena, SUM(irabazikop) FROM TALDE_TXIKI GROUP BY taldeizena ORDER BY SUM(irabazikop) DESC";
-		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
+//		MariaDB [esportsapp]> SELECT taldeizena, SUM(irabazikop)
+//	    -> FROM TALDE_TXIKI
+//	    -> GROUP BY taldeizena
+//	    -> HAVING SUM(irabazikop) BETWEEN 40 AND 60
+//	    -> ORDER BY SUM(irabazikop);
+		boolean exekutaDaiteke = true;
+		textAreaTaldeIzena.setText(null);
+		textAreaIrabaziKop.setText(null);
+		PreparedStatement pStatement = null;
+		if(this.IrabaziMinTF.getText().equals("") && this.IrabaziMaxTF.getText().equals("")) {
+			String kontsultaTarterikGabe = "SELECT taldeizena, SUM(irabazikop) "
+					+ " FROM TALDE_TXIKI "
+					+ " GROUP BY taldeizena "
+					+ " ORDER BY SUM(irabazikop) DESC";
+			pStatement=konexioa.prepareStatement(kontsultaTarterikGabe);
+		}
+		else {
+			if((!this.IrabaziMinTF.getText().equals("") && this.IrabaziMaxTF.getText().equals("")) || this.IrabaziMinTF.getText().equals("") && !this.IrabaziMaxTF.getText().equals("")){
+				JOptionPane.showMessageDialog(contentPanel, "Tarte bat zehazteko bi testu eremuak bete behar dira !! \n (Talde guztiak agertzeko bi eremuak hustu)");
+				exekutaDaiteke = false;
+			}
+			else {
+				String kontsultaTarteekin = "SELECT taldeizena, SUM(irabazikop)"
+						+ " FROM TALDE_TXIKI"
+						+ " GROUP BY taldeizena"
+						+ " HAVING SUM(irabazikop) BETWEEN ? AND ?"
+						+ " ORDER BY SUM(irabazikop) DESC";
+				pStatement=konexioa.prepareStatement(kontsultaTarteekin);
+				pStatement.setString(1, this.IrabaziMinTF.getText());
+				pStatement.setString(2, this.IrabaziMaxTF.getText());
+			}
+		}
 
-		ResultSet rs = pStatement.executeQuery();
-		while (rs.next()) {
-			//String taldeIzena= rs.getString("izena")+"\n";
-			String taldeIzena= rs.getString("taldeizena")+"\n";
-			textAreaTaldeIzena.append(taldeIzena);
-			//String taldeIrabaziKop= rs.getString("irabaziKop")+"\n";
-			String taldeIrabaziKop= rs.getString("SUM(irabaziKop)")+"\n";
-			textAreaIrabaziKop.append(taldeIrabaziKop);
-			
-			
+		if(exekutaDaiteke) {
+			ResultSet rs = pStatement.executeQuery();
+			while (rs.next()) {
+				String taldeIzena= rs.getString("taldeizena")+"\n";
+				textAreaTaldeIzena.append(taldeIzena);
+				String taldeIrabaziKop= rs.getString("SUM(irabaziKop)")+"\n";
+				textAreaIrabaziKop.append(taldeIrabaziKop);
+				
+				
+			}
 		}
 	}
 	private JLabel getLblNewLabel_3() {
@@ -262,5 +318,53 @@ public class ranking extends JDialog {
 			lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		}
 		return lblNewLabel_3;
+	}
+	private JLabel getIrabaziMinLbl() {
+		if (IrabaziMinLbl == null) {
+			IrabaziMinLbl = new JLabel("Irabazi kopuru MIN");
+			IrabaziMinLbl.setForeground(new Color(255, 102, 0));
+			IrabaziMinLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
+			IrabaziMinLbl.setBounds(372, 212, 147, 17);
+		}
+		return IrabaziMinLbl;
+	}
+	private JTextField getIrabaziMinTF() {
+		if (IrabaziMinTF == null) {
+			IrabaziMinTF = new JTextField();
+			IrabaziMinTF.setForeground(Color.LIGHT_GRAY);
+			IrabaziMinTF.setBounds(368, 240, 147, 28);
+			IrabaziMinTF.setColumns(10);
+			IrabaziMinTF.setBorder(null);
+		}
+		return IrabaziMinTF;
+	}
+	private JSeparator getIrabaziMinSep() {
+		if (IrabaziMinSep == null) {
+			IrabaziMinSep = new JSeparator();
+			IrabaziMinSep.setBackground(Color.BLACK);
+			IrabaziMinSep.setBounds(368, 268, 147, 16);
+		}
+		return IrabaziMinSep;
+	}
+	private JButton getEnterBtn() {
+		if (enterBtn == null) {
+			enterBtn = new JButton("");
+			enterBtn.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					try {
+						taldeakBistaratu();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+				}
+			});
+			enterBtn.setIcon(new ImageIcon(ranking.class.getResource("/images/Enter_ON.png")));
+			enterBtn.setForeground(new Color(255, 102, 0));
+			enterBtn.setFont(new Font("Microsoft Tai Le", Font.BOLD, 23));
+			enterBtn.setBorder(null);
+			enterBtn.setBackground(Color.WHITE);
+			enterBtn.setBounds(364, 373, 155, 50);
+		}
+		return enterBtn;
 	}
 }

@@ -99,7 +99,7 @@ public class taldeakIkusi extends JDialog {
 			btnNewButton.setIcon(new ImageIcon(taldeakIkusi.class.getResource("/images/icons8_Back_64px.png")));
 			btnNewButton.setBorder(null);
 			btnNewButton.setBackground(new Color(255, 255, 255));
-			btnNewButton.setBounds(10, 382, 52, 73);
+			btnNewButton.setBounds(10, 11, 52, 73);
 			contentPanel.add(btnNewButton);
 		}
 		contentPanel.add(this.getTTKop());
@@ -109,49 +109,49 @@ public class taldeakIkusi extends JDialog {
 		
 		Canvas canvas = new Canvas();
 		canvas.setBackground(new Color(255, 99, 71));
-		canvas.setBounds(157, 155, 120, 213);
+		canvas.setBounds(157, 195, 120, 213);
 		contentPanel.add(canvas);
 		
 		Canvas canvas_1 = new Canvas();
 		canvas_1.setBackground(new Color(255, 99, 71));
-		canvas_1.setBounds(30, 155, 120, 213);
+		canvas_1.setBounds(30, 195, 120, 213);
 		contentPanel.add(canvas_1);
 		
 		Canvas canvas_2 = new Canvas();
 		canvas_2.setBackground(new Color(255, 99, 71));
-		canvas_2.setBounds(283, 155, 120, 213);
+		canvas_2.setBounds(283, 195, 120, 213);
 		contentPanel.add(canvas_2);
 		
 		Canvas canvas_3 = new Canvas();
 		canvas_3.setBackground(new Color(255, 99, 71));
-		canvas_3.setBounds(408, 155, 120, 213);
+		canvas_3.setBounds(408, 195, 120, 213);
 		contentPanel.add(canvas_3);
 		{
 			this.lblNewLabel = new JLabel("Taldea");
 			this.lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 			this.lblNewLabel.setForeground(new Color(255, 69, 0));
-			this.lblNewLabel.setBounds(36, 136, 46, 14);
+			this.lblNewLabel.setBounds(69, 175, 46, 14);
 			contentPanel.add(this.lblNewLabel);
 		}
 		{
 			this.lblNewLabel_1 = new JLabel("Kolorea");
 			this.lblNewLabel_1.setForeground(new Color(255, 69, 0));
 			this.lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-			this.lblNewLabel_1.setBounds(159, 138, 66, 14);
+			this.lblNewLabel_1.setBounds(191, 175, 61, 14);
 			contentPanel.add(this.lblNewLabel_1);
 		}
 		{
 			this.lblNewLabel_2 = new JLabel("Babesle Kop");
 			this.lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 			this.lblNewLabel_2.setForeground(new Color(255, 69, 0));
-			this.lblNewLabel_2.setBounds(287, 138, 109, 14);
+			this.lblNewLabel_2.setBounds(300, 175, 109, 14);
 			contentPanel.add(this.lblNewLabel_2);
 		}
 		{
 			this.lblNewLabel_3 = new JLabel("Talde Txiki");
 			this.lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 14));
 			this.lblNewLabel_3.setForeground(new Color(255, 69, 0));
-			this.lblNewLabel_3.setBounds(411, 137, 109, 14);
+			this.lblNewLabel_3.setBounds(427, 175, 109, 14);
 			contentPanel.add(this.lblNewLabel_3);
 		}
 		try {
@@ -168,7 +168,7 @@ public class taldeakIkusi extends JDialog {
 			TaldeIzena.setFont(new Font("Monospaced", Font.BOLD, 13));
 			TaldeIzena.setForeground(new Color(255, 255, 255));
 			TaldeIzena.setBackground(new Color(255, 99, 71));
-			TaldeIzena.setBounds(36, 161, 109, 200);
+			TaldeIzena.setBounds(36, 200, 109, 200);
 		}
 		return TaldeIzena;
 	}
@@ -180,7 +180,7 @@ public class taldeakIkusi extends JDialog {
 			TTKop.setFont(new Font("Monospaced", Font.BOLD, 13));
 			TTKop.setForeground(new Color(255, 255, 255));
 			this.TTKop.setBackground(new Color(255, 99, 71));
-			this.TTKop.setBounds(409, 160, 109, 203);
+			this.TTKop.setBounds(409, 200, 109, 203);
 		}
 		return this.TTKop;
 	}
@@ -192,7 +192,7 @@ public class taldeakIkusi extends JDialog {
 			BabesleKop.setFont(new Font("Monospaced", Font.BOLD, 13));
 			BabesleKop.setForeground(new Color(255, 255, 255));
 			this.BabesleKop.setBackground(new Color(255, 99, 71));
-			this.BabesleKop.setBounds(287, 158, 109, 203);
+			this.BabesleKop.setBounds(287, 200, 109, 203);
 		}
 		return this.BabesleKop;
 	}
@@ -204,7 +204,7 @@ public class taldeakIkusi extends JDialog {
 			Ekikolorea.setFont(new Font("Monospaced", Font.BOLD, 13));
 			Ekikolorea.setForeground(new Color(255, 255, 255));
 			this.Ekikolorea.setBackground(new Color(255, 99, 71));
-			this.Ekikolorea.setBounds(159, 160, 109, 203);
+			this.Ekikolorea.setBounds(159, 200, 109, 203);
 		}
 		return this.Ekikolorea;
 	}
@@ -223,7 +223,10 @@ public class taldeakIkusi extends JDialog {
 
 	}
 	private void taldeakBistaratu() throws SQLException {
-		String kontsulta = "SELECT T.izena, T.ekikolorea, COUNT(T.izena), COUNT(DISTINCT izenababesle) FROM (TALDE T INNER JOIN TALDE_TXIKI TT ON TT.taldeizena=T.izena) INNER JOIN BABESTU B ON B.izenatalde=T.izena GROUP BY T.izena, ekikolorea;";
+		String kontsulta = "SELECT T.izena, T.ekikolorea, COUNT(DISTINCT TT.taldetxikiizena), COUNT(DISTINCT izenababesle)"
+				+ " FROM (TALDE_TXIKI TT INNER JOIN TALDE T ON TT.taldeizena=T.izena) INNER JOIN BABESTU B "
+				+ " ON B.izenatalde=T.izena"
+				+ " GROUP BY T.izena, T.ekikolorea";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 
 		ResultSet rs = pStatement.executeQuery();
@@ -237,7 +240,7 @@ public class taldeakIkusi extends JDialog {
 			taldeinfo= rs.getString("ekikolorea")+"\n";
 			this.Ekikolorea.append(taldeinfo);
 			
-			taldeinfo= rs.getString("COUNT(T.izena)")+"\n";
+			taldeinfo= rs.getString("COUNT(DISTINCT TT.taldetxikiizena)")+"\n";
 			TTKop.append(taldeinfo);
 			
 		}

@@ -59,6 +59,7 @@ public class bideojokoakGehituKendu extends JDialog {
 	private JScrollPane scrollPane;
 	private JTextArea textArea;
 	private JLabel lblKodeaIzenaJokalari;
+	private JLabel lblHemenBideojokoakGehitu;
 
 	/**
 	 * Launch the application.
@@ -81,7 +82,7 @@ public class bideojokoakGehituKendu extends JDialog {
 		setBackground(SystemColor.desktop);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(bideojokoakGehituKendu.class.getResource("/images/logo.png")));
 		getContentPane().setBackground(Color.DARK_GRAY);
-		setTitle("Saridunak ikusi");
+		setTitle("Bideojokoak kudeatu");
 		try {
 			this.bideojokoKodea = this.bideojokoKop() + 1;
 		} catch (SQLException e1) {
@@ -134,8 +135,8 @@ public class bideojokoakGehituKendu extends JDialog {
 		
 		JLabel panelInfoLbl = new JLabel("Hona hemen lehiaketetan jolasten diren jokoak:");
 		panelInfoLbl.setForeground(new Color(255, 102, 0));
-		panelInfoLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		panelInfoLbl.setBounds(20, 146, 353, 31);
+		panelInfoLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 13));
+		panelInfoLbl.setBounds(10, 131, 353, 31);
 		contentPanel.add(panelInfoLbl);
 		{
 			sartuIzenaTF = new JTextField();
@@ -173,6 +174,7 @@ public class bideojokoakGehituKendu extends JDialog {
 		contentPanel.add(getSartuJokalarikopTF());
 		contentPanel.add(getSartuJokalarikopLbl());
 		contentPanel.add(getEnterBtn());
+		contentPanel.add(getLblHemenBideojokoakGehitu());
 		try {
 			bideojokoakBistaratu();
 		} catch (SQLException e) {
@@ -291,7 +293,7 @@ public class bideojokoakGehituKendu extends JDialog {
 	}
 	
 
-	//Datu basean sartuta dagoenn bideojoko kopurua kalkulatzeko
+	//Datu basean sartuta dagoen bideojoko kopurua kalkulatzeko
 	private int bideojokoKop() throws SQLException{
 		String kontsulta = "SELECT COUNT(*) FROM bideojoko;";
 		PreparedStatement pStatement = konexioa.prepareStatement(kontsulta);
@@ -413,5 +415,14 @@ public class bideojokoakGehituKendu extends JDialog {
 			lblKodeaIzenaJokalari.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		}
 		return lblKodeaIzenaJokalari;
+	}
+	private JLabel getLblHemenBideojokoakGehitu() {
+		if (lblHemenBideojokoakGehitu == null) {
+			lblHemenBideojokoakGehitu = new JLabel("Hemen bideojokoak gehitu eta kentzeko aukera izango duzu");
+			lblHemenBideojokoakGehitu.setForeground(new Color(255, 102, 0));
+			lblHemenBideojokoakGehitu.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 13));
+			lblHemenBideojokoakGehitu.setBounds(10, 161, 436, 31);
+		}
+		return lblHemenBideojokoakGehitu;
 	}
 }
