@@ -160,7 +160,7 @@ public class eragiketakAdmin extends JFrame {
 
 			}
 		});
-		btnErabiltzailea_1.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/equipo.png")));
+		btnErabiltzailea_1.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/icons8_Maintenance_96px.png")));
 		btnErabiltzailea_1.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
@@ -249,7 +249,7 @@ public class eragiketakAdmin extends JFrame {
 
 			}
 		});
-		btnErabiltzailea_1_1_2.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/icons8_Today_96px.png")));
+		btnErabiltzailea_1_1_2.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/medallaNaranja.png")));
 		btnErabiltzailea_1_1_2.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1_1_2.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea_1_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
