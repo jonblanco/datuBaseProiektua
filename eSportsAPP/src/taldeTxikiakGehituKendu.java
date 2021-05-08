@@ -465,10 +465,7 @@ public class taldeTxikiakGehituKendu extends JDialog {
 		return null;
 	}
 	
-	
-	
-//##########################################################################################################################################################
-	
+		
 	//Talde_txiki jakin bat ezabatzeko 
 	private void taldeTxikiaKendu() throws SQLException {
 		String taldeTxikiaExistitzenDa = "SELECT * FROM talde_txiki WHERE taldetxikiizena = ?";

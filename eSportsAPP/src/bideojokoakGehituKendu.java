@@ -90,7 +90,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			e1.printStackTrace();
 		}
 		
-		setBounds(100, 100, 581, 485);
+		setBounds(100, 100, 727, 485);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -100,10 +100,10 @@ public class bideojokoakGehituKendu extends JDialog {
 		{
 			sartuIzenaSep = new JSeparator();
 			sartuIzenaSep.setBackground(Color.BLACK);
-			sartuIzenaSep.setBounds(391, 265, 164, 16);
+			sartuIzenaSep.setBounds(537, 265, 164, 16);
 			sartuIzenaSep.setVisible(false);
 			this.scrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED ,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-			scrollPane.setSize(348, 223);
+			scrollPane.setSize(478, 223);
 			scrollPane.setLocation(10, 210);
 			contentPanel.add(this.scrollPane);
 			scrollPane.setViewportView(getTextArea());
@@ -135,8 +135,8 @@ public class bideojokoakGehituKendu extends JDialog {
 		
 		JLabel panelInfoLbl = new JLabel("Hona hemen lehiaketetan jolasten diren jokoak:");
 		panelInfoLbl.setForeground(new Color(255, 102, 0));
-		panelInfoLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 13));
-		panelInfoLbl.setBounds(10, 131, 353, 31);
+		panelInfoLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+		panelInfoLbl.setBounds(41, 130, 353, 31);
 		contentPanel.add(panelInfoLbl);
 		{
 			sartuIzenaTF = new JTextField();
@@ -144,7 +144,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			sartuIzenaTF.setBorder(null);
 			sartuIzenaTF.setForeground(Color.LIGHT_GRAY);
 			sartuIzenaTF.setColumns(10);
-			sartuIzenaTF.setBounds(391, 229, 164, 31);
+			sartuIzenaTF.setBounds(537, 229, 164, 31);
 			sartuIzenaTF.setVisible(false);
 			contentPanel.add(sartuIzenaTF);
 		}
@@ -167,7 +167,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			kenduBtn.setForeground(new Color(255, 102, 0));
 			kenduBtn.setFont(new Font("Microsoft Tai Le", Font.BOLD, 26));
 			kenduBtn.setBackground(Color.WHITE);
-			kenduBtn.setBounds(478, 118, 65, 50);
+			kenduBtn.setBounds(624, 118, 65, 50);
 			contentPanel.add(kenduBtn);
 		}
 		contentPanel.add(getSartuIzenaLbl());
@@ -214,7 +214,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			gehituBtn.setForeground(new Color(255, 102, 0));
 			gehituBtn.setFont(new Font("Microsoft Tai Le", Font.BOLD, 23));
 			gehituBtn.setBackground(Color.WHITE);
-			gehituBtn.setBounds(391, 118, 65, 50);
+			gehituBtn.setBounds(537, 118, 65, 50);
 		}
 		return gehituBtn;
 	}
@@ -223,7 +223,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			sartuIzenaLbl = new JLabel("Izena:");
 			sartuIzenaLbl.setForeground(new Color(255, 102, 0));
 			sartuIzenaLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
-			sartuIzenaLbl.setBounds(391, 189, 164, 31);
+			sartuIzenaLbl.setBounds(537, 189, 164, 31);
 			sartuIzenaLbl.setVisible(false);
 		}
 		return sartuIzenaLbl;
@@ -235,7 +235,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			sartuJokalarikopTF.setForeground(Color.LIGHT_GRAY);
 			sartuJokalarikopTF.setColumns(10);
 			sartuJokalarikopTF.setBorder(null);
-			sartuJokalarikopTF.setBounds(391, 327, 164, 31);
+			sartuJokalarikopTF.setBounds(537, 327, 164, 31);
 			sartuJokalarikopTF.setVisible(false);
 		}
 		return sartuJokalarikopTF;
@@ -244,7 +244,7 @@ public class bideojokoakGehituKendu extends JDialog {
 		if (sartuJokalariKopSep == null) {
 			sartuJokalariKopSep = new JSeparator();
 			sartuJokalariKopSep.setBackground(Color.BLACK);
-			sartuJokalariKopSep.setBounds(391, 361, 164, 16);
+			sartuJokalariKopSep.setBounds(537, 361, 164, 16);
 			sartuJokalariKopSep.setVisible(false);
 		}
 		return sartuJokalariKopSep;
@@ -254,7 +254,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			sartuJokalarikopLbl = new JLabel("Jokalari kopurua:");
 			sartuJokalarikopLbl.setForeground(new Color(255, 102, 0));
 			sartuJokalarikopLbl.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 18));
-			sartuJokalarikopLbl.setBounds(391, 287, 164, 31);
+			sartuJokalarikopLbl.setBounds(537, 287, 164, 31);
 			sartuJokalarikopLbl.setVisible(false);
 		}
 		return sartuJokalarikopLbl;
@@ -287,7 +287,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			enterBtn.setForeground(new Color(255, 102, 0));
 			enterBtn.setFont(new Font("Microsoft Tai Le", Font.BOLD, 23));
 			enterBtn.setBackground(Color.WHITE);
-			enterBtn.setBounds(391, 383, 155, 50);
+			enterBtn.setBounds(537, 383, 155, 50);
 		}
 		return enterBtn;
 	}
@@ -340,8 +340,12 @@ public class bideojokoakGehituKendu extends JDialog {
 			bideojokoInfo = rs.getString("jokalarikop");
 			textArea.append(bideojokoInfo);
 			textArea.append("\t");
+			
+			bideojokoInfo = rs.getString("irabazlea");
+			textArea.append(bideojokoInfo);
+			textArea.append("\t");
 	
-			bideojokoInfo = rs.getString("irabazlea")+"\n";
+			bideojokoInfo = rs.getString("hurrengoLeihaketa")+"\n";
 			textArea.append(bideojokoInfo);
 		}
 	}
@@ -365,7 +369,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			else { //Sartuta EZ badago ...
 				try {
 					Integer.parseInt(sartuJokalarikopTF.getText());	
-					String kontsultaSartu = "INSERT INTO bideojoko values (?, ?, ?, null)";
+					String kontsultaSartu = "INSERT INTO bideojoko values (?, ?, ?, null, null)";
 					PreparedStatement pStatement = konexioa.prepareStatement(kontsultaSartu);
 					pStatement.setString(1, bideojokoKodea.toString());
 					this.bideojokoKodea++;
@@ -413,8 +417,8 @@ public class bideojokoakGehituKendu extends JDialog {
 	
 	private JLabel getLblKodeaIzenaJokalari() {
 		if (lblKodeaIzenaJokalari == null) {
-			lblKodeaIzenaJokalari = new JLabel("Kodea                   Izena             Jokalari kop.         Irabazlea");
-			lblKodeaIzenaJokalari.setHorizontalAlignment(SwingConstants.CENTER);
+			lblKodeaIzenaJokalari = new JLabel("Kodea                   Izena                     Jokalari kop.       Irabazlea             Hurrengo Leihaketa");
+			lblKodeaIzenaJokalari.setHorizontalAlignment(SwingConstants.LEFT);
 			lblKodeaIzenaJokalari.setForeground(new Color(255, 102, 0));
 			lblKodeaIzenaJokalari.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		}
@@ -424,8 +428,8 @@ public class bideojokoakGehituKendu extends JDialog {
 		if (lblHemenBideojokoakGehitu == null) {
 			lblHemenBideojokoakGehitu = new JLabel("Hemen bideojokoak gehitu eta kentzeko aukera izango duzu");
 			lblHemenBideojokoakGehitu.setForeground(new Color(255, 102, 0));
-			lblHemenBideojokoakGehitu.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 13));
-			lblHemenBideojokoakGehitu.setBounds(10, 161, 436, 31);
+			lblHemenBideojokoakGehitu.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 15));
+			lblHemenBideojokoakGehitu.setBounds(41, 160, 436, 31);
 		}
 		return lblHemenBideojokoakGehitu;
 	}
