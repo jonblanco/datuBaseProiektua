@@ -211,7 +211,7 @@ public class hilabetekoLehiaketakBilatu extends JDialog {
 			dataLike = "2021-" + hilaInteger.toString() + "-__"; 
 		}
 		String kontsulta = "SELECT * FROM bideojoko"
-				+ " WHERE hurrengoLeihaketa LIKE ? ";
+				+ " WHERE hurrengoLehiaketa LIKE ? ";
 		PreparedStatement pStatement=konexioa.prepareStatement(kontsulta);
 		pStatement.setString(1, dataLike);
 		ResultSet rs = null;
@@ -241,7 +241,7 @@ public class hilabetekoLehiaketakBilatu extends JDialog {
 				textArea.append(talInfo);
 				textArea.append("\t");
 				
-				talInfo= rs.getString("hurrengoLeihaketa")+"\n";
+				talInfo= rs.getString("hurrengoLehiaketa")+"\n";
 				textArea.append(talInfo);
 			}
 		}
