@@ -23,6 +23,7 @@ public class eragiketakAdmin extends JFrame {
 	private boolean sesioaStatus;
 	private static eragiketakAdmin nEragiketakAdmin;
 	private JLabel lblNewLabel_1_2_1;
+	private JLabel lblNewLabel_1_5_1;
 
 	/**
 	 * Launch the application.
@@ -230,6 +231,10 @@ public class eragiketakAdmin extends JFrame {
 		contentPane.add(btnErabiltzailea_1_1_1);
 		
 		JButton btnErabiltzailea_1_1_2 = new JButton("");
+		btnErabiltzailea_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnErabiltzailea_1_1_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent e) {
@@ -244,7 +249,7 @@ public class eragiketakAdmin extends JFrame {
 
 			}
 		});
-		btnErabiltzailea_1_1_2.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/icons8_User_96px_2.png")));
+		btnErabiltzailea_1_1_2.setIcon(new ImageIcon(eragiketakAdmin.class.getResource("/images/icons8_Today_96px.png")));
 		btnErabiltzailea_1_1_2.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1_1_2.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea_1_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
@@ -271,7 +276,7 @@ public class eragiketakAdmin extends JFrame {
 		lblNewLabel_1_4.setBounds(258, 391, 162, 14);
 		contentPane.add(lblNewLabel_1_4);
 		
-		JLabel lblNewLabel_1_5 = new JLabel("Administratzailea");
+		JLabel lblNewLabel_1_5 = new JLabel("Hilabete bateko");
 		lblNewLabel_1_5.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_5.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
 		lblNewLabel_1_5.setBounds(484, 391, 120, 14);
@@ -291,6 +296,7 @@ public class eragiketakAdmin extends JFrame {
 		btnNewButton_1.setBounds(10, 30, 52, 73);
 		contentPane.add(btnNewButton_1);
 		contentPane.add(getLblNewLabel_1_2_1());
+		contentPane.add(getLblNewLabel_1_5_1());
 		setLocationRelativeTo(null);
 	}
 	public Boolean getSesioa(){
@@ -315,5 +321,14 @@ public class eragiketakAdmin extends JFrame {
 			lblNewLabel_1_2_1.setBounds(484, 252, 120, 14);
 		}
 		return lblNewLabel_1_2_1;
+	}
+	private JLabel getLblNewLabel_1_5_1() {
+		if (lblNewLabel_1_5_1 == null) {
+			lblNewLabel_1_5_1 = new JLabel("leihaketak bilatu");
+			lblNewLabel_1_5_1.setForeground(new Color(255, 102, 0));
+			lblNewLabel_1_5_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
+			lblNewLabel_1_5_1.setBounds(484, 411, 120, 14);
+		}
+		return lblNewLabel_1_5_1;
 	}
 }

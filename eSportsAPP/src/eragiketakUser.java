@@ -241,9 +241,9 @@ public class eragiketakUser extends JFrame {
 		JButton btnErabiltzailea_1_1_2 = new JButton("");
 		btnErabiltzailea_1_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				hilabetekoLeihaketakBilatu hLB= new hilabetekoLeihaketakBilatu();
 				setVisible(false);
-				sorpresa s= new sorpresa();
-				s.setVisible(true);
+				hLB.setVisible(true);
 			}
 		});
 		btnErabiltzailea_1_1_2.addMouseListener(new MouseAdapter() {
@@ -260,7 +260,7 @@ public class eragiketakUser extends JFrame {
 
 			}
 		});
-		btnErabiltzailea_1_1_2.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/sorpresa.png")));
+		btnErabiltzailea_1_1_2.setIcon(new ImageIcon(eragiketakUser.class.getResource("/images/icons8_Today_96px.png")));
 		btnErabiltzailea_1_1_2.setMaximumSize(new Dimension(50, 20));
 		btnErabiltzailea_1_1_2.setForeground(new Color(255, 102, 0));
 		btnErabiltzailea_1_1_2.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
@@ -287,10 +287,10 @@ public class eragiketakUser extends JFrame {
 		lblNewLabel_1_4.setBounds(295, 383, 120, 30);
 		contentPane.add(lblNewLabel_1_4);
 		
-		JLabel lblNewLabel_1_5 = new JLabel("Sorpresa");
+		JLabel lblNewLabel_1_5 = new JLabel("Hilabete bateko");
 		lblNewLabel_1_5.setForeground(new Color(255, 102, 0));
 		lblNewLabel_1_5.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
-		lblNewLabel_1_5.setBounds(504, 391, 120, 14);
+		lblNewLabel_1_5.setBounds(484, 391, 120, 14);
 		contentPane.add(lblNewLabel_1_5);
 		
 		JButton btnNewButton_1 = new JButton("");
@@ -316,6 +316,12 @@ public class eragiketakUser extends JFrame {
 		btnNewButton_1.setBounds(10, 30, 52, 73);
 		contentPane.add(btnNewButton_1);
 		contentPane.add(getLblNewLabel_1_3_1());
+		
+		JLabel lblNewLabel_1_5_1 = new JLabel("leihaketak lortu");
+		lblNewLabel_1_5_1.setForeground(new Color(255, 102, 0));
+		lblNewLabel_1_5_1.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 16));
+		lblNewLabel_1_5_1.setBounds(484, 412, 120, 14);
+		contentPane.add(lblNewLabel_1_5_1);
 		setLocationRelativeTo(null);
 		this.sesioaIrekita=false;
 		
