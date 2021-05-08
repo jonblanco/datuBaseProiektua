@@ -272,7 +272,7 @@ public class hilabetekoLeihaketakBilatu extends JDialog {
 	}
 	private JLabel getLblIzenaHerrialdeaTaldea() {
 		if (lblIzenaHerrialdeaTaldea == null) {
-			lblIzenaHerrialdeaTaldea = new JLabel("Kodea                  Izena                Jokalarikop                  Irabazlea          Hur. Leihaketa");
+			lblIzenaHerrialdeaTaldea = new JLabel("Kodea                  Izena                      Jokalarikop         Irabazlea             Hur. Leihaketa");
 			lblIzenaHerrialdeaTaldea.setForeground(new Color(255, 102, 0));
 			lblIzenaHerrialdeaTaldea.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
 		}
