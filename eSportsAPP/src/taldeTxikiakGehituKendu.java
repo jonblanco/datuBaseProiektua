@@ -304,7 +304,8 @@ public class taldeTxikiakGehituKendu extends JDialog {
 			taldeTxikiInfo = rs.getString("taldeizena");
 			textArea.append(taldeTxikiInfo);
 			textArea.append("\t");
-			
+			textArea.append("\t");
+
 			taldeTxikiInfo = rs.getString("jokalarikop");
 			textArea.append(taldeTxikiInfo);
 			textArea.append("\t");
@@ -312,12 +313,18 @@ public class taldeTxikiakGehituKendu extends JDialog {
 			taldeTxikiInfo = rs.getString("entrenatzailea");
 			textArea.append(taldeTxikiInfo);
 			textArea.append("                \t");
-	
+			textArea.append("      ");
+
 			taldeTxikiInfo = rs.getString("irabazikop");
 			textArea.append(taldeTxikiInfo);
 			textArea.append("\t");
+			textArea.append("\t");
+			textArea.append("\t");
+
 			
 			taldeTxikiInfo = rs.getString("kodebideojoko")+"\n";
+			textArea.append("\t");
+
 			textArea.append(taldeTxikiInfo);
 		}
 	}
