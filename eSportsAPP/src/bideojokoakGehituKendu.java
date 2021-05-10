@@ -345,7 +345,7 @@ public class bideojokoakGehituKendu extends JDialog {
 			textArea.append(bideojokoInfo);
 			textArea.append("\t");
 	
-			bideojokoInfo = rs.getString("hurrengoLeihaketa")+"\n";
+			bideojokoInfo = rs.getString("hurrengoLehiaketa")+"\n";
 			textArea.append(bideojokoInfo);
 		}
 	}
@@ -417,7 +417,7 @@ public class bideojokoakGehituKendu extends JDialog {
 	
 	private JLabel getLblKodeaIzenaJokalari() {
 		if (lblKodeaIzenaJokalari == null) {
-			lblKodeaIzenaJokalari = new JLabel("Kodea                   Izena                     Jokalari kop.       Irabazlea             Hurrengo Leihaketa");
+			lblKodeaIzenaJokalari = new JLabel("Kodea                   Izena                     Jokalari kop.       Irabazlea             Hurrengo Lehiaketa");
 			lblKodeaIzenaJokalari.setHorizontalAlignment(SwingConstants.LEFT);
 			lblKodeaIzenaJokalari.setForeground(new Color(255, 102, 0));
 			lblKodeaIzenaJokalari.setFont(new Font("Microsoft Tai Le", Font.PLAIN, 11));
