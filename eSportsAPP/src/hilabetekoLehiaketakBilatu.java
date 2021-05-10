@@ -228,7 +228,7 @@ public class hilabetekoLehiaketakBilatu extends JDialog {
 				talInfo= rs.getString("kodea");
 				textArea.append(talInfo);
 				textArea.append("\t");
-				
+				//
 				talInfo= rs.getString("izena");
 				textArea.append(talInfo);
 				textArea.append("\t");
